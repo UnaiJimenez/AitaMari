@@ -39,7 +39,7 @@
 	</header>
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
-			<ul>
+			<ul> 
 				<li><a href="IndexVoluntarios">Voluntario</a></li>
 				<li><a href="PanelDeControl-Medico.html">Medico</a></li>
 				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
