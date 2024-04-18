@@ -41,7 +41,7 @@
 		<nav class="vertical-nav">
 			<ul> 
 				<li><a href="IndexVoluntarios">Voluntario</a></li>
-				<li><a href="PanelDeControl-Medico.html">Medico</a></li>
+				<li><a href="IndexMedicos">Medico</a></li>
 				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
 				<li><a href="PanelDeControl-Rescate.html">Rescate</a></li>
 				<li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
