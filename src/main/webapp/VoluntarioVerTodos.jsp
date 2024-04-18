@@ -34,7 +34,7 @@
 								height="25px"></a></li>
 					</ul>
 				</div>
-			</nav>
+			</nav> 
 		</div>
 	</header>
 	<div class="navbarLateral">

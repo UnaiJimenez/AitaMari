@@ -12,23 +12,23 @@
         <form class="row g-3 col-6" action= "ModificarVoluntario" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
                 <label for="Nombre" class="form-label">Nombre</label>
-                <input type="Nombre" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" value="${voluntario.nombre} }">
+                <input type="Nombre" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre" value="${voluntario.nombre}">
             </div>
             <div class="col-12">
                 <label for="Apellido" class="form-label">Apellido</label>
-                <input type="Apellido" class="form-control" id="Apellido" name="Apellido" placeholder="Apellido" value="${voluntario.apellido} }">
+                <input type="Apellido" class="form-control" id="Apellido" name="Apellido" placeholder="Apellido" value="${voluntario.apellido}">
             </div>
             <div class="col-12">
                 <label for="Email" class="form-label">Email</label>
-                <input type="Email" class="form-control" id="Email" name="Email" placeholder="Email" value="${voluntario.email} }">
+                <input type="Email" class="form-control" id="Email" name="Email" placeholder="Email" value="${voluntario.email}">
             </div>
             <div class="col-6">
                 <label for="Edad" class="form-label">Edad</label>
-                <input type="Edad" class="form-control" id="Edad" name="Edad" placeholder="Edad" value="${voluntario.edad} }">
+                <input type="Edad" class="form-control" id="Edad" name="Edad" placeholder="Edad" value="${voluntario.edad}">
             </div>
             <div class="col-6">
                 <label for="Telefono" class="form-label">Telefono</label>
-                <input type="Telefono" class="form-control" id="Telefono" name="Telefono" placeholder="Telefono" value="${voluntario.telefono} }">
+                <input type="Telefono" class="form-control" id="Telefono" name="Telefono" placeholder="Telefono" value="${voluntario.telefono}">
             </div>
             <div class="col-12">
                 <a href="PanelDeControl-Voluntario.html"><button type="button" class="btn" style="background-color: white; margin: 2%;"><b>Modificar</b></button></a>
