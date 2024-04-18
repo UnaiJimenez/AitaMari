@@ -34,13 +34,13 @@
 								height="25px"></a></li>
 					</ul>
 				</div>
-			</nav>
+			</nav> 
 		</div>
 	</header>
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
-			<ul>
-				<li><a href="PanelDeControl-Voluntario.html">Voluntario</a></li>
+			<ul> 
+				<li><a href="IndexVoluntarios">Voluntario</a></li>
 				<li><a href="PanelDeControl-Medico.html">Medico</a></li>
 				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
 				<li><a href="PanelDeControl-Rescate.html">Rescate</a></li>
