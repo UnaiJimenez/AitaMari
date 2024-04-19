@@ -29,10 +29,10 @@ public class IndexVoluntarios extends HttpServlet {
 	/*
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {ModeloVoluntario mv = new ModeloVoluntario();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ModeloVoluntario mv = new ModeloVoluntario();
 	ArrayList<Voluntario> voluntarios = mv.getTodos();
 	request.setAttribute("voluntarios", voluntarios);
-	System.out.println(voluntarios);
 	
 	//abir la vista principal
 	request.getRequestDispatcher("VoluntarioVerTodos.jsp").forward(request, response);
