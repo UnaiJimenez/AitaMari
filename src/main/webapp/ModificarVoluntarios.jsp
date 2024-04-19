@@ -7,8 +7,8 @@
 	<meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>Modificar Voluntario</title>
+	<title>Modificar Voluntario</title>
+</head>
 <body style="background-color: #ececec;">
   <header>
         <div>
@@ -29,8 +29,7 @@
             <div class="col-12">
                 <label for="Nombre" class="form-label"></label>
                 <input type="hidden" name="id" value="${voluntario.id}"/>
-                
-						 <label for="Nombre" class="form-label">Nombre</label>
+				<label for="Nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="${voluntario.nombre}">
             </div>
             <div class="col-12">
@@ -43,18 +42,17 @@
             </div>
             <div class="col-6">
                 <label for="Edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="${voluntario.edad}">
+                <input type="text" class="form-control" name="edad" placeholder="Edad" value="${voluntario.edad}">
             </div>
             <div class="col-6">
                 <label for="Telefono" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="${voluntario.telefono}">
+                <input type="text" class="form-control" name="telefono" placeholder="Telefono" value="${voluntario.telefono}">
             </div>
             <div class="col-12">
-						<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
-
+				<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>
-        </form>
-    </div> 
+        </form> 
+    </div>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
