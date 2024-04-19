@@ -25,7 +25,7 @@
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							style="margin-right: 20px;">Insertar datos - <img
+							style="margin-right: 20px;" href="InsertarVoluntario">Insertar datos - <img
 								src="Insertar.png" alt="insertar" width="40px" height="30px"></a>
 						</li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
@@ -72,8 +72,8 @@
 				<td>${voluntario.edad}</td>
 				<td>${voluntario.email}</td>
 				<td>${voluntario.telefono}</td>
-				<td>
-					<a class="nav-link" aria-current="page" href="ModificarVoluntarios.jsp"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+				<td style="display: flex;">
+					<a class="nav-link" aria-current="page" href="ModificarVoluntarios.jsp" style="margin-right: 15%;"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 					<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
 			</tr>
