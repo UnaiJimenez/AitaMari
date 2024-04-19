@@ -34,14 +34,14 @@
 								height="25px"></a></li>
 					</ul>
 				</div>
-			</nav>
+			</nav> 
 		</div>
 	</header>
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
-			<ul>
-				<li><a href="PanelDeControl-Voluntario.html">Voluntario</a></li>
-				<li><a href="PanelDeControl-Medico.html">Medico</a></li>
+			<ul> 
+				<li><a href="IndexVoluntarios">Voluntario</a></li>
+				<li><a href="IndexMedicos">Medico</a></li>
 				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
 				<li><a href="PanelDeControl-Rescate.html">Rescate</a></li>
 				<li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
@@ -72,7 +72,7 @@
 				<td>${voluntario.edad}</td>
 				<td>${voluntario.email}</td>
 				<td>${voluntario.telefono}</td>
-				<td>
+				<td style="display: flex;">
 					<a class="nav-link" aria-current="page" href="ModificarVoluntario?id=${voluntario.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 					<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
