@@ -23,7 +23,7 @@
             <div class="col-12">
                 <label for="Especialidad" class="form-label">Especialidad</label>
                 <input type="text" class="form-control" name="especialidad" placeholder="Especialidad">
-            </div>
+            </div> 
             <div class="col-12">
 				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
             </div>

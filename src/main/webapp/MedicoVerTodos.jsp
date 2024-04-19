@@ -50,7 +50,7 @@
                 <th scope="col">Especialidad</th>
                 <th scope="col"></th>
               </tr>
-            </thead>
+            </thead> 
             <tbody>
               <c:forEach items="${medicos}" var="medico">
 				<tr>

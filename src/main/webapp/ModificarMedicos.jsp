@@ -22,7 +22,7 @@
                 </div>
               </nav>
         </div>
-    </header>
+    </header> 
     <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
         <form class="row g-3 col-6" action= "ModificarMedico" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">

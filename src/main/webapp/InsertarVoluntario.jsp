@@ -32,7 +32,7 @@
                 <label for="Telefono" class="form-label">Telefono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
             </div>
-            <div class="col-12">
+            <div class="col-12"> 
 				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>

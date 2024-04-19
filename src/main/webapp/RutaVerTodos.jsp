@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="PanelDeControl.css">
 	<title>Panel de Control Rutas</title>
 </head>
-<body>
+<body> 
 	<header>
 		<div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
