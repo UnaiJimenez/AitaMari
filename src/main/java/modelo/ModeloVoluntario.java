@@ -68,4 +68,42 @@ public class ModeloVoluntario {
 		}
 	}
 
+	public static Voluntario verVoluntario(int id) throws ClassNotFoundException, SQLException {
+
+		try {
+			Connection con = Conector.getConnection();
+			PreparedStatement pst = con.prepareStatement("SELECT * FROM Voluntario WHERE id = ?");
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+				Voluntario voluntario = new Voluntario();
+				voluntario.setId(rs.getInt("id"));
+				voluntario.setNombre(rs.getString("nombre"));
+				voluntario.setApellido(rs.getString("apellido"));
+				voluntario.setEdad(rs.getString("edad"));
+				voluntario.setEmail(rs.getString("email"));
+				voluntario.setTelefono(rs.getString("telefono"));
+
+				
+				return voluntario;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+	
+
+	public void insertarVoluntarios(Voluntario voluntario) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con.prepareStatement("INSERT INTO Voluntario (nombre,apellido,edad,email,telefono) VALUES (?,?,?,?,?)");
+		pst.setString(1, voluntario.getNombre());
+		pst.setString(2, voluntario.getApellido());
+		pst.setString(3, voluntario.getEdad());
+		pst.setString(4, voluntario.getEmail());
+		pst.setString(5, voluntario.getTelefono());
+		pst.execute();
+	}
 }

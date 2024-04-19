@@ -24,8 +24,8 @@
 						height="80px" class="d-inline-block align-text-top"
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							style="margin-right: 20px;" href="InsertarVoluntario">Insertar datos - <img
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario" 
+							style="margin-right: 20px;">Insertar datos - <img
 								src="Insertar.png" alt="insertar" width="40px" height="30px"></a>
 						</li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
@@ -66,14 +66,14 @@
 			<tbody>
 			<c:forEach items="${voluntarios}" var="voluntario">
 			<tr>
-				<td>${voluntario.id}</td>
+				<td id="${voluntario.id}">${voluntario.id}</td>
 				<td>${voluntario.nombre}</td>
 				<td>${voluntario.apellido}</td>
 				<td>${voluntario.edad}</td>
 				<td>${voluntario.email}</td>
 				<td>${voluntario.telefono}</td>
 				<td style="display: flex;">
-					<a class="nav-link" aria-current="page" href="ModificarVoluntarios.jsp" style="margin-right: 15%;"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+					<a class="nav-link" aria-current="page" href="ModificarVoluntario?id=${voluntario.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 					<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
 			</tr>
