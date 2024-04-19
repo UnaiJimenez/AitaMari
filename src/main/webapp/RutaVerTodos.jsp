@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<link rel="stylesheet" href="PanelDeControl.css">
-	<title>Panel de Control Voluntarios</title>
+	<title>Panel de Control Rutas</title>
 </head>
 <body>
 	<header>
@@ -44,26 +44,24 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Voluntario</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Apellido</th>
-					<th scope="col">Edad</th>
-					<th scope="col">Email</th>
-					<th scope="col">Telefono</th>
+					<th scope="col">Ruta</th>
+					<th scope="col">Fecha Salida</th>
+					<th scope="col">Fecha Llegada</th>
+					<th scope="col">Id Voluntario</th>
+					<th scope="col">Id Medico</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${voluntarios}" var="voluntario">
+				<c:forEach items="${rutas}" var="ruta">
 					<tr>
-						<td id="${voluntario.id}">${voluntario.id}</td>
-						<td>${voluntario.nombre}</td>
-						<td>${voluntario.apellido}</td>
-						<td>${voluntario.edad}</td>
-						<td>${voluntario.email}</td>
-						<td>${voluntario.telefono}</td>
+						<td id="${ruta.id}">${ruta.id}</td>
+						<td>${ruta.fechaSalida}</td>
+						<td>${ruta.fechaLlegada}</td>
+						<td>${ruta.idVoluntario}</td>
+						<td>${ruta.idMedico}</td>
 						<td style="display: flex;">
-							<a class="nav-link" aria-current="page" style="margin-right: 15%;" href="ModificarVoluntario?id=${voluntario.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+							<a class="nav-link" aria-current="page" style="margin-right: 15%;" href="ModificarVoluntario?id=${ruta.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 							<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 						</td>	
 					</tr>

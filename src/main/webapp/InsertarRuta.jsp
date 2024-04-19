@@ -7,30 +7,26 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Insertar Voluntario</title>
+    <title>Insertar Ruta</title>
 </head>
 <body style="margin-top: 10%; margin-left: 35%;">
     <div class="formulario">
-        <form class="row g-3 col-6" action= "InsertarVoluntario" method="post" style="background-color: #bebebe; border-radius: 2%;">
+        <form class="row g-3 col-6" action= "InsertarRuta" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
-				<label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+				<label for="FechaSalida" class="form-label">Fecha salida</label>
+                <input type="text" class="form-control" name="fechaSalida" placeholder="Fecha salida">
             </div>
             <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+                <label for="FechaLlegada" class="form-label">Fecha llegada</label>
+                <input type="text" class="form-control" name="fechaLlegada" placeholder="Fecha llegada">
             </div>
             <div class="col-12">
-                <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control"  name="email" placeholder="Email">
+                <label for="idVoluntario" class="form-label">idVoluntario</label>
+                <input type="text" class="form-control"  name="idVoluntario" placeholder="Id Voluntario">
             </div>
             <div class="col-6">
-                <label for="Edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
-            </div>
-            <div class="col-6">
-                <label for="Telefono" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+                <label for="idMedico" class="form-label">idMedico</label>
+                <input type="text" class="form-control" name="idMedico" placeholder="Id Medico">
             </div>
             <div class="col-12">
 				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">

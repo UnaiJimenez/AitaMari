@@ -11,22 +11,22 @@
     <title>Panel de Control Medicos</title>
 </head>
 <body>
-  <header>
-    <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-            <div class="container-fluid" style="background-color: lightgray;">
-                <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
+	<header>
+	<div>
+  		<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  			<div class="container-fluid" style="background-color: lightgray;">
+            	<img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" style="margin-right: 20px;">Insertar datos - <img src="Insertar.png" alt="insertar" width="40px" height="30px"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="PanelDeControl.html" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
-                  </li>
-                </ul>
+                  	<li class="nav-item">
+                    	<a class="nav-link" aria-current="page" href="InsertarMedico" style="margin-right: 20px;">Insertar datos - <img src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
+                  	</li>
+                  	<li class="nav-item">
+                    	<a class="nav-link" aria-current="page" href="PanelDeControl.html" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
+                  	</li>
+               	</ul>
             </div>
-          </nav>
-    </div>
+       </nav>
+	</div>
 </header>
     <div class="navbarLateral">
         <nav class="vertical-nav">
@@ -53,19 +53,20 @@
             </thead>
             <tbody>
               <c:forEach items="${medicos}" var="medico">
-			<tr>
-				<td>${medico.id}</td>
-				<td>${medico.nombre}</td>
-				<td>${medico.apellido}</td>
-				<td>${medico.especialidad}</td>
-				<td>
-					<a class="nav-link" aria-current="page" href="ModificarMedicos.jsp"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
-				</td>	
-			</tr>
-		</c:forEach>
-            </tbody>
-          </table>
+				<tr>
+					<td id="${medico.id}">${medico.id}</td>
+					<td>${medico.id}</td>
+					<td>${medico.nombre}</td>
+					<td>${medico.apellido}</td>
+					<td>${medico.especialidad}</td>
+					<td style="display: flex;">
+						<a class="nav-link" aria-current="page" style="margin-right: 15%;" href="ModificarMedicos?id=${medico.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+						<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					</td>	
+				</tr>
+			</c:forEach>
+          </tbody>
+       </table>
     </div>
 </body>
 </html>

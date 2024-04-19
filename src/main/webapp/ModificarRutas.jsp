@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Modificar Medicos</title>
+	<title>Modificar Ruta</title>
 </head>
 <body style="background-color: #ececec;">
-    <header>
+  <header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -23,24 +24,28 @@
               </nav>
         </div>
     </header>
-    <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "ModificarMedico" method="post" style="background-color: #bebebe; border-radius: 2%;">
+   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+        <form class="row g-3 col-6" action= "ModificarRuta" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
-            	<label for="Nombre" class="form-label"></label>
-                <input type="hidden" name="id" value="${medico.id}"/>
-                <label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="${medico.nombre}">
+                <label for="Nombre" class="form-label"></label>
+                <input type="hidden" name="id" value="${ruta.id}"/>
+				<label for="FechaSalida" class="form-label">Fecha salida</label>
+                <input type="text" class="form-control" name="fechaSalida" placeholder="Fecha salida" value="${ruta.fechaSalida}">
             </div>
             <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido" value="${medico.apellido}">
+                <label for="FechaLlegada" class="form-label">Fecha llegada</label>
+                <input type="text" class="form-control" name="fechaLlegada" placeholder="Fecha llegada" value="${ruta.fechaLlegada}">
             </div>
             <div class="col-12">
-                <label for="Especialidad" class="form-label">Especialidad</label>
-                <input type="text" class="form-control" name="especialidad" placeholder="Especialidad" value="${medico.especialidad}">
+                <label for="idVoluntario" class="form-label">idVoluntario</label>
+                <input type="text" class="form-control"  name="idVoluntario" placeholder="Id Voluntario" value="${ruta.idVoluntario}">
+            </div>
+            <div class="col-6">
+                <label for="idMedico" class="form-label">idMedico</label>
+                <input type="text" class="form-control" name="idMedico" placeholder="Id Medico" value="${ruta.idMedico}">
             </div>
             <div class="col-12">
-                <input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
+				<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 
