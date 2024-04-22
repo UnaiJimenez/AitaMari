@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Eliminar Voluntario</title>
+</head>
 <body style="background-color: #ececec;">
-  <header>
+    <header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -20,16 +21,28 @@
                       </li>
                     </ul>
                 </div>
-              </nav>
+            </nav>
         </div>
     </header>
-   <form action="EliminarVoluntario" method="post">
-                  <input type="hidden" name="id" value="${voluntario.id}"/>
-    <a class="nav-link" aria-current="page" href="EliminarVoluntario"><input type="hidden" name="Confirmacion" value="1"></a>
-    
-    <button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-</form>
-
+    <form action="EliminarVoluntario" method="post">
+        <div style="background-color: #cecece; height: 130px; width: 500px; margin-top: 15%; margin-left: 30%">
+            <p style="padding: 3%">¿Estás seguro de que quieres borrar este voluntario?</p>
+            <div style="display: flex; justify-content: flex-end; margin: 2%">
+                <div style="margin: 2%">
+                    <input type="hidden" name="id" value="${voluntario.id}"/>
+                    <input type="hidden" name="Confirmacion" value="0"> <!-- Cambiado para Confirmar -->
+                    
+                    <a type="submit" class="btn" href="IndexVoluntarios" style="background-color: blue; color: white; margin: 2%;">Confirmar</a>
+                </div>
+                <div style="margin: 2%">
+                    <input type="hidden" name="id" value="${voluntario.id}"/>
+                    <input type="hidden" name="Confirmacion" value="1"> <!-- Cambiado para Cancelar -->
+                    
+                	<a type="submit" class="btn" href="IndexVoluntarios" style="background-color: lightgrey; margin: 2%; border-color: black;">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
