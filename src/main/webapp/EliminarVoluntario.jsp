@@ -39,7 +39,7 @@
     				<input type="hidden" name="id" value="${voluntario.id}"/>
     				<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
    					<input type="hidden" name="Confirmacion" value="0">
-				</form>
+				</form> 
 			</div>
 		</div>
 	</div>
