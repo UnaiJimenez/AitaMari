@@ -24,10 +24,15 @@
         </div>
     </header>
    <form action="EliminarVoluntario" method="post">
-                  <input type="hidden" name="id" value="${voluntario.id}"/>
-    <a class="nav-link" aria-current="page" href="EliminarVoluntario"><input type="hidden" name="Confirmacion" value="1"></a>
-    
+    <input type="hidden" name="id" value="${voluntario.id}"/>
     <button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    <input type="hidden" name="Confirmacion" value="1">
+</form>
+
+<form action="EliminarVoluntario" method="post">
+    <input type="hidden" name="id" value="${voluntario.id}"/>
+    <button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+    <input type="hidden" name="Confirmacion" value="0">
 </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

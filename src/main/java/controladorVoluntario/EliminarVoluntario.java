@@ -1,4 +1,4 @@
-package controlador;
+package controladorVoluntario;
 
 import java.io.IOException;
 import java.sql.SQLException;
