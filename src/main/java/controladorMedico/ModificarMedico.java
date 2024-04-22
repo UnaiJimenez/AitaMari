@@ -56,13 +56,12 @@ public class ModificarMedico extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String especialidad = request.getParameter("especialidad");
-        
+        System.out.println(especialidad);
         Medico medico = new Medico();
         medico.setId(id);
         medico.setNombre(nombre);
         medico.setApellido(apellido);
         medico.setEspecialidad(especialidad);
-        
         ModeloMedico mm = new ModeloMedico();
         try {
             mm.modificar(medico);
