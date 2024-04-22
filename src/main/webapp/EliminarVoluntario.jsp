@@ -24,19 +24,25 @@
             </nav>
         </div>
     </header>
-
-   <form action="EliminarVoluntario" method="post">
-    <input type="hidden" name="id" value="${voluntario.id}"/>
-    <button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-    <input type="hidden" name="Confirmacion" value="1">
-</form>
-
-<form action="EliminarVoluntario" method="post">
-    <input type="hidden" name="id" value="${voluntario.id}"/>
-    <button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
-    <input type="hidden" name="Confirmacion" value="0">
-</form>
-
+    <div style="background-color: #cecece; height: 130px; width: 500px; margin-top: 15%; margin-left: 30%">
+    	<p style="padding: 3%">Estas seguro de que quieres borrar este voluntario?</p>
+    	<div style="display: flex; justify-content: flex-end;">
+			<div style="margin: 2%">
+   				<form action="EliminarVoluntario" method="post" style="margin: 2%">
+    				<input type="hidden" name="id" value="${voluntario.id}"/>
+    				<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    				<input type="hidden" name="Confirmacion" value="1">
+				</form>
+			</div>
+			<div style="margin: 2%">
+				<form action="EliminarVoluntario" method="post">
+    				<input type="hidden" name="id" value="${voluntario.id}"/>
+    				<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   					<input type="hidden" name="Confirmacion" value="0">
+				</form>
+			</div>
+		</div>
+	</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
