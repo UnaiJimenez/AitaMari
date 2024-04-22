@@ -50,8 +50,7 @@
                 <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="${voluntario.telefono}">
             </div>
             <div class="col-12">
-						<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
-
+					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 

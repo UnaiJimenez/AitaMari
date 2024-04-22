@@ -26,7 +26,7 @@
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario" 
 							style="margin-right: 20px;">Insertar datos - <img
-								src="Insertar.png" alt="insertar" width="40px" height="30px"></a>
+								src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
 						</li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="PanelDeControl.html" style="margin-right: 20px;"><img
@@ -74,7 +74,7 @@
 				<td>${voluntario.telefono}</td>
 				<td style="display: flex;">
 					<a class="nav-link" aria-current="page" href="ModificarVoluntario?id=${voluntario.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					<a class="nav-link" aria-current="page" href="EliminarVoluntario?id=${voluntario.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
 			</tr>
 		</c:forEach>

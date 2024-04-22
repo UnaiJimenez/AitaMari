@@ -106,4 +106,12 @@ public class ModeloVoluntario {
 		pst.setString(5, voluntario.getTelefono());
 		pst.execute();
 	}
+	
+	public void eliminarVoluntario(int id) throws ClassNotFoundException, SQLException {
+		Connection con =Conector.getConnection();
+		PreparedStatement pst = con.prepareStatement("DELETE FROM Voluntario WHERE id=?");
+		pst.setInt(1, id);
+		pst.execute();
+		
+	}
 }
