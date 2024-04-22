@@ -1,4 +1,4 @@
-package controlador;
+package controladorVoluntario;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,16 +13,16 @@ import modelo.ModeloVoluntario;
 import modelo.Voluntario;
 
 /**
- * Servlet implementation class InsertarVoluntario
+ * Servlet implementation class ModificarVoluntario
  */
-@WebServlet("/InsertarVoluntario")
-public class InsertarVoluntario extends HttpServlet {
+@WebServlet("/ModificarVoluntario")
+public class ModificarVoluntario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertarVoluntario() {
+    public ModificarVoluntario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +31,29 @@ public class InsertarVoluntario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.getRequestDispatcher("InsertarVoluntario.jsp").forward(request, response);
-	
+		ModeloVoluntario mv = new ModeloVoluntario(); 
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		try {
+			Voluntario voluntario = mv.verVoluntario(id);
+			
+			request.setAttribute("voluntario", voluntario);
+			request.getRequestDispatcher("ModificarVoluntarios.jsp").forward(request, response);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
+	
+		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		String edad = request.getParameter("edad");
@@ -47,32 +61,23 @@ public class InsertarVoluntario extends HttpServlet {
 		String telefono = request.getParameter("telefono");
 		
 		Voluntario voluntario = new Voluntario();
+		voluntario.setId(id);
 		voluntario.setNombre(nombre);
 		voluntario.setApellido(apellido);
 		voluntario.setEdad(edad);
 		voluntario.setEmail(email);
 		voluntario.setTelefono(telefono);
-
+		
 		ModeloVoluntario mv = new ModeloVoluntario();
-		
-		
-		
 		try {
-			
-			mv.insertarVoluntarios(voluntario);
-			
-		
+			mv.modificar(voluntario);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();	
+			
 		}
 		
 		response.sendRedirect("IndexVoluntarios");
-		
-	
-	}
+		}
 
 }

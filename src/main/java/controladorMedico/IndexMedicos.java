@@ -1,4 +1,4 @@
-package controlador;
+package controladorMedico;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,35 +9,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloVoluntario;
-import modelo.Voluntario;
+import modelo.Medico;
+import modelo.ModeloMedico;
+
+
+
 /**
- * Servlet implementation class IndexVoluntarios
+ * Servlet implementation class IndexMedicos
  */
-@WebServlet("/IndexVoluntarios")
-public class IndexVoluntarios extends HttpServlet {
+@WebServlet("/IndexMedicos")
+public class IndexMedicos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexVoluntarios() {
-        super();
-        // TODO Auto-generated constructor stub
+    public IndexMedicos() {
+    	super();
     }
 
-	/*
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloVoluntario mv = new ModeloVoluntario();
-	ArrayList<Voluntario> voluntarios = mv.getTodos();
-	request.setAttribute("voluntarios", voluntarios);
-	
-	//abir la vista principal
-	request.getRequestDispatcher("VoluntarioVerTodos.jsp").forward(request, response);
-	
+		// TODO Auto-generated method stub
+		ModeloMedico mm = new ModeloMedico();
+    	ArrayList<Medico> medicos = mm.getTodos();
+    	request.setAttribute("medicos", medicos);
+    	
+    	//abir la vista principal
+    	request.getRequestDispatcher("MedicoVerTodos.jsp").forward(request, response);
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
