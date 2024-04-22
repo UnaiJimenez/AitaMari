@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Eliminar Voluntario</title>
+</head>
 <body style="background-color: #ececec;">
-  <header>
+    <header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -20,9 +21,10 @@
                       </li>
                     </ul>
                 </div>
-              </nav>
+            </nav>
         </div>
     </header>
+
    <form action="EliminarVoluntario" method="post">
     <input type="hidden" name="id" value="${voluntario.id}"/>
     <button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
