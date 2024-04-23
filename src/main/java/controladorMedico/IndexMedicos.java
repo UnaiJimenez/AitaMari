@@ -32,9 +32,8 @@ public class IndexMedicos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		ModeloMedico mm = new ModeloMedico();
-    	ArrayList<Medico> medicos = mm.getTodos();
+
+    	ArrayList<Medico> medicos = ModeloMedico.getTodos();
     	request.setAttribute("medicos", medicos);
     	
     	//abir la vista principal

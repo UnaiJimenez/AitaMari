@@ -30,8 +30,8 @@ public class IndexVoluntarios extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloVoluntario mv = new ModeloVoluntario();
-	ArrayList<Voluntario> voluntarios = mv.getTodos();
+
+	ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
 	request.setAttribute("voluntarios", voluntarios);
 	
 	//abir la vista principal
