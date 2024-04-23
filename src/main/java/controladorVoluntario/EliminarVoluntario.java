@@ -31,12 +31,12 @@ public class EliminarVoluntario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloVoluntario mv = new ModeloVoluntario();
+	
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
 			
-			Voluntario voluntario = mv.verVoluntario(id);
+			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
 			
 			request.setAttribute("voluntario", voluntario);
 			request.getRequestDispatcher("EliminarVoluntario.jsp").forward(request, response);

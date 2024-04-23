@@ -31,12 +31,12 @@ public class EliminarMedico extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	ModeloMedico mm = new ModeloMedico();
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
 			
-			Medico medico = mm.verMedico(id);
+			Medico medico = ModeloMedico.verMedico(id);
 			
 			request.setAttribute("medico", medico);
 			request.getRequestDispatcher("EliminarMedico.jsp").forward(request, response);
