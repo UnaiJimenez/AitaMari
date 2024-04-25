@@ -20,18 +20,12 @@
 		<div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<img src="LogoAitaMari-gris.png" alt="Logo" width="100px"
-						height="80px" class="d-inline-block align-text-top"
-						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
+				<a class="nav-link" aria-current="page" href="PanelDeControl.html" style="margin-right: 20px;"> <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario" 
-							style="margin-right: 20px;">Insertar datos - <img
+							style="margin-right: 10px;">Insertar Voluntarios - <img
 								src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
 						</li>
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="PanelDeControl.html" style="margin-right: 20px;"><img
-								src="IconoInicio.png" alt="icono de inicio" width="30px"
-								height="25px"></a></li>
 					</ul>
 				</div>
 			</nav> 
