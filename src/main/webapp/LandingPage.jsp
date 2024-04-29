@@ -25,43 +25,43 @@
             </div>
         </div>
         <div class="formulario">
-            <form class="row g-3 col-6" style="background-color: #d5e1ff; border-radius: 2%; margin-bottom: 10%;">
+            <form class="row g-3 col-6" action= "InsertarVoluntarioLandingPage" method="post" style="background-color: #d5e1ff; border-radius: 2%; margin-bottom: 10%;">
                 <div class="col-12">
-                    <label for="Nombre" class="form-label">Nombre</label>
-                    <input type="Nombre" class="form-control" id="Nombre" placeholder="Nombre">
-                </div>
-                <div class="col-12">
-                    <label for="Apellido" class="form-label">Apellido</label>
-                    <input type="Apellido" class="form-control" id="Apellido" placeholder="Apellido">
-                </div>
-                <div class="col-12">
-                    <label for="Email" class="form-label">Email</label>
-                    <input type="Email" class="form-control" id="Email" placeholder="Email">
-                </div>
-                <div class="col-6">
-                    <label for="Edad" class="form-label">Edad</label>
-                    <input type="Edad" class="form-control" id="Edad" placeholder="Edad">
-                </div>
-                <div class="col-6">
-                    <label for="Telefono" class="form-label">Telefono</label>
-                    <input type="Telefono" class="form-control" id="Telefono" placeholder="Telefono">
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn" style="background-color: white; margin: 2%;"><b>CALL TO ACTION</b></button>
-                </div>
+					<label for="Nombre" class="form-label">Nombre</label>
+                	<input type="text" class="form-control" name="nombre" placeholder="Nombre">
+            	</div>
+            	<div class="col-12">
+                	<label for="Apellido" class="form-label">Apellido</label>
+                	<input type="text" class="form-control" name="apellido" placeholder="Apellido">
+           	 	</div>
+            	<div class="col-12">
+                	<label for="Email" class="form-label">Email</label>
+                	<input type="text" class="form-control"  name="email" placeholder="Email">
+            	</div>
+           		<div class="col-6">
+                	<label for="Edad" class="form-label">Edad</label>
+                	<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
+            	</div>
+            	<div class="col-6">
+                	<label for="Telefono" class="form-label">Telefono</label>
+               		<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+            	</div>
+            	<div class="col-12">
+					<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+            </div>
             </form>
         </div> 
     <footer>
-        <h2>Cont√°ctanos</h2>
+        <h2>Cont·ctanos</h2>
         <div class="imgContactos1">
             <img src="telefono.png" alt="telefono" class="telefono">
             <img src="direccion.png" alt="direccion" class="direccion">
             <img src="correo.png" alt="correo electronico" class="correo">
         </div>
         <div class="contactos1">
-            <p>Tel√©fono: +34 678 628 921</p>
-            <p>Direcci√≥n: Calle Jose Antonio, Hondarribia, Espa√±a</p>
-            <p>Correo electr√≥nico: AitaMari@gmail.com</p>
+            <p>TelÈfono: +34 678 628 921</p>
+            <p>DirecciÛn: Calle Jose Antonio, Hondarribia, EspaÒa</p>
+            <p>Correo electrÛnico: AitaMari@gmail.com</p>
         </div>
         <div class="imgContactos2">
             <img src="instagram.jpg" alt="instagram" class="instagram">
