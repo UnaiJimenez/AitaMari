@@ -20,9 +20,9 @@
 		<div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"> <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top"></a>
+					<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarMedico" style="margin-right: 10px;">Insertar Medicos - <img src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarMedico" style="margin-right: 10px;">Insertar Medicos - <img src="Insertar.png" alt="insertar" class="fotoInsertar"></a>
 						</li>
 					</ul>
 				</div>
@@ -41,9 +41,8 @@
 			</ul>
 		</nav>
 	</div>
-	<div style="margin-left: 191px; margin-right: 80px; padding-top: 5px;">
-		
-		<table class="table table-striped">
+	<div class="table-responsive">
+		<table class="table-sm table-striped" style="width: -webkit-fill-available">
 			<thead>
 				<tr>
 					<th scope="col">Medico</th>
