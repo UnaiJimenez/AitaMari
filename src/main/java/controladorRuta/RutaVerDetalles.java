@@ -1,7 +1,8 @@
-package controladorVoluntario;
+package controladorRuta;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloVoluntario;
-import modelo.Voluntario;
+import modelo.ModeloRuta;
+import modelo.Ruta;
 
 /**
- * Servlet implementation class EliminarVoluntario
+ * Servlet implementation class RutaVerDetalles
  */
-@WebServlet("/EliminarVoluntario")
-public class EliminarVoluntario extends HttpServlet {
+@WebServlet("/RutaVerDetalles")
+public class RutaVerDetalles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminarVoluntario() {
+    public RutaVerDetalles() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +32,14 @@ public class EliminarVoluntario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int id = Integer.parseInt(request.getParameter("id"));
+		//recibir id
 		
+		ModeloRuta mr = new ModeloRuta();
+		int id = Integer.parseInt(request.getParameter("id"));
 		try {
-			
-			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
-			
-			request.setAttribute("voluntario", voluntario);
-			request.getRequestDispatcher("EliminarVoluntario.jsp").forward(request, response);
-			
+			Ruta ruta = ModeloRuta.verRuta(id);
+			request.setAttribute("ruta",ruta);
+			request.getRequestDispatcher("RutaVerDetalles.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +47,7 @@ public class EliminarVoluntario extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
@@ -56,26 +55,7 @@ public class EliminarVoluntario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
-
-		int confirmacion = Integer.parseInt(request.getParameter("Confirmacion"));
-		System.out.println(id);
-		if(confirmacion == 1) {
-			ModeloVoluntario mv = new ModeloVoluntario();
-			try {
-				mv.eliminarVoluntario(id);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-		}
-		
-		response.sendRedirect("IndexVoluntario");
-		
+		doGet(request, response);
 	}
 
 }

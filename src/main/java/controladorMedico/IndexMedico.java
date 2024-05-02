@@ -17,7 +17,7 @@ import modelo.ModeloMedico;
 /**
  * Servlet implementation class IndexMedicos
  */
-@WebServlet("/IndexMedicos")
+@WebServlet("/IndexMedico")
 public class IndexMedico extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

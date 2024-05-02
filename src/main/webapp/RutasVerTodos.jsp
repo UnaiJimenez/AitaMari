@@ -13,17 +13,17 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="PanelDeControl.css">
-<title>Panel de Control Medicos</title>
+<title>Panel de Control Rutas</title>
 </head>
 <body>
 	<header>
 		<div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-					<div class="container-fluid" style="background-color: lightgray;">
+				<div class="container-fluid" style="background-color: lightgray;">
 				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 20px;"> <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarMedico" 
-							style="margin-right: 10px;">Insertar Medicos - <img
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRuta" 
+							style="margin-right: 10px;">Insertar Rutas - <img
 								src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
 						</li>
 					</ul>
@@ -48,23 +48,26 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Medico</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Apellido</th>
-					<th scope="col">Especialidad</th>
+					<th scope="col">Ruta</th>
+					<th scope="col">fechaSalida</th>
+					<th scope="col">fechaLlegada</th>
+					<th scope="col">origen</th>
+					<th scope="col">destino</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${medicos}" var="medico">
+			<c:forEach items="${rutas}" var="ruta">
 			<tr>
-				<td id="${medico.id}">${medico.id}</td>
-				<td>${medico.nombre}</td>
-				<td>${medico.apellido}</td>
-				<td>${medico.especialidad}</td>
+				<td id="${ruta.id}">${ruta.id}</td>
+				<td>${ruta.fechaSalida}</td>
+				<td>${ruta.fechaLlegada}</td>
+				<td>${ruta.origen}</td>
+				<td>${ruta.destino}</td>
 				<td style="display: flex;">
-					<a class="nav-link" aria-current="page" href="ModificarMedico?id=${medico.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page" href="EliminarMedico?id=${medico.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					<a class="nav-link" aria-current="page" href="ModificarRuta?id=${ruta.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+					<a class="nav-link" aria-current="page" href="EliminarRuta?id=${ruta.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					<a class="nav-link" aria-current="page" href="RutaVerDetalles?id=${ruta.id}"><img src="Ojo.png" alt="verDetalles" height="30px" width="40px"></a>
 				</td>	
 			</tr>
 		</c:forEach>
@@ -73,5 +76,3 @@
 	</div>
 </body>
 </html>
-
-
