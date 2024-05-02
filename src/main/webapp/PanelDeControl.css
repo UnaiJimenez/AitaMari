@@ -3,11 +3,20 @@ body{
     padding: 0;
     height: 100%;
 }
-
 .navbarLateral{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+}
+
+.logoAitaMari{
+	width: 100px; 
+	height: 80px
+}
+
+.fotoInsertar{
+	width: 30px; 
+	height: 30px
 }
 
 /* Estilos para la barra de navegaciÃ³n vertical */
@@ -25,6 +34,7 @@ body{
 .vertical-nav ul {
     list-style-type: none;
     padding: 0;
+    padding-top: 80px
 }
 
 .vertical-nav li {
@@ -45,3 +55,313 @@ body{
     background-color: #555;
 }
 
+.table-responsive{
+	margin-left: 13%; 
+	margin-right: 6%; 
+	padding-top: 0,7%; 
+	margin-top: 7%
+}
+
+@media screen and (max-width: 1080px) {
+	
+.table-responsive{
+	margin-left: 15%; 
+	margin-right: 6%; 
+	padding-top: 0,7%; 
+	margin-top: 8%
+}
+
+}
+
+@media screen and (max-width: 950px) {
+	
+.table-responsive{
+	margin-left: 17%; 
+	margin-right: 6%; 
+	padding-top: 0,7%; 
+	margin-top: 9%
+}
+
+}
+
+@media screen and (max-width: 840px) {	
+	
+.vertical-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    padding-top: 90px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    height: fit-content;
+    width: -webkit-fill-available
+}
+
+.vertical-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-nav li {
+    display: inline-block; /* Cambiar a inline-block para colocar elementos en línea */
+    margin-right: 10px; /* Espaciado entre elementos */
+    border-right: 1px solid #555;
+    border-bottom: 0px solid #555;
+}
+
+.vertical-nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.vertical-nav a:hover {
+    background-color: #555;
+}
+
+.table-responsive{
+	margin-left: 6%; 
+	margin-right: 6%; 
+	padding-top: 0,7%; 
+	margin-top: 22%
+}
+}
+
+@media screen and (max-width: 740px) {	
+
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 22%
+}	
+}
+
+@media screen and (max-width: 700px) {	
+
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 25%
+}
+}
+
+@media screen and (max-width: 620px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 28%
+}
+}
+
+@media screen and (max-width: 602px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 40%
+}
+}
+
+@media screen and (max-width: 560px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 45%
+}
+}
+
+@media screen and (max-width: 490px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 50%
+}
+}
+
+@media screen and (max-width: 450px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 55%
+}
+}
+
+@media screen and (max-width: 400px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 60%
+}
+}
+
+@media screen and (max-width: 365px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 65%
+}
+}
+
+@media screen and (max-width: 338px) {
+	
+.vertical-nav {
+    padding: 5px;
+    padding-top: 90px;
+}
+.vertical-nav li {
+    margin-right: 5px
+}
+
+.vertical-nav a {
+    padding: 5px;
+}
+
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 60%
+}
+}
+
+@media screen and (max-width: 315px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 65%
+}
+}
+
+@media screen and (max-width: 311px) {
+	
+.vertical-nav {
+    padding-top: 120px;
+}
+
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 75%
+}
+}
+
+@media screen and (max-width: 300px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 80%
+}
+}
+
+@media screen and (max-width: 284px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 100%
+}
+}
+
+@media screen and (max-width: 275px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 105%
+}
+}
+
+@media screen and (max-width: 262px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 110%
+}
+}
+
+@media screen and (max-width: 250px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 115%
+}
+}
+
+@media screen and (max-width: 244px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 118%
+}
+}
+
+@media screen and (max-width: 237px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 122%
+}
+}
+
+@media screen and (max-width: 229px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 124%
+}
+}
+
+@media screen and (max-width: 222px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 132%
+}
+}
+
+@media screen and (max-width: 210px) {
+	
+.table-responsive{
+	margin-left: 2%; 
+	margin-right: 2%; 
+	padding-top: 0,7%; 
+	margin-top: 170%
+}
+}

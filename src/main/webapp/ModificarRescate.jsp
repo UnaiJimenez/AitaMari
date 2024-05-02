@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Modificar</title>
+
+    <title>Modificar Rescate</title>
 <body style="background-color: #ececec;">
-	<header>
+  <header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -23,30 +24,25 @@
               </nav>
         </div>
     </header>
-    <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "InsertarVoluntario" method="post" style="background-color: #bebebe; border-radius: 2%;">
+   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+        <form class="row g-3 col-6" action= "ModificarRescate" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
-				<label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
-            </div>
-            <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido">
-            </div>
-            <div class="col-12">
-                <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control"  name="email" placeholder="Email">
-            </div>
-            <div class="col-6">
-                <label for="Edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
-            </div>
-            <div class="col-6">
-                <label for="Telefono" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+                <label for="Nombre" class="form-label"></label>
+                <input type="hidden" name="id" value="${rescate.id}"/>
+                
+				<label for="Fecha" class="form-label">Fecha</label>
+                <input type="text" class="form-control" name="fecha" placeholder="Fecha" value="${rescate.nombre}">
             </div>
             <div class="col-12">
-				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+                <label for="Posicion" class="form-label">Posicion</label>
+                <input type="text" class="form-control" name="posicion" placeholder="Posicion" value="${rescate.posicion}">
+            </div>
+            <div class="col-12">
+                <label for="IdRuta" class="form-label">IdRuta</label>
+                <input type="text" class="form-control"  name="idRuta" placeholder="IdRuta" value="${rescate.idRuta}">
+            </div>
+            <div class="col-12">
+					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 
