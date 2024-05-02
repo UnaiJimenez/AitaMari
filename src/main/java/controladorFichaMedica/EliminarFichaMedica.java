@@ -1,4 +1,4 @@
-package controladorVoluntario;
+package controladorFichaMedica;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.FichaMedica;
+import modelo.ModeloFichaMedica;
 import modelo.ModeloVoluntario;
 import modelo.Voluntario;
 
 /**
- * Servlet implementation class EliminarVoluntario
+ * Servlet implementation class EliminarFichaMedica
  */
-@WebServlet("/EliminarVoluntario")
-public class EliminarVoluntario extends HttpServlet {
+@WebServlet("/EliminarFichaMedica")
+public class EliminarFichaMedica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminarVoluntario() {
+    public EliminarFichaMedica() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +33,15 @@ public class EliminarVoluntario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
 			
-			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
+			FichaMedica fichaMedica = ModeloFichaMedica.verFichaMedica(id);
 			
-			request.setAttribute("voluntario", voluntario);
-			request.getRequestDispatcher("EliminarVoluntario.jsp").forward(request, response);
+			request.setAttribute("fichaMedica", fichaMedica);
+			request.getRequestDispatcher("EliminarFichaMedica.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -48,7 +50,6 @@ public class EliminarVoluntario extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**
@@ -61,9 +62,9 @@ public class EliminarVoluntario extends HttpServlet {
 		String confirmacion = (request.getParameter("Confirmacion"));
 		System.out.println(id);
 		if(confirmacion.equalsIgnoreCase("eliminar")) {
-			ModeloVoluntario mv = new ModeloVoluntario();
+			ModeloFichaMedica mfm = new ModeloFichaMedica();
 			try {
-				mv.eliminarVoluntario(id);
+				mfm.eliminarFichaMedica(id);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -72,6 +73,7 @@ public class EliminarVoluntario extends HttpServlet {
 				e.printStackTrace();
 			}
 		}		
-		response.sendRedirect("IndexVoluntario");
+		response.sendRedirect("IndexFichaMedica");
 	}
+
 }

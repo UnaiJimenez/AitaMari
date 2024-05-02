@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Modificar Voluntario</title>
+    <title>Modificar</title>
 <body style="background-color: #ececec;">
-  <header>
+	<header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -18,38 +18,31 @@
                       <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
                       </li>
-                    </ul> 
+                    </ul>
                 </div>
               </nav>
         </div>
     </header>
-   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "ModificarVoluntario" method="post" style="background-color: #bebebe; border-radius: 2%;">
+    <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+        <form class="row g-3 col-6" action= "InsertarFichaMedica" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
-                <label for="Nombre" class="form-label"></label>
-                <input type="hidden" name="id" value="${voluntario.id}"/>
-                
-						 <label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="${voluntario.nombre}">
+				<label for="ConstantesVitales" class="form-label">Constantes Vitales</label>
+                <input type="text" class="form-control" name="constantesVitales" placeholder="Constantes Vitales">
             </div>
             <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido" value="${voluntario.apellido}">
+                <label for="Alergias" class="form-label">Alergias</label>
+                <input type="text" class="form-control" name="alergias" placeholder="Alergias">
             </div>
             <div class="col-12">
-                <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control"  name="email" placeholder="Email" value="${voluntario.email}">
+                <label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
+                <input type="text" class="form-control"  name="tipoSangre" placeholder="Tipo de Sangre">
             </div>
             <div class="col-6">
-                <label for="Edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="${voluntario.edad}">
-            </div>
-            <div class="col-6">
-                <label for="Telefono" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="${voluntario.telefono}">
+                <label for="IdRescatado" class="form-label">Id Rescatado</label>
+                <input type="text" class="form-control" name="idRescatado" placeholder="Id Rescatado">
             </div>
             <div class="col-12">
-					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
+				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 

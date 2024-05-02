@@ -25,7 +25,7 @@
                         <a class="nav-link" aria-current="page" href="IndexRuta" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
                       </li>
                     </ul>
-                </div>
+                </div> 
               </nav>
         </div>
     </header>
