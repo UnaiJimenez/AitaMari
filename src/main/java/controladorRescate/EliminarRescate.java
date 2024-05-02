@@ -1,4 +1,4 @@
-package controladorVoluntario;
+package controladorRescate;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloVoluntario;
-import modelo.Voluntario;
+import modelo.ModeloRescate;
+import modelo.Rescate;
 
 /**
  * Servlet implementation class EliminarVoluntario
  */
-@WebServlet("/EliminarVoluntario")
-public class EliminarVoluntario extends HttpServlet {
+@WebServlet("/EliminarRescate")
+public class EliminarRescate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EliminarVoluntario() {
+    public EliminarRescate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,11 +35,10 @@ public class EliminarVoluntario extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
+			Rescate rescate = ModeloRescate.verRescate(id);
 			
-			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
-			
-			request.setAttribute("voluntario", voluntario);
-			request.getRequestDispatcher("EliminarVoluntario.jsp").forward(request, response);
+			request.setAttribute("rescate", rescate);
+			request.getRequestDispatcher("EliminarRescate.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -61,9 +60,9 @@ public class EliminarVoluntario extends HttpServlet {
 		String confirmacion = (request.getParameter("Confirmacion"));
 		System.out.println(id);
 		if(confirmacion.equalsIgnoreCase("eliminar")) {
-			ModeloVoluntario mv = new ModeloVoluntario();
+			ModeloRescate mr = new ModeloRescate();
 			try {
-				mv.eliminarVoluntario(id);
+				mr.eliminarRescate(id);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -71,9 +70,7 @@ public class EliminarVoluntario extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}		
-		response.sendRedirect("IndexVoluntario");
-		
-
+		}
+		response.sendRedirect("IndexRescates");	
 	}
 }
