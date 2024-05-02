@@ -77,7 +77,7 @@ public class ModificarVoluntario extends HttpServlet {
 			
 		}
 		
-		response.sendRedirect("IndexVoluntarios");
+		response.sendRedirect("IndexVoluntario");
 		}
 
 }

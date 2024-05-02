@@ -20,7 +20,8 @@
 		<div>
 			<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-				<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 2%;"> <img src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario">Insertar Voluntarios - <img
 								class="fotoInsertar" src="Insertar.png" alt="insertar"></a>
@@ -33,12 +34,12 @@
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
 			<ul> 
-				<li><a href="IndexVoluntarios">Voluntario</a></li>
-				<li><a href="IndexMedicos">Medico</a></li>
-				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
-				<li><a href="PanelDeControl-Rescate.html">Rescate</a></li>
-				<li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
-				<li><a href="PanelDeControl-FichaMedica.html">Ficha medica</a></li>
+				<li><a href="IndexVoluntario">Voluntario</a></li>
+				<li><a href="IndexMedico">Medico</a></li>
+				<li><a href="IndexRuta">Ruta</a></li>
+				<li><a href="IndexRescate">Rescate</a></li>
+				<li><a href="IndexRescatado">Rescatado</a></li>
+				<li><a href="IndexFichaMedica">Ficha medica</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -75,5 +76,3 @@
 	</div>
 </body>
 </html>
-
-

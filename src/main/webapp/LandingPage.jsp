@@ -49,19 +49,20 @@
             	<div class="col-12">
 					<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
             </div>
+
             </form>
         </div> 
     <footer>
-        <h2>Contáctanos</h2>
+        <h2>ContÃ¡ctanos</h2>
         <div class="imgContactos1">
             <img src="telefono.png" alt="telefono" class="telefono">
             <img src="direccion.png" alt="direccion" class="direccion">
             <img src="correo.png" alt="correo electronico" class="correo">
         </div>
         <div class="contactos1">
-            <p>Teléfono: +34 678 628 921</p>
-            <p>Dirección: Calle Jose Antonio, Hondarribia, España</p>
-            <p>Correo electrónico: AitaMari@gmail.com</p>
+            <p>TelÃ©fono: +34 678 628 921</p>
+            <p>DirecciÃ³n: Calle Jose Antonio, Hondarribia, EspaÃ±a</p>
+            <p>Correo electrÃ³nico: AitaMari@gmail.com</p>
         </div>
         <div class="imgContactos2">
             <img src="instagram.jpg" alt="instagram" class="instagram">
