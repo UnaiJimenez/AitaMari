@@ -18,11 +18,12 @@
 <body>
 	<header>
 		<div>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+			<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+				<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarMedico" style="margin-right: 10px;">Insertar Medicos - <img src="Insertar.png" alt="insertar" class="fotoInsertar"></a>
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarMedico">Insertar Medicos - <img
+								class="fotoInsertar" src="Insertar.png" alt="insertar"></a>
 						</li>
 					</ul>
 				</div>
@@ -34,8 +35,8 @@
 			<ul> 
 				<li><a href="IndexVoluntarios">Voluntario</a></li>
 				<li><a href="IndexMedicos">Medico</a></li>
-				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
-				<li><a href="PanelDeControl-Rescate.html">Rescate</a></li>
+				<li><a href="IndexRutas">Ruta</a></li>
+				<li><a href="IndexRescates">Rescate</a></li>
 				<li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
 				<li><a href="PanelDeControl-FichaMedica.html">Ficha medica</a></li>
 			</ul>
