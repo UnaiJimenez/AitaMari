@@ -71,7 +71,7 @@ public class ModificarMedico extends HttpServlet {
             
         }
         
-        response.sendRedirect("IndexMedicos");
+        response.sendRedirect("IndexMedico");
     }
 
 }

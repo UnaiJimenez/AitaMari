@@ -71,7 +71,9 @@ public class EliminarVoluntario extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		response.sendRedirect("IndexVoluntarios");	
+		}		
+		response.sendRedirect("IndexVoluntario");
+		
+
 	}
 }

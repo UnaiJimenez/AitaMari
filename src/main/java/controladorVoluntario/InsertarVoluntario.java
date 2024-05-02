@@ -70,7 +70,7 @@ public class InsertarVoluntario extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("IndexVoluntarios");
+		response.sendRedirect("IndexVoluntario");
 		
 	
 	}

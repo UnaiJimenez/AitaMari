@@ -1,6 +1,7 @@
-package controladorVoluntario;
+package controladorRuta;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,35 +10,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloVoluntario;
-import modelo.Voluntario;
+import modelo.ModeloRuta;
+import modelo.Ruta;
+
 /**
- * Servlet implementation class IndexVoluntarios
+ * Servlet implementation class RutaVerDetalles
  */
-@WebServlet("/IndexVoluntarios")
-public class IndexVoluntarios extends HttpServlet {
+@WebServlet("/RutaVerDetalles")
+public class RutaVerDetalles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexVoluntarios() {
+    public RutaVerDetalles() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/*
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//recibir id
+		
+		ModeloRuta mr = new ModeloRuta();
+		int id = Integer.parseInt(request.getParameter("id"));
+		try {
+			Ruta ruta = ModeloRuta.verRuta(id);
+			request.setAttribute("ruta",ruta);
+			request.getRequestDispatcher("RutaVerDetalles.jsp").forward(request, response);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
-	request.setAttribute("voluntarios", voluntarios);
-	
-	//abir la vista principal
-	request.getRequestDispatcher("VoluntarioVerTodos.jsp").forward(request, response);
-	
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

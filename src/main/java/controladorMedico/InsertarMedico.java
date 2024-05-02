@@ -61,7 +61,7 @@ public class InsertarMedico extends HttpServlet {
             e.printStackTrace();
         }
         
-        response.sendRedirect("IndexMedicos");
+        response.sendRedirect("IndexMedico");
     }
 
 }
