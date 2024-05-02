@@ -18,13 +18,12 @@
 <body>
 	<header>
 		<div>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+			<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-				<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"> <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top"></a>
+				<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario" 
-							style="margin-right: 10px;">Insertar Voluntarios - <img
-								src="Insertar.png" alt="insertar" width="30px" height="30px"></a>
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarVoluntario">Insertar Voluntarios - <img
+								class="fotoInsertar" src="Insertar.png" alt="insertar"></a>
 						</li>
 					</ul>
 				</div>
@@ -43,9 +42,8 @@
 			</ul>
 		</nav>
 	</div>
-	<div style="margin-left: 191px; margin-right: 80px; padding-top: 5px;">
-		
-		<table class="table table-striped">
+		<div class="table-responsive">
+			<table class="table-sm table-striped" style="width: -webkit-fill-available">
 			<thead>
 				<tr>
 					<th scope="col">Voluntario</th>

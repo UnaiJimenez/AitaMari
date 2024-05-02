@@ -24,26 +24,18 @@
         </div>
     </header>
     <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "InsertarVoluntario" method="post" style="background-color: #bebebe; border-radius: 2%;">
+        <form class="row g-3 col-6" action= "InsertarRescate" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
-				<label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
-            </div>
-            <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+				<label for="Fecha" class="form-label">Fecha (yyyy-MM-dd HH:mm)</label>
+                <input type="text" class="form-control" name="fecha" placeholder="Fecha">
             </div>
             <div class="col-12">
-                <label for="Email" class="form-label">Email</label>
-                <input type="text" class="form-control"  name="email" placeholder="Email">
+                <label for="Posicion" class="form-label">Posicion</label>
+                <input type="text" class="form-control" name="posicion" placeholder="Posicion">
             </div>
-            <div class="col-6">
-                <label for="Edad" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
-            </div>
-            <div class="col-6">
-                <label for="Telefono" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+            <div class="col-12">
+                <label for="IdRuta" class="form-label">IdRuta</label>
+                <input type="text" class="form-control"  name="idRuta" placeholder="IdRuta">
             </div>
             <div class="col-12">
 				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">

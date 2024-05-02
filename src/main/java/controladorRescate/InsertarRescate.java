@@ -1,6 +1,7 @@
-package controladorVoluntario;
+package controladorRescate;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloVoluntario;
-import modelo.Voluntario;
+import modelo.ModeloRescate;
+import modelo.Rescate;
 
 /**
  * Servlet implementation class InsertarVoluntario
  */
-@WebServlet("/InsertarVoluntarioLandingPage")
-public class InsertarVoluntarioLandingPage extends HttpServlet {
+@WebServlet("/InsertarRescate")
+public class InsertarRescate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertarVoluntarioLandingPage() {
+    public InsertarRescate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +33,7 @@ public class InsertarVoluntarioLandingPage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
+		request.getRequestDispatcher("InsertarRescate.jsp").forward(request, response);
 	
 	}
 	/**
@@ -40,26 +41,20 @@ public class InsertarVoluntarioLandingPage extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String fecha = request.getParameter("fecha");
+		String posicion = request.getParameter("apellido");
+		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 		
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-		String edad = request.getParameter("edad");
-		String email = request.getParameter("email");
-		String telefono = request.getParameter("telefono");
-		
-		Voluntario voluntario = new Voluntario();
-		voluntario.setNombre(nombre);
-		voluntario.setApellido(apellido);
-		voluntario.setEdad(edad);
-		voluntario.setEmail(email);
-		voluntario.setTelefono(telefono);
+		Rescate rescate = new Rescate();
+		rescate.setFecha(fecha);
+		rescate.setPosicion(posicion);
+		rescate.setIdRuta(idRuta);
 
-		ModeloVoluntario mv = new ModeloVoluntario();
-		
-		
+		ModeloRescate mr = new ModeloRescate();
 		
 		try {
-			mv.insertarVoluntarios(voluntario);
+			
+			mr.insertarRescates(rescate);
 			
 		
 		} catch (ClassNotFoundException e) {
@@ -70,10 +65,9 @@ public class InsertarVoluntarioLandingPage extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("InsertarVoluntarioLandingPage");
+		response.sendRedirect("IndexRescates");
 		
 	
 	}
 
 }
-
