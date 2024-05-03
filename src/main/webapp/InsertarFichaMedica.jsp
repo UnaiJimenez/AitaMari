@@ -37,7 +37,7 @@
                 <label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
                 <input type="text" class="form-control"  name="tipoSangre" placeholder="Tipo de Sangre">
             </div>
-            <div class="col-6">
+            <div class="col-12">
                 <label for="IdRescatado" class="form-label">Id Rescatado</label>
                 <input type="text" class="form-control" name="idRescatado" placeholder="Id Rescatado">
             </div>

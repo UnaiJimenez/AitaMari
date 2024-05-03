@@ -14,14 +14,14 @@ import modelo.Rescate;
 /**
  * Servlet implementation class IndexVoluntarios
  */
-@WebServlet("/IndexRescates")
-public class IndexRescates extends HttpServlet {
+@WebServlet("/IndexRescate")
+public class IndexRescate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexRescates() {
+    public IndexRescate() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -22,7 +22,7 @@
 				<div class="container-fluid" style="background-color: lightgray;">
 				<a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRescate">Insertar Rescates - <img
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRescate">Insertar Rescate - <img
 								src="Insertar.png" alt="insertar" class="fotoInsertar"></a>
 						</li>
 					</ul>
@@ -36,9 +36,9 @@
 				<li><a href="IndexVoluntarios">Voluntario</a></li>
 				<li><a href="IndexMedicos">Medico</a></li>
 				<li><a href="IndexRutas">Ruta</a></li>
-				<li><a href="IndexRescates">Rescate</a></li>
-				<li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
-				<li><a href="PanelDeControl-FichaMedica.html">Ficha medica</a></li>
+				<li><a href="IndexRescate">Rescate</a></li>
+				<li><a href="IndexRescatado">Rescatado</a></li>
+				<li><a href="IndexFichaMedica">Ficha medica</a></li>
 			</ul>
 		</nav>
 	</div>
