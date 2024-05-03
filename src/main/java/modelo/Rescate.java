@@ -1,11 +1,11 @@
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Rescate {
 
 	private int id;
-	private String fecha;
+	private Date fechaHora;
 	private String posicion;
 	private int idRuta;
 	
@@ -15,11 +15,12 @@ public class Rescate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFecha() {
-		return fecha;
+	
+	public Date getFechaHora() {
+		return fechaHora;
 	}
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public void setFechaHora(Date fechaHora) {
+		this.fechaHora = fechaHora;
 	}
 	public String getPosicion() {
 		return posicion;
@@ -33,10 +34,9 @@ public class Rescate {
 	public void setIdRuta(int idRuta) {
 		this.idRuta = idRuta;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "Rescate [id=" + id + ", fecha=" + fecha + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
+		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
 	}
+	
 }

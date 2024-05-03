@@ -33,9 +33,9 @@
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
 			<ul> 
-				<li><a href="IndexVoluntarios">Voluntario</a></li>
-				<li><a href="IndexMedicos">Medico</a></li>
-				<li><a href="IndexRutas">Ruta</a></li>
+				<li><a href="IndexVoluntario">Voluntario</a></li>
+				<li><a href="IndexMedico">Medico</a></li>
+				<li><a href="IndexRuta">Ruta</a></li>
 				<li><a href="IndexRescate">Rescate</a></li>
 				<li><a href="IndexRescatado">Rescatado</a></li>
 				<li><a href="IndexFichaMedica">Ficha medica</a></li>
@@ -57,7 +57,7 @@
 			<c:forEach items="${rescates}" var="rescate">
 			<tr>
 				<td id="${rescate.id}">${rescate.id}</td>
-				<td>${rescate.fecha}</td>
+				<td>${rescate.fechaHora}</td>
 				<td>${rescate.posicion}</td>
 				<td>${rescate.idRuta}</td>
 				<td style="display: flex;">

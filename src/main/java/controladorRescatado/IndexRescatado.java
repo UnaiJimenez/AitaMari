@@ -1,7 +1,6 @@
-package controladorFichaMedica;
+package controladorRescatado;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.FichaMedica;
-import modelo.ModeloFichaMedica;
+import modelo.ModeloRescatado;
+import modelo.Rescatado;
 
 /**
- * Servlet implementation class IndexFichaMedica
+ * Servlet implementation class IndexRescatado
  */
-@WebServlet("/IndexFichaMedica")
-public class IndexFichaMedica extends HttpServlet {
+@WebServlet("/IndexRescatado")
+public class IndexRescatado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexFichaMedica() {
+    public IndexRescatado() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +31,12 @@ public class IndexFichaMedica extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	ArrayList<FichaMedica> fichasMedicas = ModeloFichaMedica.getTodos();
-	request.setAttribute("fichasMedicas", fichasMedicas);
-	
-	request.getRequestDispatcher("FichaMedicaVerTodos.jsp").forward(request, response);
-
+		// TODO Auto-generated method stub
+		ArrayList<Rescatado> rescatados = ModeloRescatado.getTodos();
+    	request.setAttribute("rescatados", rescatados);
+    	
+    	//abir la vista principal
+    	request.getRequestDispatcher("RescatadoVerTodos.jsp").forward(request, response);
 	}
 
 	/**
