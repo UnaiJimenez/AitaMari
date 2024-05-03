@@ -1,9 +1,6 @@
 package controladorFichaMedica;
 
 import java.io.IOException;
-
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +11,16 @@ import modelo.FichaMedica;
 import modelo.ModeloFichaMedica;
 
 /**
- * Servlet implementation class IndexFichaMedica
+ * Servlet implementation class InsertarFichaMedica
  */
-@WebServlet("/IndexFichaMedica")
-public class IndexFichaMedica extends HttpServlet {
+@WebServlet("/InsertarFichaMedica")
+public class InsertarFichaMedica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexFichaMedica() {
+    public InsertarFichaMedica() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +29,8 @@ public class IndexFichaMedica extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	ArrayList<FichaMedica> fichasMedicas = ModeloFichaMedica.getTodos();
-	request.setAttribute("fichasMedicas", fichasMedicas);
-	
-	request.getRequestDispatcher("FichaMedicaVerTodos.jsp").forward(request, response);
-
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("InsertarFichaMedica.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,7 +38,18 @@ public class IndexFichaMedica extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String constantesVitales = request.getParameter("constantesVitales");
+		String alergias = request.getParameter("alergias");
+		String tipoSangre = request.getParameter("tipoSangre");
+		int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
+		
+		FichaMedica fichaMedica = new FichaMedica();
+		fichaMedica.setConstantesVitales(constantesVitales);
+		fichaMedica.setAlergias(alergias);
+		fichaMedica.setTipoSangre(tipoSangre);
+		fichaMedica.setIdRescatado(idRescatado);
+
+		ModeloFichaMedica mfm = new ModeloFichaMedica();
 	}
 
 }
