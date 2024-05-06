@@ -1,4 +1,4 @@
-package controladorMedico;
+package controladorRescatado;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloMedico;
 import modelo.Medico;
+import modelo.ModeloMedico;
+import modelo.ModeloRescatado;
+import modelo.Rescatado;
 
 /**
- * Servlet implementation class ModificarMedico
+ * Servlet implementation class EliminarRescatado
  */
-@WebServlet("/ModificarMedico")
-public class ModificarMedico extends HttpServlet {
+@WebServlet("/EliminarRescatado")
+public class EliminarRescatado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ModificarMedico() {
+	public EliminarRescatado() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,17 +35,20 @@ public class ModificarMedico extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		try {
-			Medico medico = ModeloMedico.verMedico(id);
 
-			request.setAttribute("medico", medico);
-			request.getRequestDispatcher("ModificarMedicos.jsp").forward(request, response);
+			Rescatado rescatado = ModeloRescatado.verRescatado(id);
+
+			request.setAttribute("rescatado", rescatado);
+			request.getRequestDispatcher("EliminarRescatado.jsp").forward(request, response);
+
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -55,25 +60,24 @@ public class ModificarMedico extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-		String especialidad = request.getParameter("especialidad");		
-		Medico medico = new Medico();
-		medico.setId(id);
-		medico.setNombre(nombre);
-		medico.setApellido(apellido);
-		medico.setEspecialidad(especialidad);
-		ModeloMedico mm = new ModeloMedico();
-		try {
-			mm.modificar(medico);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String confirmacion = (request.getParameter("Confirmacion"));
+		if (confirmacion.equalsIgnoreCase("eliminar")) {
+			ModeloRescatado mr = new ModeloRescatado();
+			try {
+				mr.eliminarRescatado(id);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 
-		response.sendRedirect("IndexMedico");
-	}
+		response.sendRedirect("IndexRescatado");
 
+	}
 }

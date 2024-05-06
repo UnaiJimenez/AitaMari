@@ -18,9 +18,9 @@
 <body>
 	<header>
 		<div>
-			<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary p-0">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 2%;"> <img src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRescatado">Insertar Rescatados - <img
@@ -66,8 +66,8 @@
 				<td>${rescatado.edad}</td>				
 				<td>${rescatado.idRescate}</td>
 				<td style="display: flex;">
-					<a class="nav-link" aria-current="page" href="ModificarRescatado?id=${Rescatado.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page" href="EliminarRescatado?id=${Rescatado.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					<a class="nav-link" aria-current="page" href="ModificarRescatado?id=${rescatado.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+					<a class="nav-link" aria-current="page" href="EliminarRescatado?id=${rescatado.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
 			</tr>
 		</c:forEach>
