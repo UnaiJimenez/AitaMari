@@ -69,8 +69,7 @@ public class ModeloMedico {
         try {
             Connection con = Conector.getConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * FROM Medico WHERE id = ?");
-            pst.setInt(1, id);
-            ResultSet rs = pst.executeQuery();
+            pst.setInt(1, id);            ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
                 Medico medico = new Medico();

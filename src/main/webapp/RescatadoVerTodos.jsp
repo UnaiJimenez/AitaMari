@@ -13,7 +13,7 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="PanelDeControl.css">
-<title>Panel de Control Ficha Medica</title>
+<title>Panel de Control Rescatados</title>
 </head>
 <body>
 	<header>
@@ -21,8 +21,9 @@
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
 				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarFichaMedica">Insertar Fichas Medicas - <img
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRescatado">Insertar Rescatados - <img
 								class="fotoInsertar" src="Insertar.png" alt="insertar"></a>
 						</li>
 					</ul>
@@ -46,25 +47,27 @@
 			<table class="table-sm table-striped" style="width: -webkit-fill-available">
 			<thead>
 				<tr>
-					<th scope="col">Ficha Medica</th>
-					<th scope="col">Constantes Vitales</th>
-					<th scope="col">Alergias</th>
-					<th scope="col">Tipo de Sangre</th>
-					<th scope="col">Id Rescatado</th>
+					<th scope="col">Rescatado</th>
+					<th scope="col">Nacionalidad</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Sexo</th>
+					<th scope="col">Edad</th>				
+					<th scope="col">idRescatado</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${fichasMedicas}" var="fichaMedica">
+			<c:forEach items="${rescatados}" var="rescatado">
 			<tr>
-				<td id="${fichaMedica.id}">${fichaMedica.id}</td>
-				<td>${fichaMedica.constantesVitales}</td>
-				<td>${fichaMedica.alergias}</td>
-				<td>${fichaMedica.tipoSangre}</td>
-				<td>${fichaMedica.idRescatado}</td>
+				<td id="${rescatdo.id}">${rescatado.id}</td>
+				<td>${rescatado.nacionalidad}</td>
+				<td>${rescatado.nombre}</td>
+				<td>${rescatado.sexo}</td>
+				<td>${rescatado.edad}</td>				
+				<td>${rescatado.idRescate}</td>
 				<td style="display: flex;">
-					<a class="nav-link" aria-current="page" href="ModificarFichaMedica?id=${fichaMedica.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page" href="EliminarFichaMedica?id=${fichaMedica.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+					<a class="nav-link" aria-current="page" href="ModificarRescatado?id=${rescatado.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+					<a class="nav-link" aria-current="page" href="EliminarRescatado?id=${rescatado.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 				</td>	
 			</tr>
 		</c:forEach>
