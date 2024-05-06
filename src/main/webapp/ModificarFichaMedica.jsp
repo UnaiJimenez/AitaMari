@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Insertar Medico</title>
+    <title>Modificar Ficha Medica</title>
 <body style="background-color: #ececec;">
   <header>
         <div>
@@ -23,23 +23,29 @@
               </nav>
         </div>
     </header>
-    	<div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "InsertarMedico" method="post" style="background-color: #bebebe; border-radius: 2%;">
+   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+        <form class="row g-3 col-6" action= "ModificarFichaMedica" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
+                <label for="Nombre" class="form-label"></label>
+                <input type="hidden" name="id" value="${fichaMedica.id}"/>
                 
-						 <label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+				<label for="ConstantesVitales" class="form-label">Contantes Vitales</label>
+                <input type="text" class="form-control" name="constantesVitales" placeholder="Constantes Vitales" value="${fichaMedica.constantesVitales}">
             </div>
             <div class="col-12">
-                <label for="Apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+                <label for="Alergias" class="form-label">Alergias</label>
+                <input type="text" class="form-control" name="alergias" placeholder="Alergias" value="${fichaMedica.alergias}">
             </div>
             <div class="col-12">
-                <label for="Email" class="form-label">Especialidad</label>
-                <input type="text" class="form-control"  name="especialidad" placeholder="Especialidad">
+                <label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
+                <input type="text" class="form-control"  name="tipoSangre" placeholder="Tipo de Sangre" value="${fichaMedica.tipoSangre}">
+            </div>
+            <div class="col-6">
+                <label for="IdRescatado" class="form-label">Id Rescatado</label>
+                <input type="text" class="form-control" name="idRescatado" placeholder="Id Rescatado" value="${fichaMedica.idRescatado}">
             </div>
             <div class="col-12">
-						<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 

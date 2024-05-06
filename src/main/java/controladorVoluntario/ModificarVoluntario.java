@@ -44,8 +44,6 @@ public class ModificarVoluntario extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-
 	}
 
 	/**
