@@ -27,7 +27,7 @@
         <form class="row g-3 col-6" action= "InsertarRescate" method="post" style="background-color: #bebebe; border-radius: 2%;">
             <div class="col-12">
 				<label for="Fecha" class="form-label">Fecha (yyyy-MM-dd HH:mm)</label>
-                <input type="text" class="form-control" name="fecha" placeholder="Fecha">
+                <input type="text" class="form-control" name="fechaHora" placeholder="Fecha">
             </div>
             <div class="col-12">
                 <label for="Posicion" class="form-label">Posicion</label>

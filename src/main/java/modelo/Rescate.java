@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Rescate {
 
 	private int id;
-	private String fecha;
+	private String fechaHora;
 	private String posicion;
 	private int idRuta;
 	
@@ -15,11 +15,11 @@ public class Rescate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFecha() {
-		return fecha;
+	public String getFechaHora() {
+		return fechaHora;
 	}
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public void setFechaHora(String fechaHora) {
+		this.fechaHora = fechaHora;
 	}
 	public String getPosicion() {
 		return posicion;
@@ -37,6 +37,6 @@ public class Rescate {
 	
 	@Override
 	public String toString() {
-		return "Rescate [id=" + id + ", fecha=" + fecha + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
+		return "Rescate [id=" + id + ", fecha=" + fechaHora + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
 	}
 }

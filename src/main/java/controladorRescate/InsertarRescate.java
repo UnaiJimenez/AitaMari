@@ -41,12 +41,12 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String fecha = request.getParameter("fecha");
+		String fechaHora = request.getParameter("fechaHora");
 		String posicion = request.getParameter("apellido");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 		
 		Rescate rescate = new Rescate();
-		rescate.setFecha(fecha);
+		rescate.setFechaHora(fechaHora);
 		rescate.setPosicion(posicion);
 		rescate.setIdRuta(idRuta);
 
