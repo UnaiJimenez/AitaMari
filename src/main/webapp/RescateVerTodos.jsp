@@ -33,9 +33,9 @@
 	<div class="navbarLateral">
 		<nav class="vertical-nav">
 			<ul> 
-				<li><a href="IndexVoluntarios">Voluntario</a></li>
-				<li><a href="IndexMedicos">Medico</a></li>
-				<li><a href="PanelDeControl-Ruta.html">Ruta</a></li>
+				<li><a href="IndexVoluntario">Voluntario</a></li>
+				<li><a href="IndexMedico">Medico</a></li>
+				<li><a href="IndexRuta">Ruta</a></li>
 				<li><a href="IndexRescate">Rescate</a></li>
 				<li><a href="IndexRescatado">Rescatado</a></li>
 				<li><a href="IndexFichaMedica">Ficha medica</a></li>

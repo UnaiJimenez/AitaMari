@@ -75,7 +75,9 @@ public class ModeloRescatado {
 
 			if (rs.next()) {
 				Rescatado rescatado = new Rescatado();
-
+				
+				
+				rescatado.setId(rs.getInt("id"));
 				rescatado.setNacionalidad(rs.getString("nacionalidad"));
 				rescatado.setNombre(rs.getString("nombre"));
 				rescatado.setSexo(rs.getString("sexo"));
@@ -93,7 +95,7 @@ public class ModeloRescatado {
 	public void insertarRescatado(Rescatado rescatado) throws ClassNotFoundException, SQLException {
 		Connection con = Conector.getConnection();
 		PreparedStatement pst = con
-				.prepareStatement("INSERT INTO Rescatado (nacionalidad,nombre,sexo,edad,idRescate) VALUES (?,?,?,?)");
+				.prepareStatement("INSERT INTO Rescatado (nacionalidad,nombre,sexo,edad,idRescate) VALUES (?,?,?,?,?)");
 		pst.setString(1, rescatado.getNacionalidad());
 		pst.setString(2, rescatado.getNombre());
 		pst.setString(3, rescatado.getSexo());
@@ -104,11 +106,9 @@ public class ModeloRescatado {
 
 	public void eliminarRescatado(int id) throws ClassNotFoundException, SQLException {
 		Connection con = Conector.getConnection();
-		PreparedStatement pst = con.prepareStatement("DELETE FROM Rescatado WHERE id=?");
+		PreparedStatement pst = con.prepareStatement("DELETE FROM Rescatado WHERE id = ?");
 		pst.setInt(1, id);
 		pst.execute();
-		pst.close();
-		con.close();
 
 	}
 }

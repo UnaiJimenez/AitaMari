@@ -28,12 +28,12 @@
     <div class="navbarLateral">
         <nav class="vertical-nav">
             <ul>
-                <li><a href="IndexVoluntarios">Voluntario</a></li>
-                <li><a href="IndexMedicos">Medico</a></li>
-                <li><a href="IndexRutas">Ruta</a></li>
-                <li><a href="IndexRescates">Rescate</a></li>
-                <li><a href="PanelDeControl-Rescatado.html">Rescatado</a></li>
-                <li><a href="PanelDeControl-FichaMedica.html">Ficha medica</a></li>
+                <li><a href="IndexVoluntario">Voluntario</a></li>
+                <li><a href="IndexMedico">Medico</a></li>
+                <li><a href="IndexRuta">Ruta</a></li>
+                <li><a href="IndexRescate">Rescate</a></li>
+                <li><a href="IndexRescatado">Rescatado</a></li>
+                <li><a href="IndexFichaMedica">Ficha medica</a></li>
             </ul>
         </nav>
     </div>
