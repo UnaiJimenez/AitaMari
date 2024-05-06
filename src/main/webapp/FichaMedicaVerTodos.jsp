@@ -55,7 +55,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${fichasmedicas}" var="fichaMedica">
+			<c:forEach items="${fichasMedicas}" var="fichaMedica">
 			<tr>
 				<td id="${fichaMedica.id}">${fichaMedica.id}</td>
 				<td>${fichaMedica.constantesVitales}</td>
