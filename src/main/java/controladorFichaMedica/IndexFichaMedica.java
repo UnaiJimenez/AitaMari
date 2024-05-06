@@ -35,7 +35,6 @@ public class IndexFichaMedica extends HttpServlet {
 	
 	ArrayList<FichaMedica> fichasMedicas = ModeloFichaMedica.getTodos();
 	request.setAttribute("fichasMedicas", fichasMedicas);
-	
 	request.getRequestDispatcher("FichaMedicaVerTodos.jsp").forward(request, response);
 
 	}
