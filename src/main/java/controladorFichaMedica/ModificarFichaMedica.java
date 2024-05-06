@@ -38,7 +38,7 @@ public class ModificarFichaMedica extends HttpServlet {
 			FichaMedica fichaMedica = ModeloFichaMedica.verFichaMedica(id);
 			
 			request.setAttribute("fichaMedica", fichaMedica);
-			request.getRequestDispatcher("ModificarFichasMedicas.jsp").forward(request, response);
+			request.getRequestDispatcher("ModificarFichaMedica.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
