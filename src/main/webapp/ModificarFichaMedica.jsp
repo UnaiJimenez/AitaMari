@@ -40,10 +40,13 @@
                 <label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
                 <input type="text" class="form-control"  name="tipoSangre" placeholder="Tipo de Sangre" value="${fichaMedica.tipoSangre}">
             </div>
-            <div class="col-6">
-                <label for="IdRescatado" class="form-label">Id Rescatado</label>
-                <input type="text" class="form-control" name="idRescatado" placeholder="Id Rescatado" value="${fichaMedica.idRescatado}">
-            </div>
+            <div class="col-12" style="margin-top: 5%">
+				<select class="form-select" aria-label="idRescatado" name="idRescatado" value="${fichaMedica.rescatado.nombre}">
+					<c:forEach items="${rescatados}" var="rescatado">
+						<option value="${rescatado.id}">${rescatado.nombre}</option>
+					</c:forEach>
+				</select>
+			</div>
             <div class="col-12">
 					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>

@@ -2,10 +2,12 @@ package modelo;
 
 import java.util.Date;
 
+import javax.print.attribute.standard.DateTimeAtCompleted;
+
 public class Rescate {
 
 	private int id;
-	private Date fechaHora;
+	private DateTimeAtCompleted fechaHora;
 	private String posicion;
 	private int idRuta;
 	
@@ -16,10 +18,10 @@ public class Rescate {
 		this.id = id;
 	}
 	
-	public Date getFechaHora() {
+	public DateTimeAtCompleted getFechaHora() {
 		return fechaHora;
 	}
-	public void setFechaHora(Date fechaHora) {
+	public void setFechaHora(DateTimeAtCompleted fechaHora) {
 		this.fechaHora = fechaHora;
 	}
 	public String getPosicion() {
