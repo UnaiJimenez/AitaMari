@@ -93,6 +93,7 @@ public class ModeloRescate {
 	public void insertarRescates(Rescate rescate) throws ClassNotFoundException, SQLException {
 		Connection con = Conector.getConnection();
 		PreparedStatement pst = con.prepareStatement("INSERT INTO Rescate (fechaHora,posicion,idRuta) VALUES (?,?,?)");
+		pst.setDate(1, new java.sql.Date(rescate.getFechaHora().getTime()));
 		pst.setString(2, rescate.getPosicion());
 		pst.setInt(3, rescate.getIdRuta());
 		pst.execute();

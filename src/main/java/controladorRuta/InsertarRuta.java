@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRuta;
+import modelo.ModeloVoluntario;
 import modelo.Ruta;
 
 /**
@@ -64,15 +65,18 @@ public class InsertarRuta extends HttpServlet {
 			ruta.setOrigen(origen);
 			ruta.setDestino(destino);
 
-			ModeloRuta mr = new ModeloRuta();
-			try {
-				mr.insertarRuta(ruta);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			String confirmacion = (request.getParameter("Confirmacion"));
+			if(confirmacion.equalsIgnoreCase("insertar")) {
+				ModeloRuta mr = new ModeloRuta();
+				try {
+					mr.insertarRuta(ruta);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		} catch (ParseException e) {
