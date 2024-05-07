@@ -2,6 +2,7 @@ package controladorFichaMedica;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.FichaMedica;
 import modelo.ModeloFichaMedica;
+import modelo.ModeloRescatado;
+import modelo.Rescatado;
+import modelo.Rescate;
 
 /**
  * Servlet implementation class InsertarFichaMedica
@@ -18,38 +22,46 @@ import modelo.ModeloFichaMedica;
 @WebServlet("/InsertarFichaMedica")
 public class InsertarFichaMedica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InsertarFichaMedica() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public InsertarFichaMedica() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		ArrayList<Rescatado> rescatados = ModeloRescatado.getTodos();
+		request.setAttribute("rescatados", rescatados);
 		request.getRequestDispatcher("InsertarFichaMedica.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String constantesVitales = request.getParameter("constantesVitales");
 		String alergias = request.getParameter("alergias");
 		String tipoSangre = request.getParameter("tipoSangre");
 		int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
-		
+
+		Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
 		FichaMedica fichaMedica = new FichaMedica();
 		fichaMedica.setConstantesVitales(constantesVitales);
 		fichaMedica.setAlergias(alergias);
 		fichaMedica.setTipoSangre(tipoSangre);
-		fichaMedica.setIdRescatado(idRescatado);
+		fichaMedica.setRescatado(rescatado);
 
 		String confirmacion = (request.getParameter("Confirmacion"));
 		if(confirmacion.equalsIgnoreCase("insertar")) {
@@ -59,11 +71,18 @@ public class InsertarFichaMedica extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+
 		}
+
 		response.sendRedirect("IndexFichaMedica");
 	}
 

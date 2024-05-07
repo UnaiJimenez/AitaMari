@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRuta;
+import modelo.ModeloVoluntario;
 import modelo.Ruta;
+import modelo.Voluntario;
 
 /**
  * Servlet implementation class ModificarRuta
@@ -21,44 +24,52 @@ import modelo.Ruta;
 @WebServlet("/ModificarRuta")
 public class ModificarRuta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModificarRuta() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        int id = Integer.parseInt(request.getParameter("id"));
-        
-        try {
-            Ruta ruta = ModeloRuta.verRuta(id);
-            
-            request.setAttribute("ruta", ruta);
-            request.getRequestDispatcher("ModificarRuta.jsp").forward(request, response);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
+	public ModificarRuta() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    }
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	int id = Integer.parseInt(request.getParameter("id"));
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		int id = Integer.parseInt(request.getParameter("id"));
+		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
+		request.setAttribute("voluntarios", voluntarios);
+		try {
+			Ruta ruta = ModeloRuta.verRuta(id);
+
+			request.setAttribute("ruta", ruta);
+			request.getRequestDispatcher("ModificarRuta.jsp").forward(request, response);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String f1 = request.getParameter("fechaSalida");
 		String f2 = request.getParameter("fechaLlegada");
+		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+
+		ModeloRuta mr = new ModeloRuta();
+
 		try {
 			Date fechaSalida = sdf.parse(f1);
 			Date fechaLlegada = sdf.parse(f2);
@@ -72,20 +83,34 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			ruta.setOrigen(origen);
 			ruta.setDestino(destino);
 
-			ModeloRuta mr = new ModeloRuta();
 			try {
-				mr.modificarRuta(ruta);
+				try {
+					ModeloRuta.eliminarVoluntario(id);
+					for (String idVoluntario : idVoluntarios) {
+
+						try {
+							ModeloRuta.insertarVoluntario(id, Integer.parseInt(idVoluntario));
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
-        response.sendRedirect("IndexRuta");
-    }
+
+		response.sendRedirect("IndexRuta");
+	}
 
 }

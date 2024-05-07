@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,25 +13,27 @@
 	crossorigin="anonymous">
 <title>Insertar Ruta</title>
 <body style="background-color: #ececec;">
-  <header>
-        <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-                <div class="container-fluid" style="background-color: lightgray;">
-                    <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
-                      </li>
-                    </ul> 
-                </div>
-              </nav>
-        </div>
-    </header>
-   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+	<header>
+		<div>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+				<div class="container-fluid" style="background-color: lightgray;">
+					<img src="LogoAitaMari-gris.png" alt="Logo" width="100px"
+						height="80px" class="d-inline-block align-text-top"
+						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="PanelDeControl.jsp" style="margin-right: 20px;"><img
+								src="IconoInicio.png" alt="icono de inicio" width="30px"
+								height="25px"></a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="formulario" style="margin-top: 5%; margin-left: 35%;">
 		<form class="row g-3 col-6" action="InsertarRuta" method="post"
 			style="background-color: #bebebe; border-radius: 2%;">
 			<div class="col-12">
-
 				<label for="fechaSalida" class="form-label">Fecha Salida</label> <input
 					type="text" class="form-control" name="fechaSalida" placeholder="yyyy-MM-dd">
 			</div>
@@ -40,9 +43,8 @@
 					placeholder="yyyy-MM-dd">
 			</div>
 			<div class="col-12">
-				<label for="origen" class="form-label">Origen</label> <input
-					type="text" class="form-control" name="origen"
-					placeholder="Origen">
+				<label for="origen" class="form-label">origen</label> <input
+					type="text" class="form-control" name="origen" placeholder="Origen">
 			</div>
 			<div class="col-12">
 				<label for="destino" class="form-label">Destino</label> <input
@@ -65,6 +67,13 @@
 					</form>
 				</div>
 			</div>
+			<c:forEach items="${voluntarios}" var="voluntario">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
+						value="${voluntario.id}" id="flexCheckDefault"> <label class="form-check-label"
+						for="flexCheckDefault"> ${voluntario.nombre}</label>
+				</div>
+			</c:forEach>
 		</form>
 	</div>
 	<script

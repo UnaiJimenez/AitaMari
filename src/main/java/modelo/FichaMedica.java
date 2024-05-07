@@ -6,7 +6,7 @@ public class FichaMedica {
 	private String constantesVitales;
 	private String alergias;
 	private String tipoSangre;
-	private int idRescatado;
+	private Rescatado rescatado;
 	
 	public int getId() {
 		return id;
@@ -32,16 +32,16 @@ public class FichaMedica {
 	public void setTipoSangre(String tipoDeSangre) {
 		this.tipoSangre = tipoDeSangre;
 	}
-	public int getIdRescatado() {
-		return idRescatado;
+	public Rescatado getRescatado() {
+		return rescatado;
 	}
-	public void setIdRescatado(int idRescatado) {
-		this.idRescatado = idRescatado;
+	public void setRescatado(Rescatado rescatado) {
+		this.rescatado = rescatado;
 	}
-	
 	@Override
 	public String toString() {
 		return "FichaMedica [id=" + id + ", constantesVitales=" + constantesVitales + ", alergias=" + alergias
-				+ ", tipoSangre=" + tipoSangre + ", idRescatado=" + idRescatado + "]";
+				+ ", tipoSangre=" + tipoSangre + ", rescatado=" + rescatado + "]";
 	}
+	
 }

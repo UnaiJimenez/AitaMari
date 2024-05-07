@@ -64,6 +64,7 @@ public class EliminarRuta extends HttpServlet {
 		if(confirmacion == 1) {
 			
 			try {
+				ModeloRuta.eliminarVoluntario(id);
 				ModeloRuta.eliminarRuta(id);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
