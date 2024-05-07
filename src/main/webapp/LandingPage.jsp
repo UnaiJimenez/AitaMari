@@ -47,21 +47,21 @@
                		<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
             	</div>
             	<div class="col-12">
-					<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+					<input type="submit" value="�APUNTATE A VOLUNTARIO!" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
             </div>
 
             </form>
         </div> 
     <footer>
-        <h2>Contáctanos</h2>
+        <h2>Contactanos</h2>
         <div class="imgContactos1">
             <img src="telefono.png" alt="telefono" class="telefono">
             <img src="direccion.png" alt="direccion" class="direccion">
             <img src="correo.png" alt="correo electronico" class="correo">
         </div>
         <div class="contactos1">
-            <p>Teléfono: +34 678 628 921</p>
-            <p>Dirección: Calle Jose Antonio, Hondarribia, España</p>
+            <p>Telefono: +34 678 628 921</p>
+            <p>Direccionn: Calle Jose Antonio, Hondarribia, España</p>
             <p>Correo electrónico: AitaMari@gmail.com</p>
         </div>
         <div class="imgContactos2">

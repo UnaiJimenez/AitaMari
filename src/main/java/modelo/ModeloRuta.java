@@ -52,16 +52,16 @@ public class ModeloRuta {
 
 	public static ArrayList<Voluntario> getVoluntarios(int id) throws ClassNotFoundException, SQLException {
 		Connection con = Conector.getConnection();
-		PreparedStatement pst = con.prepareStatement("SELECT ParticipantesVoluntarios.idRuta, ParticipantesVoluntarios.idVoluntario, Voluntario.nombre, Voluntario.apellido, Voluntario.edad, Voluntario.email, Voluntario.telefono \r\n"
-				+ "FROM Voluntario\r\n"
-				+ "INNER JOIN ParticipantesVoluntarios ON Voluntario.id = ParticipantesVoluntarios.idVoluntario\r\n"
-				+ "INNER JOIN Ruta ON Ruta.id = ParticipantesVoluntarios.idRuta\r\n"
-				+ "WHERE Ruta.id = ?;");
+		PreparedStatement pst = con.prepareStatement(
+				"SELECT ParticipantesVoluntarios.idRuta, ParticipantesVoluntarios.idVoluntario, Voluntario.nombre, Voluntario.apellido, Voluntario.edad, Voluntario.email, Voluntario.telefono \r\n"
+						+ "FROM Voluntario\r\n"
+						+ "INNER JOIN ParticipantesVoluntarios ON Voluntario.id = ParticipantesVoluntarios.idVoluntario\r\n"
+						+ "INNER JOIN Ruta ON Ruta.id = ParticipantesVoluntarios.idRuta\r\n" + "WHERE Ruta.id = ?;");
 		ArrayList<Voluntario> voluntarios = new ArrayList<Voluntario>();
 		pst.setInt(1, id);
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {
-			
+
 			Voluntario voluntario = new Voluntario();
 			voluntario.setId(rs.getInt("idVoluntario"));
 			voluntario.setEdad(rs.getString("edad"));
@@ -77,16 +77,14 @@ public class ModeloRuta {
 
 		return voluntarios;
 	}
-	
-	
 
 	public static ArrayList<Medico> getMedicos(int id) throws SQLException, ClassNotFoundException {
 		Connection con = Conector.getConnection();
-		PreparedStatement pst = con.prepareStatement("SELECT ParticipantesMedicos.idRuta, ParticipantesMedicos.idMedico, Medico.nombre, Medico.apellido, Medico.especialidad\r\n"
-				+ "FROM Medico\r\n"
-				+ "INNER JOIN ParticipantesMedicos ON Medico.id = ParticipantesMedicos.idMedico\r\n"
-				+ "INNER JOIN Ruta ON Ruta.id = ParticipantesMedicos.idRuta\r\n"
-				+ "WHERE Ruta.id = ?;");
+		PreparedStatement pst = con.prepareStatement(
+				"SELECT ParticipantesMedicos.idRuta, ParticipantesMedicos.idMedico, Medico.nombre, Medico.apellido, Medico.especialidad\r\n"
+						+ "FROM Medico\r\n"
+						+ "INNER JOIN ParticipantesMedicos ON Medico.id = ParticipantesMedicos.idMedico\r\n"
+						+ "INNER JOIN Ruta ON Ruta.id = ParticipantesMedicos.idRuta\r\n" + "WHERE Ruta.id = ?;");
 		ArrayList<Medico> medicos = new ArrayList<Medico>();
 		pst.setInt(1, id);
 		ResultSet rs = pst.executeQuery();
@@ -113,8 +111,8 @@ public class ModeloRuta {
 			Connection con = Conector.getConnection();
 			PreparedStatement pst = con.prepareStatement(
 					"UPDATE Ruta SET fechaSalida = ?, fechaLlegada = ?, origen = ?, destino = ? WHERE id = ?");
-			pst.setDate(1,new java.sql.Date(ruta.getFechaSalida().getTime()) );
-			pst.setDate(2,new java.sql.Date(ruta.getFechaLlegada().getTime()));
+			pst.setDate(1, new java.sql.Date(ruta.getFechaSalida().getTime()));
+			pst.setDate(2, new java.sql.Date(ruta.getFechaLlegada().getTime()));
 			pst.setString(3, ruta.getOrigen());
 			pst.setString(4, ruta.getDestino());
 
@@ -173,24 +171,81 @@ public class ModeloRuta {
 
 	}
 
+	public static void insertarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con
+				.prepareStatement("INSERT INTO ParticipantesVoluntarios(idRuta,idVoluntario) VALUES (?,?)");
+		pst.setInt(1, idRuta);
+		pst.setInt(2, idVoluntario);
+		pst.execute();
+	}
+
+	public int getUltimaRuta() throws ClassNotFoundException {
+		
+		try { 
+			Connection con = Conector.getConnection();
+
+			PreparedStatement pst = con.prepareStatement("SELECT id FROM Ruta ORDER BY id DESC LIMIT 1");
+		
+			ResultSet rs = pst.executeQuery();
+		
+			if (rs.next()) {
+			
+				int id = rs.getInt("id");
+				return id;
+			}
+			
+		} catch (SQLException e)
+
+		{
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+
 	public void modificarRuta(Ruta ruta) throws ClassNotFoundException {
 		try {
 
-            Connection con = Conector.getConnection();
-            PreparedStatement pst = con.prepareStatement("UPDATE Ruta SET fechaSalida = ?, fechaLlegada = ?, origen = ?, destino = ? WHERE id = ?");
-    		pst.setDate(1, new java.sql.Date(ruta.getFechaSalida().getTime()));
-    		pst.setDate(2, new java.sql.Date(ruta.getFechaLlegada().getTime()));
-    		pst.setString(3, ruta.getOrigen());
-    		pst.setString(4, ruta.getDestino());
-    		pst.setInt(5, ruta.getId());
+			Connection con = Conector.getConnection();
+			PreparedStatement pst = con.prepareStatement(
+					"UPDATE Ruta SET fechaSalida = ?, fechaLlegada = ?, origen = ?, destino = ? WHERE id = ?");
+			pst.setDate(1, new java.sql.Date(ruta.getFechaSalida().getTime()));
+			pst.setDate(2, new java.sql.Date(ruta.getFechaLlegada().getTime()));
+			pst.setString(3, ruta.getOrigen());
+			pst.setString(4, ruta.getDestino());
+			pst.setInt(5, ruta.getId());
 
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 
-        }
-    }
-
-		
+		}
 	}
 
+	public static void eliminarVoluntario(int idRuta) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con
+				.prepareStatement("DELETE FROM ParticipantesVoluntarios WHERE idRuta = ?");
+		pst.setInt(1, idRuta);
+		pst.execute();
+	}
+	
+	public void modificarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException {
+		try {
+
+			Connection con = Conector.getConnection();
+			PreparedStatement pst = con.prepareStatement(
+					"UPDATE ParticipantesVoluntarios SET idVoluntario = ? WHERE idRuta = ?");
+
+			pst.setInt(1, idVoluntario);
+			pst.setInt(2, idRuta);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+	}
+	
+
+}
