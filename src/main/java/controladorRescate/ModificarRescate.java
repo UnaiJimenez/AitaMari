@@ -43,7 +43,7 @@ public class ModificarRescate extends HttpServlet {
 			Rescate rescate = ModeloRescate.verRescate(id);
 
 			request.setAttribute("rescate", rescate);
-			request.getRequestDispatcher("ModificarRescates.jsp").forward(request, response);
+			request.getRequestDispatcher("ModificarRescate.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -59,14 +59,14 @@ public class ModificarRescate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException { // TODO Auto-generated method stub
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		int id = Integer.parseInt(request.getParameter("id"));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String fh = request.getParameter("fechaHora");
-		String posicion = request.getParameter("posicion");
-		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 		
 		try {
 			Date fechaHora = sdf.parse(fh);
+			String posicion = request.getParameter("posicion");
+			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
 			Rescate rescate = new Rescate();
 			rescate.setId(id);
@@ -82,9 +82,9 @@ public class ModificarRescate extends HttpServlet {
 				e.printStackTrace();
 
 			}
-		} catch (ParseException e1) {
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
 
 		response.sendRedirect("IndexRescate");

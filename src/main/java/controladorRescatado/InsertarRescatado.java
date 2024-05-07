@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescatado;
+import modelo.ModeloVoluntario;
 import modelo.Rescatado;
 
 /**
@@ -54,16 +55,18 @@ public class InsertarRescatado extends HttpServlet {
 		rescatado.setEdad(edad);
 		rescatado.setIdRescate(idRescate);
 		
-		ModeloRescatado mr = new ModeloRescatado();
-		
-		try {
-			mr.insertarRescatado(rescatado);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String confirmacion = (request.getParameter("Confirmacion"));
+		if(confirmacion.equalsIgnoreCase("insertar")) {
+			ModeloRescatado mr = new ModeloRescatado();
+			try {
+				mr.insertarRescatado(rescatado);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		response.sendRedirect("IndexRescatado");
