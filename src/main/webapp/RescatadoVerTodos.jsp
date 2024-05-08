@@ -40,6 +40,7 @@
 				<li><a href="IndexRescate">Rescate</a></li>
 				<li><a href="IndexRescatado">Rescatado</a></li>
 				<li><a href="IndexFichaMedica">Ficha medica</a></li>
+				<li><a href="IndexHistorico">Historico</a></li>
 			</ul>
 		</nav>
 	</div>

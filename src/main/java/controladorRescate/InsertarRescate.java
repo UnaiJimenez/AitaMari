@@ -5,6 +5,8 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.ModeloRescatado;
 import modelo.ModeloRescate;
 import modelo.Rescate;
 
@@ -48,25 +51,26 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
 		String fh = request.getParameter("fechaHora");
-		System.out.println(fh);
-		try {
-			Date fechaHora = sdf.parse(fh);
-			String posicion = request.getParameter("posicion");
-			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
-			Rescate rescate = new Rescate();
-			rescate.setFechaHora(fechaHora);
-			rescate.setPosicion(posicion);
-			rescate.setIdRuta(idRuta);
+		LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
 
-			ModeloRescate mr = new ModeloRescate();
+		String posicion = request.getParameter("posicion");
+		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
+
+		Rescate rescate = new Rescate();
+		rescate.setFechaHora(fechaHora);
+		rescate.setPosicion(posicion);
+		rescate.setIdRuta(idRuta);
+
+		String confirmacion = request.getParameter("Confirmacion");
+		ModeloRescate mr = new ModeloRescate();
+		if (confirmacion.equalsIgnoreCase("Insertar")) {
+
 			try {
-
 				mr.insertarRescate(rescate);
-
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -75,13 +79,7 @@ public class InsertarRescate extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} catch (ParseException e) {
-
-			e.printStackTrace();
+			response.sendRedirect("IndexRescate");
 		}
-
-		response.sendRedirect("IndexRescate");
-
 	}
-
 }

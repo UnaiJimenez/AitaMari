@@ -34,19 +34,17 @@ public class EliminarRescate extends HttpServlet {
 	
 		int id = Integer.parseInt(request.getParameter("id"));
 		
+		Rescate rescate;
 		try {
-			Rescate rescate = ModeloRescate.verRescate(id);
-			
+			rescate = ModeloRescate.verRescate(id);
 			request.setAttribute("rescate", rescate);
-			request.getRequestDispatcher("EliminarRescate.jsp").forward(request, response);
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		request.getRequestDispatcher("EliminarRescate.jsp").forward(request, response);
 		
 	}
 
@@ -71,6 +69,6 @@ public class EliminarRescate extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		response.sendRedirect("IndexRescates");	
+		response.sendRedirect("IndexRescate");	
 	}
 }
