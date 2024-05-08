@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Rescate {
 
-
 	private int id;
 	private Date fechaHora;
 	private String posicion;
@@ -15,12 +14,11 @@ public class Rescate {
 	}
 	public void setId(int id) {
 		this.id = id;
-  }
+	}
 	public Date getFechaHora() {
 		return fechaHora;
 	}
 	public void setFechaHora(Date fechaHora) {
-
 		this.fechaHora = fechaHora;
 	}
 	public String getPosicion() {
