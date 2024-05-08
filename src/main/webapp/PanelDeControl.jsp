@@ -17,28 +17,30 @@
                     	<li>
                       		<a class="nav-link" aria-current="page" href="InsertarVoluntarioLandingPage" style="margin-right: 10px;">Landing Page</a>
                       	</li>
+                      	<li class="nav-item">
+                        	
+                      	</li>
                     </ul>
                 </div>
               </nav>
         </div>
     </header>
-    <div style="display: flex">
-			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block sticky-left" style="padding-left: 0%; padding-right: 0%">
-				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
-					<ul class="list-unstyled components mb-3">
-						<li><a href="IndexVoluntario">Voluntario</a></li>
-						<li><a href="IndexMedico">Medico</a></li>
-						<li><a href="IndexRuta">Ruta</a></li>
-						<li><a href="IndexRescate">Rescate</a></li>
-						<li><a href="IndexRescatado">Rescatado</a></li>
-						<li><a href="IndexFichaMedica">Ficha medica</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="col-md-9" style="margin-left: 30px; padding-top: 4%">
-				<h1>Bienvenido al panel de control de AitaMari</h1>
-        		<img src="LogoAitaMari-blanco.png" alt="logo aitamari" height="300px" width="250px" style="margin: 25px; margin-left: 30%; padding-top: 2%">
-    		</div>	
-    	</div>
+    <div class="navbarLateral">
+        <nav class="vertical-nav">
+            <ul>
+                <li><a href="IndexVoluntario">Voluntario</a></li>
+                <li><a href="IndexMedico">Medico</a></li>
+                <li><a href="IndexRuta">Ruta</a></li>
+                <li><a href="IndexRescate">Rescate</a></li>
+                <li><a href="IndexRescatado">Rescatado</a></li>
+                <li><a href="IndexFichaMedica">Ficha medica</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div style="margin-left: 25%; margin-top: 5%;">
+        <h1>Bienvenido al panel de control de AitaMari</h1>
+        <img src="LogoAitaMari-blanco.png" alt="logo aitamari" height="400px" width="350px" style="margin: 25px; margin-left: 20%;">
+    </div>
 </body>
 </html>
+

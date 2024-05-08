@@ -66,15 +66,13 @@ public class ModificarVoluntario extends HttpServlet {
 		voluntario.setEmail(email);
 		voluntario.setTelefono(telefono);
 		
-		String confirmacion = (request.getParameter("Confirmacion"));
-		if(confirmacion.equalsIgnoreCase("modificar")) {
 		ModeloVoluntario mv = new ModeloVoluntario();
-			try {
-				mv.modificar(voluntario);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();	
-			}
+		try {
+			mv.modificar(voluntario);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+			
 		}
 		
 		response.sendRedirect("IndexVoluntario");
