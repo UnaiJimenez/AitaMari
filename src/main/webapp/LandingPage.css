@@ -1,0 +1,240 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    background-color: #d5e1ff;
+}
+
+.cuerpo{
+    display: flex;
+    flex: 1;
+    padding-bottom: 10%;
+    flex-direction: row;
+    align-items: center;
+    background-image: url(Fondo.jpg);
+    background-position: center;
+    background-size: cover;
+    justify-content: space-around;
+}
+
+.informacion{
+    padding-left: 10%;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.btn{
+    font-size: large;
+}
+
+.slogan{
+    font-size: xx-large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+footer {
+    background-color: #d5e1ff;
+    position: fixed;
+    left: 0;
+    bottom: 0.1%;
+    height: 10em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+footer h2{
+    padding-left: 5%;
+    margin-right: 15%;
+}
+
+.imgContactos1{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1%;
+}
+
+.telefono{
+    height: 50px;
+    width: 50px;
+}
+
+.direccion{
+    height: 50px;
+    width: 50px;
+}
+
+.correo{
+    height: 50px;
+    width: 50px;
+}
+
+.contactos1{
+    display: flex;
+    flex-direction: column;
+    margin-right: 9%;
+}
+
+.imgContactos2{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1%;
+}
+
+.instagram{
+    height: 50px;
+    width: 50px;
+}
+
+.twitter{
+    height: 50px;
+    width: 50px;
+}
+
+.facebook{
+    height: 50px;
+    width: 50px;
+}
+
+.contactos2{
+    display: flex;
+    flex-direction: column;
+}
+  
+@media screen and (max-width: 600px) {
+
+    body{
+        display: flex;
+        flex-direction: column;
+        max-height: 200vh;
+        overflow-y: scroll;
+    }
+
+    header{
+        background-color: #d5e1ff;
+    }
+    
+    .cuerpo{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        background-image: url(Fondo.jpg);
+        background-position: center;
+        background-size: cover;
+        justify-content: space-around;
+        padding-bottom: 45%;
+    }
+
+    .informacion{
+        padding-left: 0%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: fit-content;
+    }
+    
+    .btn{
+        font-size: large;
+    }
+    
+    .slogan{
+        font-size: x-large;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+    }
+    
+    footer {
+        background-color: #d5e1ff;
+        position: fixed;
+        left: 0;
+        bottom: 0.1%;
+        height: 10em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+    
+    footer h2{
+        padding-left: 2%;
+        margin-right: 7%;
+        font-size: smaller;
+    }
+    
+    .imgContactos1{
+        display: flex;
+        flex-direction: column;
+        margin-right: 1%;
+    }
+
+    .telefono{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .direccion{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .correo{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .contactos1{
+        display: flex;
+        flex-direction: column;
+        margin-right: 5%;
+        font-size: x-small;
+    }
+    
+    .imgContactos2{
+        display: flex;
+        flex-direction: column;
+        margin-right: 1%;
+    }
+
+    .instagram{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .twitter{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .facebook{
+        height: 35px;
+        width: 35px;
+        margin-bottom: 1rem;
+    }
+    
+    .contactos2{
+        display: flex;
+        flex-direction: column;
+        font-size: x-small;
+    }
+}
