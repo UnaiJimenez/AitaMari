@@ -179,6 +179,16 @@ public class ModeloRuta {
 		pst.setInt(2, idVoluntario);
 		pst.execute();
 	}
+	
+	public static void insertarMedico(int idRuta, int idMedico) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con
+				.prepareStatement("INSERT INTO ParticipantesMedicos(idRuta,idMedico) VALUES (?,?)");
+		pst.setInt(1, idRuta);
+		pst.setInt(2, idMedico);
+		pst.execute();
+	}
+	
 
 	public int getUltimaRuta() throws ClassNotFoundException {
 		
@@ -231,6 +241,16 @@ public class ModeloRuta {
 		pst.execute();
 	}
 	
+	public static void eliminarMedico(int idRuta) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con
+				.prepareStatement("DELETE FROM ParticipantesMedicos WHERE idRuta = ?");
+		pst.setInt(1, idRuta);
+		pst.execute();
+	}
+	
+	
+	
 	public void modificarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException {
 		try {
 
@@ -239,6 +259,22 @@ public class ModeloRuta {
 					"UPDATE ParticipantesVoluntarios SET idVoluntario = ? WHERE idRuta = ?");
 
 			pst.setInt(1, idVoluntario);
+			pst.setInt(2, idRuta);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+	}
+	
+	public void modificarMedico(int idRuta, int idMedico) throws ClassNotFoundException {
+		try {
+
+			Connection con = Conector.getConnection();
+			PreparedStatement pst = con.prepareStatement(
+					"UPDATE ParticipantesMedicos SET idMedico = ? WHERE idRuta = ?");
+
+			pst.setInt(1, idMedico);
 			pst.setInt(2, idRuta);
 			pst.executeUpdate();
 		} catch (SQLException e) {

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Medico;
+import modelo.ModeloMedico;
 import modelo.ModeloRuta;
 import modelo.ModeloVoluntario;
 import modelo.Ruta;
@@ -41,6 +43,8 @@ public class InsertarRuta extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
+		ArrayList<Medico> medicos = ModeloMedico.getTodos();
+		request.setAttribute("medicos", medicos);
 		request.setAttribute("voluntarios", voluntarios);
 
 		request.getRequestDispatcher("InsertarRuta.jsp").forward(request, response);
@@ -92,11 +96,25 @@ public class InsertarRuta extends HttpServlet {
 		}
 
 		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+		String[] idMedicos = request.getParameterValues("idMedicos[]");
+		
 		for (String idVoluntario : idVoluntarios) {
 			ModeloRuta mr = new ModeloRuta();
 
 			try {
 				mr.insertarVoluntario(mr.getUltimaRuta(), Integer.parseInt(idVoluntario));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for (String idMedico : idMedicos) {
+			ModeloRuta mr = new ModeloRuta();
+
+			try {
+				mr.insertarMedico(mr.getUltimaRuta(), Integer.parseInt(idMedico));
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
