@@ -8,7 +8,6 @@ public class Rescatado {
 	private String sexo;
 	private String edad;
 	private int idRescate;
-	
 	public int getId() {
 		return id;
 	}
