@@ -44,14 +44,13 @@
             <div class="col-12">
                 <label for="IdRescate" class="form-label">IdRescate</label>
                 <input type="text" class="form-control"  name="idRescate" placeholder="idRescate">
+          </div>
+            <div class="col-12">
+				<input type="submit" value="Insertar" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
             </div>
-           
-				<div style="margin: 2%">
-   					<form action="InsertarRescatado" method="post" style="margin: 2%">
-    					<input type="hidden" name="id" value="${rescatado.id}"/>
-    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-    					<input type="hidden" name="Confirmacion" value="insertar">
-					</form>
+             <div class="col-12">
+				<input type="submit" value="AnadirFichaMedica" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
+            </div>
         </form>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

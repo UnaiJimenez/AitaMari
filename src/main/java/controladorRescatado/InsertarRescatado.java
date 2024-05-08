@@ -67,8 +67,20 @@ public class InsertarRescatado extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		
+        } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
+            try {
+				mr.insertarRescatado(rescatado);
+				int idRescatado = ModeloRescatado.getUltimoRescate();
+				request.setAttribute("idRescatado", idRescatado);
+				request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        } 
 		response.sendRedirect("IndexRescatado");
 		
 	}
