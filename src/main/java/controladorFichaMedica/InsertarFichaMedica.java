@@ -55,25 +55,32 @@ public class InsertarFichaMedica extends HttpServlet {
 		String alergias = request.getParameter("alergias");
 		String tipoSangre = request.getParameter("tipoSangre");
 		int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
-		try {
-			Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
-			FichaMedica fichaMedica = new FichaMedica();
-			fichaMedica.setConstantesVitales(constantesVitales);
-			fichaMedica.setAlergias(alergias);
-			fichaMedica.setTipoSangre(tipoSangre);
-			fichaMedica.setRescatado(rescatado);
 
+		Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
+		FichaMedica fichaMedica = new FichaMedica();
+		fichaMedica.setConstantesVitales(constantesVitales);
+		fichaMedica.setAlergias(alergias);
+		fichaMedica.setTipoSangre(tipoSangre);
+		fichaMedica.setRescatado(rescatado);
+
+		String confirmacion = (request.getParameter("Confirmacion"));
+		if(confirmacion.equalsIgnoreCase("insertar")) {
 			ModeloFichaMedica mfm = new ModeloFichaMedica();
-
 			try {
 				mfm.insertarFichasMedicas(fichaMedica);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+
 		}
 
 		response.sendRedirect("IndexFichaMedica");

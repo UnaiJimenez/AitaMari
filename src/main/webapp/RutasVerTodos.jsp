@@ -17,61 +17,78 @@
 </head>
 <body>
 	<header>
-		<div>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+		<div class="container-xlg" style="width: -webkit-fill-available; position: fixed;">
+			<div class="row">
+				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top" style="padding: 0%; z-index: 1000;">
 				<div class="container-fluid" style="background-color: lightgray;">
-				<a class="nav-link" aria-current="page" href="Index" style="margin-right: 2%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
-					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="InsertarRuta" 
-							style="margin-right: 10px;">Insertar Rutas - <img
-								src="Insertar.png" alt="insertar" class="fotoInsertar"></a>
-						</li>
-					</ul>
-				</div>
-			</nav> 
+					<a class="nav-link" aria-current="page" href="Index" style="margin-left: 1%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+					<div>
+						<ul class="navbar-nav" style="display: flex; flex-direction: row;">
+							<li class="nav-item" style="padding-top: 5px;"><a class="nav-link" aria-current="page" href="InsertarRuta">Insertar Rutas - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
+							<div class="collapse" id="navbarToggleExternalContent">
+								<div class="bg p-4">
+									<h5 class="text-body-emphasis h4">Collapsed content</h5>
+									<span class="text-body-secondary">Toggleable via the navbar brand.</span>
+								</div>
+							</div>
+								<nav class="navbar navbar bg">
+									<div class="container-fluid">
+										<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+								</nav>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
 		</div>
 	</header>
-	<div class="navbarLateral">
-		<nav class="vertical-nav">
-			<ul> 
-				<li><a href="IndexVoluntario">Voluntario</a></li>
-				<li><a href="IndexMedico">Medico</a></li>
-				<li><a href="IndexRuta">Ruta</a></li>
-				<li><a href="IndexRescate">Rescate</a></li>
-				<li><a href="IndexRescatado">Rescatado</a></li>
-				<li><a href="IndexFichaMedica">Ficha medica</a></li>
-			</ul>
-		</nav>
-	</div>
-	<div class="table-responsive">
-		<table class="table-sm table-striped" style="width: -webkit-fill-available">
-			<thead>
-				<tr>
-					<th scope="col">Ruta</th>
-					<th scope="col">fechaSalida</th>
-					<th scope="col">fechaLlegada</th>
-					<th scope="col">origen</th>
-					<th scope="col">destino</th>
-					<th scope="col"></th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach items="${rutas}" var="ruta">
-			<tr>
-				<td id="${ruta.id}">${ruta.id}</td>
-				<td>${ruta.fechaSalida}</td>
-				<td>${ruta.fechaLlegada}</td>
-				<td>${ruta.origen}</td>
-				<td>${ruta.destino}</td>
-				<td style="display: flex;">
-					<a class="nav-link" aria-current="page" href="ModificarRuta?id=${ruta.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-					<a class="nav-link" aria-current="page" href="EliminarRuta?id=${ruta.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
-					<a class="nav-link" aria-current="page" href="RutaVerDetalles?id=${ruta.id}"><img src="Ojo.png" alt="verDetalles" height="30px" width="40px"></a>
-				</td>	
-			</tr>
-		</c:forEach>
-			</tbody>
-		</table>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block" style="padding-left: 0%; padding-right: 0%">
+				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
+					<ul class="list-unstyled components mb-3">
+						<li><a href="IndexVoluntario">Voluntario</a></li>
+						<li><a href="IndexMedico">Medico</a></li>
+						<li><a href="IndexRuta">Ruta</a></li>
+						<li><a href="IndexRescate">Rescate</a></li>
+						<li><a href="IndexRescatado">Rescatado</a></li>
+						<li><a href="IndexFichaMedica">Ficha medica</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th scope="col">Ruta</th>
+							<th scope="col">Fecha de Salida</th>
+							<th scope="col">Fecha de Llegada</th>
+							<th scope="col">Origen</th>
+							<th scope="col">Destino</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${rutas}" var="ruta">
+							<tr>
+								<td id="${ruta.id}">${ruta.id}</td>
+								<td>${ruta.fechaSalida}</td>
+								<td>${ruta.fechaLlegada}</td>
+								<td>${ruta.origen}</td>
+								<td>${ruta.destino}</td>
+								<td style="display: flex;">
+									<a class="nav-link" aria-current="page" href="ModificarRuta?id=${ruta.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+									<a class="nav-link" aria-current="page" href="EliminarRuta?id=${ruta.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+									<a class="nav-link" aria-current="page" href="RutaVerDetalles?id=${ruta.id}"><img src="Ojo.png" alt="verDetalles" height="30px" width="40px"></a>
+								</td>	
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
-</html>

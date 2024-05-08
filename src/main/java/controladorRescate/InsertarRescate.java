@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
+import modelo.ModeloVoluntario;
 import modelo.Rescate;
 
 /**
@@ -53,7 +54,7 @@ public class InsertarRescate extends HttpServlet {
 
 		try {
 			Date fechaHora = sdf.parse(fh);
-			String posicion = request.getParameter("apellido");
+			String posicion = request.getParameter("posicion");
 			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
 			Rescate rescate = new Rescate();
@@ -61,17 +62,18 @@ public class InsertarRescate extends HttpServlet {
 			rescate.setPosicion(posicion);
 			rescate.setIdRuta(idRuta);
 
-			ModeloRescate mr = new ModeloRescate();
-			try {
-
-				mr.insertarRescates(rescate);
-
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			String confirmacion = (request.getParameter("Confirmacion"));
+			if(confirmacion.equalsIgnoreCase("insertar")) {
+				ModeloRescate mr = new ModeloRescate();
+				try {
+					mr.insertarRescates(rescate);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		} catch (ParseException e) {
@@ -79,7 +81,7 @@ public class InsertarRescate extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("IndexRescates");
+		response.sendRedirect("IndexRescate");
 
 	}
 

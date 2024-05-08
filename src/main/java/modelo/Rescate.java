@@ -6,8 +6,9 @@ import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Rescate {
 
+
 	private int id;
-	private DateTimeAtCompleted fechaHora;
+	private Date fechaHora;
 	private String posicion;
 	private int idRuta;
 	
@@ -16,12 +17,12 @@ public class Rescate {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public DateTimeAtCompleted getFechaHora() {
+  }
+	public Date getFechaHora() {
 		return fechaHora;
 	}
-	public void setFechaHora(DateTimeAtCompleted fechaHora) {
+	public void setFechaHora(Date fechaHora) {
+
 		this.fechaHora = fechaHora;
 	}
 	public String getPosicion() {
