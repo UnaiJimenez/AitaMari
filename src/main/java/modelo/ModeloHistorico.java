@@ -12,8 +12,6 @@ public class ModeloHistorico {
 		Connection con = Conector.getConnection();
 		Statement st = con.prepareStatement("CALL ObtenerRutaConMasRescatados");
 		
-		
-		
 		return historico;
 		}
 	

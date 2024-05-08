@@ -78,5 +78,4 @@ public class InsertarFichaMedica extends HttpServlet {
 
 		response.sendRedirect("IndexFichaMedica");
 	}
-
 }
