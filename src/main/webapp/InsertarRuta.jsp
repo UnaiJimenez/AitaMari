@@ -53,10 +53,7 @@
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
-			<div class="col-12">
-				<input type="submit" value="Insertar" name="Insertar" class="btn"
-					style="background-color: white; margin: 2%;">
-			</div>
+			<p>Voluntarios</p>
 			<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
@@ -64,6 +61,19 @@
 						for="flexCheckDefault"> ${voluntario.nombre}</label>
 				</div>
 			</c:forEach>
+			<p>Medicos</p>
+			<c:forEach items="${medicos}" var="medico">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="idMedicos[]"
+						value="${medico.id}" id="flexCheckDefault"> <label class="form-check-label"
+						for="flexCheckDefault"> ${medico.nombre}</label>
+				</div>
+			</c:forEach>			
+			<div class="col-12">
+				<input type="submit" value="Insertar" name="Insertar" class="btn"
+					style="background-color: white; margin: 2%;">
+			</div>
+			
 		</form>
 	</div>
 	<script

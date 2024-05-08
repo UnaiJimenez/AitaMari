@@ -52,7 +52,7 @@
 					<th scope="col">Nombre</th>
 					<th scope="col">Sexo</th>
 					<th scope="col">Edad</th>				
-					<th scope="col">idRescatado</th>
+					<th scope="col">idRescate</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>

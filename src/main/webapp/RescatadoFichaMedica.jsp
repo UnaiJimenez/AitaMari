@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<title>Insertar FichaMedica</title>
+<title>Modificar</title>
 <body style="background-color: #ececec;">
 	<header>
 		<div>
@@ -33,6 +33,7 @@
 	<div class="formulario" style="margin-top: 5%; margin-left: 35%;">
 		<form class="row g-3 col-6" action="InsertarFichaMedica" method="post"
 			style="background-color: #bebebe; border-radius: 2%;">
+			<input type="hidden" name="idRescatado" value="${idRescatado}"/>
 			<div class="col-12">
 				<label for="ConstantesVitales" class="form-label">Constantes
 					Vitales</label> <input type="text" class="form-control"
@@ -49,12 +50,6 @@
 					placeholder="Tipo de Sangre">
 			</div>
 			<div class="col-12" style="margin-top: 5%">
-				<select class="form-select" aria-label="idRescatado" name="idRescatado">
-					<option selected>Selecciona el nombre del rescatado</option>
-					<c:forEach items="${rescatados}" var="rescatado">
-						<option value="${rescatado.id}">${rescatado.nombre}</option>
-					</c:forEach>
-				</select>
 			</div>
 			<div class="col-12">
 				<input type="submit" value="Insertar" name="Insertar" class="btn"
