@@ -69,7 +69,7 @@ public class InsertarRescatado extends HttpServlet {
 				e.printStackTrace();
 			}
 
-        } else if (confirmacion.equalsIgnoreCase("AñadirFichaMedica")) {
+        } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
             try {
 				mr.insertarRescatado(rescatado);
 				int idRescatado = ModeloRescatado.getUltimoRescate();
