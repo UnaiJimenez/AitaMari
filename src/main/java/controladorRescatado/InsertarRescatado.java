@@ -73,7 +73,6 @@ public class InsertarRescatado extends HttpServlet {
 				mr.insertarRescatado(rescatado);
 				int idRescatado = ModeloRescatado.getUltimoRescate();
 				request.setAttribute("idRescatado", idRescatado);
-				System.out.println(idRescatado);
 				request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
