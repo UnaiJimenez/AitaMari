@@ -76,10 +76,8 @@ public class InsertarRuta extends HttpServlet {
 			ruta.setOrigen(origen);
 			ruta.setDestino(destino);
 
-			String confirmacion = (request.getParameter("Confirmacion"));
-			if(confirmacion.equalsIgnoreCase("insertar")) {
-				ModeloRuta mr = new ModeloRuta();
 				try {
+					ModeloRuta mr = new ModeloRuta();
 					mr.insertarRuta(ruta);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -88,8 +86,6 @@ public class InsertarRuta extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
-			}
 
 		} catch (ParseException e) {
 			e.printStackTrace();
