@@ -34,13 +34,11 @@
 		<form class="row g-3 col-6" action="InsertarRuta" method="post"
 			style="background-color: #bebebe; border-radius: 2%;">
 			<div class="col-12">
-
-				<label for="fechaSalida" class="form-label">fechaSalida</label> <input
-					type="text" class="form-control" name="fechaSalida"
-					placeholder="yyyy-MM-dd">
+				<label for="fechaSalida" class="form-label">Fecha Salida</label> <input
+					type="text" class="form-control" name="fechaSalida" placeholder="yyyy-MM-dd">
 			</div>
 			<div class="col-12">
-				<label for="fechaLlegada" class="form-label">fechaLlegada</label> <input
+				<label for="fechaLlegada" class="form-label">Fecha Llegada</label> <input
 					type="text" class="form-control" name="fechaLlegada"
 					placeholder="yyyy-MM-dd">
 			</div>
@@ -49,7 +47,7 @@
 					type="text" class="form-control" name="origen" placeholder="Origen">
 			</div>
 			<div class="col-12">
-				<label for="destino" class="form-label">destino</label> <input
+				<label for="destino" class="form-label">Destino</label> <input
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
@@ -73,7 +71,22 @@
 				<input type="submit" value="Insertar" name="Insertar" class="btn"
 					style="background-color: white; margin: 2%;">
 			</div>
-			
+			<div style="display: flex; justify-content: flex-end;">
+				<div style="margin: 2%">
+   					<form action="InsertarRuta" method="post" style="margin: 2%">
+    					<input type="hidden" name="id" value="${ruta.id}"/>
+    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    					<input type="hidden" name="Confirmacion" value="insertar">
+					</form>
+				</div>
+				<div style="margin: 2%">
+					<form action="InsertarRuta" method="post">
+    					<input type="hidden" name="id" value="${ruta.id}"/>
+    					<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   						<input type="hidden" name="Confirmacion" value="cancelar">
+					</form>
+				</div>
+			</div>
 		</form>
 	</div>
 	<script

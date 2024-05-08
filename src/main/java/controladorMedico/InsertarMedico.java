@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloMedico;
+import modelo.ModeloVoluntario;
 import modelo.Medico;
 
 /**
@@ -49,17 +50,19 @@ public class InsertarMedico extends HttpServlet {
         medico.setApellido(apellido);
         medico.setEspecialidad(especialidad);
 
-        ModeloMedico mm = new ModeloMedico();
-        
-        try {
-            mm.insertarMedico(medico);
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        String confirmacion = (request.getParameter("Confirmacion"));
+		if(confirmacion.equalsIgnoreCase("insertar")) {
+			ModeloMedico mm = new ModeloMedico();
+			try {
+				mm.insertarMedico(medico);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
         
         response.sendRedirect("IndexMedico");
     }

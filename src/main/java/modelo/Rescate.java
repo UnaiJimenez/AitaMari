@@ -1,6 +1,5 @@
 package modelo;
 
-
 import java.util.Date;
 
 public class Rescate {
@@ -16,7 +15,6 @@ public class Rescate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public Date getFechaHora() {
 		return fechaHora;
 	}
