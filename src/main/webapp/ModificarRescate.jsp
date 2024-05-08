@@ -31,7 +31,7 @@
                 <input type="hidden" name="id" value="${rescate.id}"/>
                 
 				<label for="Fecha" class="form-label">Fecha</label>
-                <input type="text" class="form-control" name="fecha" placeholder="Fecha" value="${rescate.fechaHora}">
+                <input type="text" class="form-control" name="fecha" placeholder="Fecha" value="${rescate.nombre}">
             </div>
             <div class="col-12">
                 <label for="Posicion" class="form-label">Posicion</label>

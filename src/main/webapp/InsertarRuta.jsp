@@ -34,11 +34,13 @@
 		<form class="row g-3 col-6" action="InsertarRuta" method="post"
 			style="background-color: #bebebe; border-radius: 2%;">
 			<div class="col-12">
-				<label for="fechaSalida" class="form-label">Fecha Salida</label> <input
-					type="text" class="form-control" name="fechaSalida" placeholder="yyyy-MM-dd">
+
+				<label for="fechaSalida" class="form-label">fechaSalida</label> <input
+					type="text" class="form-control" name="fechaSalida"
+					placeholder="yyyy-MM-dd">
 			</div>
 			<div class="col-12">
-				<label for="fechaLlegada" class="form-label">Fecha Llegada</label> <input
+				<label for="fechaLlegada" class="form-label">fechaLlegada</label> <input
 					type="text" class="form-control" name="fechaLlegada"
 					placeholder="yyyy-MM-dd">
 			</div>
@@ -47,7 +49,7 @@
 					type="text" class="form-control" name="origen" placeholder="Origen">
 			</div>
 			<div class="col-12">
-				<label for="destino" class="form-label">Destino</label> <input
+				<label for="destino" class="form-label">destino</label> <input
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
@@ -67,6 +69,7 @@
 					</form>
 				</div>
 			</div>
+      <p>Voluntarios</p>
 			<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
@@ -74,6 +77,18 @@
 						for="flexCheckDefault"> ${voluntario.nombre}</label>
 				</div>
 			</c:forEach>
+			<p>Medicos</p>
+			<c:forEach items="${medicos}" var="medico">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="idMedicos[]"
+						value="${medico.id}" id="flexCheckDefault"> <label class="form-check-label"
+						for="flexCheckDefault"> ${medico.nombre}</label>
+				</div>
+			</c:forEach>			
+			<div class="col-12">
+				<input type="submit" value="Insertar" name="Insertar" class="btn"
+					style="background-color: white; margin: 2%;">
+			</div>
 		</form>
 	</div>
 	<script

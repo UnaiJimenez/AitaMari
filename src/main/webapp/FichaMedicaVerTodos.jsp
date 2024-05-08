@@ -78,7 +78,7 @@
 								<td>${fichaMedica.constantesVitales}</td>
 								<td>${fichaMedica.alergias}</td>
 								<td>${fichaMedica.tipoSangre}</td>
-								<td>${fichaMedica.idRescatado}</td>
+								<td>${fichaMedica.rescatado.id} ${fichaMedica.rescatado.nombre}</td>
 								<td style="display: flex;">
 									<a class="nav-link" aria-current="page" href="ModificarFichaMedica?id=${fichaMedica.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 									<a class="nav-link" aria-current="page" href="EliminarFichaMedica?id=${fichaMedica.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>

@@ -1,9 +1,6 @@
 package modelo;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
-
 import java.util.Date;
-
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Rescate {

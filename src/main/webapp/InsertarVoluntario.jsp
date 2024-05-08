@@ -45,22 +45,9 @@
                 <label for="Telefono" class="form-label">Telefono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
             </div>
-            <div style="display: flex; justify-content: flex-end;">
-				<div style="margin: 2%">
-   					<form action="InsertarVoluntario" method="post" style="margin: 2%">
-    					<input type="hidden" name="id" value="${voluntario.id}"/>
-    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-    					<input type="hidden" name="Confirmacion" value="insertar">
-					</form>
-				</div>
-				<div style="margin: 2%">
-					<form action="InsertarVoluntario" method="post">
-    					<input type="hidden" name="id" value="${voluntario.id}"/>
-    					<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
-   						<input type="hidden" name="Confirmacion" value="cancelar">
-					</form>
-				</div>
-			</div>
+            <div class="col-12">
+				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+            </div>
         </form>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

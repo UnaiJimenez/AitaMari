@@ -14,55 +14,57 @@
 <title>Modificar</title>
 <body style="background-color: #ececec;">
 	<header>
-        <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-                <div class="container-fluid" style="background-color: lightgray;">
-                    <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
-                      </li>
-                    </ul>
-                </div>
-              </nav>
-        </div>
-    </header>
-    <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "InsertarFichaMedica" method="post" style="background-color: #bebebe; border-radius: 2%;">
-            <div class="col-12">
-				<label for="ConstantesVitales" class="form-label">Constantes Vitales</label>
-                <input type="text" class="form-control" name="constantesVitales" placeholder="Constantes Vitales">
-            </div>
-            <div class="col-12">
-                <label for="Alergias" class="form-label">Alergias</label>
-                <input type="text" class="form-control" name="alergias" placeholder="Alergias">
-            </div>
-            <div class="col-12">
-                <label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
-                <input type="text" class="form-control"  name="tipoSangre" placeholder="Tipo de Sangre">
-            </div>
-            <div class="col-12">
-                <label for="IdRescatado" class="form-label">Id Rescatado</label>
-                <input type="text" class="form-control" name="idRescatado" placeholder="Id Rescatado">
-            </div>
-            <div style="display: flex; justify-content: flex-end;">
-				<div style="margin: 2%">
-   					<form action="InsertarFichaMedica" method="post" style="margin: 2%">
-    					<input type="hidden" name="id" value="${fichaMedica.id}"/>
-    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-    					<input type="hidden" name="Confirmacion" value="insertar">
-					</form>
+		<div>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+				<div class="container-fluid" style="background-color: lightgray;">
+					<img src="LogoAitaMari-gris.png" alt="Logo" width="100px"
+						height="80px" class="d-inline-block align-text-top"
+						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="PanelDeControl.jsp" style="margin-right: 20px;"><img
+								src="IconoInicio.png" alt="icono de inicio" width="30px"
+								height="25px"></a></li>
+					</ul>
 				</div>
-				<div style="margin: 2%">
-					<form action="InsertarFichaMedica" method="post">
-    					<input type="hidden" name="id" value="${fichaMedica.id}"/>
-    					<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
-   						<input type="hidden" name="Confirmacion" value="cancelar">
-					</form>
-				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="formulario" style="margin-top: 5%; margin-left: 35%;">
+		<form class="row g-3 col-6" action="InsertarFichaMedica" method="post"
+			style="background-color: #bebebe; border-radius: 2%;">
+			<div class="col-12">
+				<label for="ConstantesVitales" class="form-label">Constantes
+					Vitales</label> <input type="text" class="form-control"
+					name="constantesVitales" placeholder="Constantes Vitales">
 			</div>
-        </form>
-    </div> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+			<div class="col-12">
+				<label for="Alergias" class="form-label">Alergias</label> <input
+					type="text" class="form-control" name="alergias"
+					placeholder="Alergias">
+			</div>
+			<div class="col-12">
+				<label for="TipoDeSangre" class="form-label">Tipo de Sangre</label>
+				<input type="text" class="form-control" name="tipoSangre"
+					placeholder="Tipo de Sangre">
+			</div>
+			<div class="col-12" style="margin-top: 5%">
+				<select class="form-select" aria-label="idRescatado" name="idRescatado">
+					<option selected>Selecciona el nombre del rescatado</option>
+					<c:forEach items="${rescatados}" var="rescatado">
+						<option value="${rescatado.id}">${rescatado.nombre}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="col-12">
+				<input type="submit" value="Insertar" name="Insertar" class="btn"
+					style="background-color: white; margin: 2%;">
+			</div>
+		</form>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 </body>
 </html>

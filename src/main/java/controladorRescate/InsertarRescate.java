@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
-import modelo.ModeloVoluntario;
 import modelo.Rescate;
 
 /**
@@ -52,7 +51,7 @@ public class InsertarRescate extends HttpServlet {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String fh = request.getParameter("fechaHora");
-
+		System.out.println(fh);
 		try {
 			Date fechaHora = sdf.parse(fh);
 			String posicion = request.getParameter("posicion");
@@ -63,18 +62,17 @@ public class InsertarRescate extends HttpServlet {
 			rescate.setPosicion(posicion);
 			rescate.setIdRuta(idRuta);
 
-			String confirmacion = (request.getParameter("Confirmacion"));
-			if(confirmacion.equalsIgnoreCase("insertar")) {
-				ModeloRescate mr = new ModeloRescate();
-				try {
-					mr.insertarRescates(rescate);
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			ModeloRescate mr = new ModeloRescate();
+			try {
+
+				mr.insertarRescate(rescate);
+
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		} catch (ParseException e) {

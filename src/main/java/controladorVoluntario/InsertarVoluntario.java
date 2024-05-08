@@ -53,18 +53,21 @@ public class InsertarVoluntario extends HttpServlet {
 		voluntario.setEmail(email);
 		voluntario.setTelefono(telefono);
 
-		String confirmacion = (request.getParameter("Confirmacion"));
-		if(confirmacion.equalsIgnoreCase("insertar")) {
-			ModeloVoluntario mv = new ModeloVoluntario();
-			try {
-				mv.insertarVoluntarios(voluntario);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		ModeloVoluntario mv = new ModeloVoluntario();
+		
+		
+		
+		try {
+			
+			mv.insertarVoluntarios(voluntario);
+			
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		response.sendRedirect("IndexVoluntario");
