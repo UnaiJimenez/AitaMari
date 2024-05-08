@@ -49,12 +49,12 @@ public class InsertarRescate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String fh = request.getParameter("fechaHora");
-
+		System.out.println(fh);
 		try {
 			Date fechaHora = sdf.parse(fh);
-			String posicion = request.getParameter("apellido");
+			String posicion = request.getParameter("posicion");
 			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
 			Rescate rescate = new Rescate();
@@ -65,7 +65,7 @@ public class InsertarRescate extends HttpServlet {
 			ModeloRescate mr = new ModeloRescate();
 			try {
 
-				mr.insertarRescates(rescate);
+				mr.insertarRescate(rescate);
 
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -80,7 +80,7 @@ public class InsertarRescate extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("IndexRescates");
+		response.sendRedirect("IndexRescate");
 
 	}
 
