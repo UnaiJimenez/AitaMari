@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
 import modelo.Rescate;
+import modelo.Ruta;
 
 /**
  * Servlet implementation class ModificarVoluntario
@@ -68,11 +69,12 @@ public class ModificarRescate extends HttpServlet {
 		try {
 			Date fechaHora = sdf.parse(fh);
 
+			Ruta ruta = ModeloRescate.getRuta(idRuta);
 			Rescate rescate = new Rescate();
 			rescate.setId(id);
 			rescate.setFechaHora(fechaHora);
 			rescate.setPosicion(posicion);
-			rescate.setIdRuta(idRuta);
+			rescate.setRuta(ruta);
 
 			ModeloRescate mr = new ModeloRescate();
 			try {
@@ -83,6 +85,9 @@ public class ModificarRescate extends HttpServlet {
 
 			}
 		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

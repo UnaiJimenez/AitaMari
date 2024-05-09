@@ -133,6 +133,7 @@ public class ModeloRuta {
 
 			if (rs.next()) {
 				Ruta ruta = new Ruta();
+				
 				ruta.setId(rs.getInt("id"));
 				ruta.setFechaSalida(rs.getDate("fechaSalida"));
 				ruta.setFechaLlegada(rs.getDate("fechaLlegada"));

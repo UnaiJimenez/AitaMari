@@ -1,6 +1,7 @@
 package controladorRescate;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
+import modelo.ModeloRuta;
 import modelo.Rescate;
+import modelo.Ruta;
 
 /**
  * Servlet implementation class InsertarVoluntario
@@ -38,8 +41,10 @@ public class InsertarRescate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		ArrayList<Ruta> rutas = ModeloRuta.getTodos();
+		request.setAttribute("rutas", rutas);
 		request.getRequestDispatcher("InsertarRescate.jsp").forward(request, response);
-
+		
 	}
 
 	/**
@@ -51,22 +56,22 @@ public class InsertarRescate extends HttpServlet {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String fh = request.getParameter("fechaHora");
-		System.out.println(fh);
+		String posicion = request.getParameter("posicion");
+		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
+		
 		try {
+			Ruta ruta = ModeloRescate.getRuta(idRuta);
 			Date fechaHora = sdf.parse(fh);
-			String posicion = request.getParameter("posicion");
-			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
 			Rescate rescate = new Rescate();
 			rescate.setFechaHora(fechaHora);
 			rescate.setPosicion(posicion);
-			rescate.setIdRuta(idRuta);
+			rescate.setRuta(ruta);
 
 			ModeloRescate mr = new ModeloRescate();
+			
 			try {
-
 				mr.insertarRescate(rescate);
-
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -78,6 +83,9 @@ public class InsertarRescate extends HttpServlet {
 		} catch (ParseException e) {
 
 			e.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 
 		response.sendRedirect("IndexRescate");

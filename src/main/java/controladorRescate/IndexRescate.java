@@ -35,6 +35,7 @@ public class IndexRescate extends HttpServlet {
 	request.setAttribute("rescates", rescates);
 	
 	//abir la vista principal
+	
 	request.getRequestDispatcher("RescateVerTodos.jsp").forward(request, response);
 	
 	}
