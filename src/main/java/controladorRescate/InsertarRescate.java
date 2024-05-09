@@ -1,6 +1,7 @@
 package controladorRescate;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -17,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescatado;
 import modelo.ModeloRescate;
+import modelo.ModeloRuta;
 import modelo.Rescate;
+import modelo.Ruta;
 
 /**
  * Servlet implementation class InsertarVoluntario
@@ -41,8 +44,10 @@ public class InsertarRescate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		ArrayList<Ruta> rutas = ModeloRuta.getTodos();
+		request.setAttribute("rutas", rutas);
 		request.getRequestDispatcher("InsertarRescate.jsp").forward(request, response);
-
+		
 	}
 
 	/**
@@ -52,18 +57,37 @@ public class InsertarRescate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
 
 		String fh = request.getParameter("fechaHora");
-
-		LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
-
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
+		
+		try {
+			Ruta ruta = ModeloRescate.getRuta(idRuta);
+			Date fechaHora = sdf.parse(fh);
 
-		Rescate rescate = new Rescate();
-		rescate.setFechaHora(fechaHora);
-		rescate.setPosicion(posicion);
-		rescate.setIdRuta(idRuta);
+			Rescate rescate = new Rescate();
+			rescate.setFechaHora(fechaHora);
+			rescate.setPosicion(posicion);
+			rescate.setRuta(ruta);
+
+			ModeloRescate mr = new ModeloRescate();
+			
+			try {
+				mr.insertarRescate(rescate);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			e.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		String confirmacion = request.getParameter("Confirmacion");
 		ModeloRescate mr = new ModeloRescate();

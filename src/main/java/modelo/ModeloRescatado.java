@@ -76,7 +76,6 @@ public class ModeloRescatado {
 			if (rs.next()) {
 				Rescatado rescatado = new Rescatado();
 				
-				
 				rescatado.setId(rs.getInt("id"));
 				rescatado.setNacionalidad(rs.getString("nacionalidad"));
 				rescatado.setNombre(rs.getString("nombre"));
@@ -112,33 +111,26 @@ public class ModeloRescatado {
 
 	}
 	
-public static int getUltimoRescatado() throws ClassNotFoundException {
+public static int getUltimoRescate() throws ClassNotFoundException {
 		
 		try { 
 			Connection con = Conector.getConnection();
-
 			PreparedStatement pst = con.prepareStatement("SELECT id FROM Rescatado ORDER BY id DESC LIMIT 1");
-		
 			ResultSet rs = pst.executeQuery();
 		
 			if (rs.next()) {
-			
 				int id = rs.getInt("id");
 				return id;
 			}
-			
-		} catch (SQLException e)
-
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		return -1;
 	}
-
+  
 public static int getUltimoRescate() {
 	// TODO Auto-generated method stub
 	return 0;
   }
-
 }

@@ -68,6 +68,6 @@ public class EliminarRescate extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		response.sendRedirect("IndexRescate");	
+		response.sendRedirect("IndexRescates");	
 	}
 }

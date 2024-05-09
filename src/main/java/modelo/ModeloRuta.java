@@ -133,6 +133,7 @@ public class ModeloRuta {
 
 			if (rs.next()) {
 				Ruta ruta = new Ruta();
+				
 				ruta.setId(rs.getInt("id"));
 				ruta.setFechaSalida(rs.getDate("fechaSalida"));
 				ruta.setFechaLlegada(rs.getDate("fechaLlegada"));
@@ -193,20 +194,14 @@ public class ModeloRuta {
 		
 		try { 
 			Connection con = Conector.getConnection();
-
 			PreparedStatement pst = con.prepareStatement("SELECT id FROM Ruta ORDER BY id DESC LIMIT 1");
-		
 			ResultSet rs = pst.executeQuery();
 		
 			if (rs.next()) {
-			
 				int id = rs.getInt("id");
 				return id;
-			}
-			
-		} catch (SQLException e)
-
-		{
+			}	
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
@@ -240,6 +235,14 @@ public class ModeloRuta {
 		pst.execute();
 	}
 	
+	public static void eliminarMedico(int idRuta) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con
+				.prepareStatement("DELETE FROM ParticipantesMedicos WHERE idRuta = ?");
+		pst.setInt(1, idRuta);
+		pst.execute();
+	}	
+	
 	public void modificarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException {
 		try {
 
@@ -255,15 +258,7 @@ public class ModeloRuta {
 
 		}
 	}
-	
-	public static void eliminarMedico(int idRuta) throws ClassNotFoundException, SQLException {
-		Connection con = Conector.getConnection();
-		PreparedStatement pst = con
-				.prepareStatement("DELETE FROM ParticipantesMedicos WHERE idRuta = ?");
-		pst.setInt(1, idRuta);
-		pst.execute();
-	}
-	
+
 	public void modificarMedico(int idRuta, int idMedico) throws ClassNotFoundException {
 		try {
 
@@ -279,6 +274,4 @@ public class ModeloRuta {
 
 		}
 	}
-	
-
 }
