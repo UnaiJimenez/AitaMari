@@ -111,7 +111,7 @@ public class ModeloRescatado {
 
 	}
 	
-public static int getUltimoRescate() throws ClassNotFoundException {
+public static int getUltimoRescatado() throws ClassNotFoundException {
 		
 		try { 
 			Connection con = Conector.getConnection();
@@ -128,9 +128,4 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 
 		return -1;
 	}
-  
-public static int getUltimoRescate() {
-	// TODO Auto-generated method stub
-	return 0;
-  }
 }
