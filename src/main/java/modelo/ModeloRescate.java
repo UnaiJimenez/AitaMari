@@ -128,7 +128,7 @@ public class ModeloRescate {
 	    Connection con = Conector.getConnection();
 	    PreparedStatement pst = con.prepareStatement(
 					"UPDATE Rescate SET fechaHora = ?, posicion = ?, idRuta = ? WHERE id = ?");
-			pst.setDate(1, new java.sql.Date(rescate.getFechaHora().getTime()));			
+			pst.setTimestamp(1, Timestamp.valueOf(rescate.getFechaHora()));			
 			pst.setString(2, rescate.getPosicion());
 			pst.setInt(3, rescate.getRuta().getId());
 			
@@ -150,7 +150,7 @@ public class ModeloRescate {
 		        if (rs.next()) {
 		            Rescate rescate = new Rescate();
 				        rescate.setId(rs.getInt("id"));
-				        rescate.setFechaHora(rs.getDate("fechaHora"));
+				        rescate.setFechaHora(rs.getTimestamp("fechaHora"));
 				        rescate.setPosicion(rs.getString("posicion"));
 				        Ruta ruta = getRuta(rs.getInt("idRuta"));
 				        rescate.setRuta(ruta);
@@ -168,7 +168,7 @@ public void insertarRescate(Rescate rescate) throws ClassNotFoundException, SQLE
       Connection con = Conector.getConnection();
 		  PreparedStatement pst = con.prepareStatement("INSERT INTO Rescate (fechaHora,posicion,idRuta) VALUES (?,?,?)");
 		
-		  pst.setDate(1, new java.sql.Date(rescate.getFechaHora().getTime()));
+		  pst.setTimestamp(1, Timestamp.valueOf(rescate.getFechaHora()));	
 		  pst.setString(2, rescate.getPosicion());
 		  pst.setInt(3, rescate.getRuta().getId());
 		  pst.execute();
@@ -197,5 +197,6 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	}
