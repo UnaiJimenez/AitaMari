@@ -196,11 +196,11 @@ public class ModeloRuta {
 			Connection con = Conector.getConnection();
 			PreparedStatement pst = con.prepareStatement("SELECT id FROM Ruta ORDER BY id DESC LIMIT 1");
 			ResultSet rs = pst.executeQuery();
-		
+	
 			if (rs.next()) {
 				int id = rs.getInt("id");
 				return id;
-			}	
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -241,7 +241,7 @@ public class ModeloRuta {
 				.prepareStatement("DELETE FROM ParticipantesMedicos WHERE idRuta = ?");
 		pst.setInt(1, idRuta);
 		pst.execute();
-	}	
+	}
 	
 	public void modificarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException {
 		try {
