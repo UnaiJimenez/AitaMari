@@ -1,6 +1,8 @@
 package controladorRescate;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -31,8 +33,10 @@ public class IndexRescate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	
 	ArrayList<Rescate> rescates = ModeloRescate.getTodos();
 	request.setAttribute("rescates", rescates);
+	
 	
 	//abir la vista principal
 	

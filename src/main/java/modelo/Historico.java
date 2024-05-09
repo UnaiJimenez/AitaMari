@@ -3,17 +3,17 @@ package modelo;
 import java.util.Date;
 
 public class Historico {
-
-	private Date año;
+  
+	private Date ano;
 	private Date mes;
 	private Ruta ruta;
 	private int totalRescatados;
 	
-	public Date getAño() {
-		return año;
+	public Date getAÃ±o() {
+		return ano;
 	}
-	public void setAño(Date año) {
-		this.año = año;
+	public void setAÃ±o(Date aÃ±o) {
+		this.ano = aÃ±o;
 	}
 	public Date getMes() {
 		return mes;
@@ -35,7 +35,7 @@ public class Historico {
 	}
 	@Override
 	public String toString() {
-		return "Historico [año=" + año + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados=" + totalRescatados
+		return "Historico [aÃ±o=" + ano + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados=" + totalRescatados
 				+ "]";
 	}
 	

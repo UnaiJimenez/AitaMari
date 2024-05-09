@@ -122,11 +122,15 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 				int id = rs.getInt("id");
 				return id;
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		return -1;
 	}
+  
+public static int getUltimoRescate() {
+	// TODO Auto-generated method stub
+	return 0;
+  }
 }

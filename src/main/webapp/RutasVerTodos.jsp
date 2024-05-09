@@ -44,7 +44,7 @@
 				</nav>
 			</div>
 		</div>
-	</header>
+	</header>                                                                                            
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block" style="padding-left: 0%; padding-right: 0%">
@@ -56,6 +56,7 @@
 						<li><a href="IndexRescate">Rescate</a></li>
 						<li><a href="IndexRescatado">Rescatado</a></li>
 						<li><a href="IndexFichaMedica">Ficha medica</a></li>
+            <li><a href="IndexHistorico">Historico</a></li>
 					</ul>
 				</nav>
 			</div>

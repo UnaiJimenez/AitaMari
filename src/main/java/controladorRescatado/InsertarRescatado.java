@@ -53,12 +53,12 @@ public class InsertarRescatado extends HttpServlet {
 		rescatado.setSexo(sexo);
 		rescatado.setEdad(edad);
 		rescatado.setIdRescate(idRescate);
-		
-		
+
 		String confirmacion = request.getParameter("Confirmacion");
 		ModeloRescatado mr = new ModeloRescatado();
+		
 		if (confirmacion.equalsIgnoreCase("Insertar")) {
-			
+
 			try {
 				mr.insertarRescatado(rescatado);
 			} catch (ClassNotFoundException e) {
@@ -72,7 +72,7 @@ public class InsertarRescatado extends HttpServlet {
         } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
             try {
 				mr.insertarRescatado(rescatado);
-				int idRescatado = ModeloRescatado.getUltimoRescate();
+				int idRescatado = ModeloRescatado.getUltimoRescatado();
 				request.setAttribute("idRescatado", idRescatado);
 				request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
 			} catch (ClassNotFoundException e) {
@@ -83,7 +83,6 @@ public class InsertarRescatado extends HttpServlet {
 				e.printStackTrace();
 			}
         } 
-		
 		
 		response.sendRedirect("IndexRescatado");
 		
