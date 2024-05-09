@@ -31,7 +31,7 @@
             <div class="col-12">
                 <label for="IdRescate" class="form-label">IdRescate</label>
                 <input type="text" class="form-control"  name="idRescate" placeholder="idRescate">
-          </div>
+            </div>
             <div class="col-12">
 				<input type="submit" value="Insertar" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
             </div>

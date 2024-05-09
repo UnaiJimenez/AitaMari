@@ -68,6 +68,14 @@
 						for="flexCheckDefault"> ${voluntario.nombre}</label>
 				</div>
 			</c:forEach>
+			<c:forEach items="${medicos}" var="medico">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox"
+						name="idMedicos[]" value="${medico.id}"
+						id="flexCheckDefault"> <label class="form-check-label"
+						for="flexCheckDefault"> ${medico.nombre}</label>
+				</div>
+			</c:forEach>
 
 			<c:forEach items="${voluntarios}" var="voluntario">
 				<input type="checkbox" name="miCheckbox" value="${voluntario.id}"

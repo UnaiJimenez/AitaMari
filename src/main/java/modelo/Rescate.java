@@ -3,19 +3,18 @@ package modelo;
 import java.time.LocalDateTime;
 
 public class Rescate {
-
+  
 	private int id;
 	private LocalDateTime fechaHora;
 	private String posicion;
-	private int idRuta;
+	private Ruta ruta;
 	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
+  }
 	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
@@ -28,15 +27,15 @@ public class Rescate {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
-	public int getIdRuta() {
-		return idRuta;
+	public Ruta getRuta() {
+		return ruta;
 	}
-	public void setIdRuta(int idRuta) {
-		this.idRuta = idRuta;
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
 	}
 	@Override
 	public String toString() {
-		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
+		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", Ruta=" + ruta + "]";
 	}
 	
 }

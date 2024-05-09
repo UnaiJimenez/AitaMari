@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>Modificar Rescate</title>
+    <title>Eliminar Rescate</title>
+</head>
 <body style="background-color: #ececec;">
-  <header>
+    <header>
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
                 <div class="container-fluid" style="background-color: lightgray;">
@@ -21,31 +21,28 @@
                       </li>
                     </ul>
                 </div>
-              </nav>
+            </nav>
         </div>
     </header>
-   <div class="formulario" style="margin-top: 5%; margin-left: 35%;">
-        <form class="row g-3 col-6" action= "ModificarRescate" method="post" style="background-color: #bebebe; border-radius: 2%;">
-            <div class="col-12">
-                <label for="Nombre" class="form-label"></label>
-                <input type="hidden" name="id" value="${rescate.id}"/>
-                
-				<label for="Fecha" class="form-label">Fecha</label>
-                <input type="text" class="form-control" name="fecha" placeholder="Fecha" value="${rescate.nombre}">
-            </div>
-            <div class="col-12">
-                <label for="Posicion" class="form-label">Posicion</label>
-                <input type="text" class="form-control" name="posicion" placeholder="Posicion" value="${rescate.posicion}">
-            </div>
-            <div class="col-12">
-                <label for="IdRuta" class="form-label">IdRuta</label>
-                <input type="text" class="form-control"  name="idRuta" placeholder="IdRuta" value="${rescate.idRuta}">
-            </div>
-            <div class="col-12">
-					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
-            </div>
-        </form>
-    </div> 
+    <div style="background-color: #cecece; height: 130px; width: 500px; margin-top: 15%; margin-left: 30%">
+    	<p style="padding: 3%">Estas seguro de que quieres borrar este rescate?</p>
+    	<div style="display: flex; justify-content: flex-end;">
+			<div style="margin: 2%">
+   				<form action="EliminarRescate" method="post" style="margin: 2%">
+    				<input type="hidden" name="id" value="${rescate.id}"/>
+    				<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    				<input type="hidden" name="Confirmacion" value="eliminar">
+				</form>
+			</div>
+			<div style="margin: 2%">
+				<form action="EliminarRescate" method="post">
+    				<input type="hidden" name="id" value="${rescate.id}"/>
+    				<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   					<input type="hidden" name="Confirmacion" value="cancelar">
+				</form>
+			</div>
+		</div>
+	</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

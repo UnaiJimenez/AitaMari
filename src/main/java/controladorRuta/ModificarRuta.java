@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Medico;
+import modelo.ModeloMedico;
 import modelo.ModeloRuta;
 import modelo.ModeloVoluntario;
 import modelo.Ruta;
@@ -42,7 +44,9 @@ public class ModificarRuta extends HttpServlet {
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
+		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("voluntarios", voluntarios);
+		request.setAttribute("medicos", medicos);
 		try {
 			Ruta ruta = ModeloRuta.verRuta(id);
 
@@ -67,6 +71,7 @@ public class ModificarRuta extends HttpServlet {
 		String f1 = request.getParameter("fechaSalida");
 		String f2 = request.getParameter("fechaLlegada");
 		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+		String[] idMedicos = request.getParameterValues("idMedicos[]");
 
 		ModeloRuta mr = new ModeloRuta();
 
@@ -96,6 +101,19 @@ public class ModificarRuta extends HttpServlet {
 							e.printStackTrace();
 						}
 					}
+					ModeloRuta.eliminarMedico(id);
+					for (String idMedico : idMedicos) {
+
+						try {
+							ModeloRuta.insertarMedico(id, Integer.parseInt(idMedico));
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+					
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

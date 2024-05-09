@@ -3,8 +3,7 @@ package modelo;
 import java.util.Date;
 
 public class Historico {
-
-
+  
 	private Date ano;
 	private Date mes;
 	private Ruta ruta;
