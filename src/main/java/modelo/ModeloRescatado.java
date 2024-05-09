@@ -111,4 +111,34 @@ public class ModeloRescatado {
 		pst.execute();
 
 	}
+	
+public static int getUltimoRescatado() throws ClassNotFoundException {
+		
+		try { 
+			Connection con = Conector.getConnection();
+
+			PreparedStatement pst = con.prepareStatement("SELECT id FROM Rescatado ORDER BY id DESC LIMIT 1");
+		
+			ResultSet rs = pst.executeQuery();
+		
+			if (rs.next()) {
+			
+				int id = rs.getInt("id");
+				return id;
+			}
+			
+		} catch (SQLException e)
+
+		{
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+
+public static int getUltimoRescate() {
+	// TODO Auto-generated method stub
+	return 0;
+  }
+
 }

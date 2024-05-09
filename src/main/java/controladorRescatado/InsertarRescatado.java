@@ -56,6 +56,7 @@ public class InsertarRescatado extends HttpServlet {
 		
 		String confirmacion = request.getParameter("Confirmacion");
 		ModeloRescatado mr = new ModeloRescatado();
+		
 		if (confirmacion.equalsIgnoreCase("Insertar")) {
 			try {
 				mr.insertarRescatado(rescatado);
@@ -69,7 +70,7 @@ public class InsertarRescatado extends HttpServlet {
         } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
             try {
 				mr.insertarRescatado(rescatado);
-				int idRescatado = ModeloRescatado.getUltimoRescate();
+				int idRescatado = ModeloRescatado.getUltimoRescatado();
 				request.setAttribute("idRescatado", idRescatado);
 				request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
 			} catch (ClassNotFoundException e) {
