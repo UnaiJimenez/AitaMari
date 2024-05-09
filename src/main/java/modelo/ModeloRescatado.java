@@ -139,5 +139,6 @@ public static int getUltimoRescatado() throws ClassNotFoundException {
 public static int getUltimoRescate() {
 	// TODO Auto-generated method stub
 	return 0;
-}
+  }
+
 }

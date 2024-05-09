@@ -39,7 +39,7 @@ public class ModificarRescatado extends HttpServlet {
 		try {
 			
 			Rescatado rescatado = ModeloRescatado.verRescatado(id);
-System.out.println(rescatado);
+
 			request.setAttribute("rescatado", rescatado);
 			request.getRequestDispatcher("ModificarRescatado.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {

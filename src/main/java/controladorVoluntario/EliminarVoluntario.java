@@ -59,7 +59,6 @@ public class EliminarVoluntario extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		String confirmacion = (request.getParameter("Confirmacion"));
-		System.out.println(id);
 		if(confirmacion.equalsIgnoreCase("eliminar")) {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {

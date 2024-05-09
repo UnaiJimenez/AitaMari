@@ -53,7 +53,23 @@
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
-			<p>Voluntarios</p>
+			<div style="display: flex; justify-content: flex-end;">
+				<div style="margin: 2%">
+   					<form action="InsertarRuta" method="post" style="margin: 2%">
+    					<input type="hidden" name="id" value="${ruta.id}"/>
+    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    					<input type="hidden" name="Confirmacion" value="insertar">
+					</form>
+				</div>
+				<div style="margin: 2%">
+					<form action="InsertarRuta" method="post">
+    					<input type="hidden" name="id" value="${ruta.id}"/>
+    					<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   						<input type="hidden" name="Confirmacion" value="cancelar">
+					</form>
+				</div>
+			</div>
+      <p>Voluntarios</p>
 			<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
@@ -73,7 +89,6 @@
 				<input type="submit" value="Insertar" name="Insertar" class="btn"
 					style="background-color: white; margin: 2%;">
 			</div>
-			
 		</form>
 	</div>
 	<script
