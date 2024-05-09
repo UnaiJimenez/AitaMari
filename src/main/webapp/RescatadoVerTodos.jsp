@@ -69,14 +69,14 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Sexo</th>
 							<th scope="col">Edad</th>				
-							<th scope="col">Id Rescate</th>
+							<th scope="col">Id Rescatado</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${rescatados}" var="rescatado">
 							<tr>
-								<td id="${rescatado.id}">${rescatado.id}</td>
+								<td id="${rescatdo.id}">${rescatado.id}</td>
 								<td>${rescatado.nacionalidad}</td>
 								<td>${rescatado.nombre}</td>
 								<td>${rescatado.sexo}</td>

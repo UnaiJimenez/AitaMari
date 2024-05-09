@@ -44,12 +44,9 @@ public class ModificarRuta extends HttpServlet {
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
-		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("voluntarios", voluntarios);
-
 		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("medicos", medicos);
-    
 		try {
 			Ruta ruta = ModeloRuta.verRuta(id);
 
@@ -68,7 +65,6 @@ public class ModificarRuta extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-
 	        throws ServletException, IOException {
 	    int id = Integer.parseInt(request.getParameter("id"));
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -103,7 +99,7 @@ public class ModificarRuta extends HttpServlet {
 	        }
 
 	        try {
-	            // Eliminar mï¿½dicos anteriores y agregar nuevos
+	            // Eliminar médicos anteriores y agregar nuevos
 	            ModeloRuta.eliminarMedico(id);
 	            if (idMedicos != null) {
 	                for (String idMedico : idMedicos) {
