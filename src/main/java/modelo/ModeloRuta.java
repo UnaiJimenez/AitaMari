@@ -189,7 +189,6 @@ public class ModeloRuta {
 		pst.setInt(2, idMedico);
 		pst.execute();
 	}
-	
 
 	public int getUltimaRuta() throws ClassNotFoundException {
 		
@@ -259,7 +258,7 @@ public class ModeloRuta {
 
 		}
 	}
-	
+
 	public void modificarMedico(int idRuta, int idMedico) throws ClassNotFoundException {
 		try {
 
@@ -275,6 +274,4 @@ public class ModeloRuta {
 
 		}
 	}
-	
-
 }

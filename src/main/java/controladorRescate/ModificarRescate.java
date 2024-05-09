@@ -1,10 +1,8 @@
 package controladorRescate;
 
 import java.io.IOException;
-import java.util.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,6 +59,7 @@ public class ModificarRescate extends HttpServlet {
 			throws ServletException, IOException { // TODO Auto-generated method stub
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    LocalDateTime fechaHora = LocalDateTime.parse(fh);
 		int id = Integer.parseInt(request.getParameter("id"));
 		String fh = request.getParameter("fechaHora");
 		String posicion = request.getParameter("posicion");

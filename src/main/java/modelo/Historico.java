@@ -4,16 +4,23 @@ import java.util.Date;
 
 public class Historico {
 
-	private Date año;
+	private int id;
+	private Date ano;
 	private Date mes;
 	private Ruta ruta;
 	private int totalRescatados;
 	
-	public Date getAño() {
-		return año;
+	public int getId() {
+		return id;
 	}
-	public void setAño(Date año) {
-		this.año = año;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Date getAno() {
+		return ano;
+	}
+	public void setAno(Date ano) {
+		this.ano = ano;
 	}
 	public Date getMes() {
 		return mes;
@@ -35,8 +42,8 @@ public class Historico {
 	}
 	@Override
 	public String toString() {
-		return "Historico [año=" + año + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados=" + totalRescatados
-				+ "]";
+		return "Historico [id=" + id + ", ano=" + ano + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados="
+				+ totalRescatados + "]";
 	}
 	
 }

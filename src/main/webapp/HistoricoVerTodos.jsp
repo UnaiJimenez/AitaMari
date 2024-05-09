@@ -13,7 +13,7 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="PanelDeControl.css">
-<title>Panel de Control Rescatados</title>
+<title>Panel de Control Rescates</title>
 </head>
 <body>
 	<header>
@@ -24,7 +24,7 @@
 					<a class="nav-link" aria-current="page" href="Index" style="margin-left: 1%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<div>
 						<ul class="navbar-nav" style="display: flex; flex-direction: row;">
-							<li class="nav-item" style="padding-top: 5px;"><a class="nav-link" aria-current="page" href="InsertarRescatado">Insertar Rescatados - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
+							<li class="nav-item" style="padding-top: 5px;"><a class="nav-link" aria-current="page" href="InsertarRescate">Insertar Rescates - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
 							<div class="collapse" id="navbarToggleExternalContent">
 								<div class="bg p-4">
 									<h5 class="text-body-emphasis h4">Collapsed content</h5>
@@ -56,35 +56,40 @@
 						<li><a href="IndexRescate">Rescate</a></li>
 						<li><a href="IndexRescatado">Rescatado</a></li>
 						<li><a href="IndexFichaMedica">Ficha medica</a></li>
-            <li><a href="IndexHistorico">Historico</a></li>
+            			<li><a href="IndexHistorico">Historico</a></li>
 					</ul>
 				</nav>
 			</div>
 			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
-				<table class="table table-responsive table-striped">
-					<thead>
+				<table class="table table-responsive">
+					<thead>		
 						<tr>
-							<th scope="col">Rescatado</th>
-							<th scope="col">Nacionalidad</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Sexo</th>
-							<th scope="col">Edad</th>				
-							<th scope="col">Id Rescate</th>
+							<th scope="col">Enero</th>
+							<th scope="col">Febrero</th>
+							<th scope="col">Marzo</th>
+							<th scope="col">Abril</th>
+							<th scope="col">Mayo</th>
+							<th scope="col">Junio</th>
+							<th scope="col">Julio</th>
+							<th scope="col">Agosto</th>
+							<th scope="col">Septiembre</th>
+							<th scope="col">Octubre</th>
+							<th scope="col">Noviembre</th>
+							<th scope="col">Diciembre</th>
+							<th scope="col">Año</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${rescatados}" var="rescatado">
+						<c:forEach items="${rescates}" var="rescate">
 							<tr>
-								<td id="${rescatado.id}">${rescatado.id}</td>
-								<td>${rescatado.nacionalidad}</td>
-								<td>${rescatado.nombre}</td>
-								<td>${rescatado.sexo}</td>
-								<td>${rescatado.edad}</td>				
-								<td>${rescatado.idRescate}</td>
+								<td id="${rescate.id}">${rescate.id}</td>
+								<td>${rescate.fechaHora}</td>
+								<td>${rescate.posicion}</td>
+								<td>${rescate.idRuta}</td>
 								<td style="display: flex;">
-									<a class="nav-link" aria-current="page" href="ModificarRescatado?id=${rescatado.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-									<a class="nav-link" aria-current="page" href="EliminarRescatado?id=${rescatado.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+									<a class="nav-link" aria-current="page" href="ModificarRescate?id=${rescate.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
+									<a class="nav-link" aria-current="page" href="EliminarRescate?id=${rescate.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 								</td>	
 							</tr>
 						</c:forEach>

@@ -6,6 +6,8 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.ModeloRescatado;
 import modelo.ModeloRescate;
 import modelo.ModeloRuta;
 import modelo.Rescate;
@@ -53,8 +56,9 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
+
 		String fh = request.getParameter("fechaHora");
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
@@ -79,17 +83,27 @@ public class InsertarRescate extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-		} catch (ParseException e) {
-
 			e.printStackTrace();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
-		response.sendRedirect("IndexRescate");
+		String confirmacion = request.getParameter("Confirmacion");
+		ModeloRescate mr = new ModeloRescate();
+		if (confirmacion.equalsIgnoreCase("Insertar")) {
 
+			try {
+				mr.insertarRescate(rescate);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			response.sendRedirect("IndexRescate");
+		}
 	}
-
 }

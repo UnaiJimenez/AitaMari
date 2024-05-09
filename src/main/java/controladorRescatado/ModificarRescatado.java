@@ -62,6 +62,7 @@ public class ModificarRescatado extends HttpServlet {
     String sexo = request.getParameter("sexo");
     String edad = request.getParameter("edad");   
     int idRescate = Integer.parseInt(request.getParameter("idRescate"));
+    
     Rescatado rescatado = new Rescatado();
     rescatado.setId(id);
     rescatado.setNacionalidad(nacionalidad);

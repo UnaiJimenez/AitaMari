@@ -46,7 +46,10 @@ public class ModificarRuta extends HttpServlet {
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
 		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("voluntarios", voluntarios);
+
+		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("medicos", medicos);
+    
 		try {
 			Ruta ruta = ModeloRuta.verRuta(id);
 
@@ -65,70 +68,56 @@ public class ModificarRuta extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String f1 = request.getParameter("fechaSalida");
-		String f2 = request.getParameter("fechaLlegada");
-		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
-		String[] idMedicos = request.getParameterValues("idMedicos[]");
 
-		ModeloRuta mr = new ModeloRuta();
+	        throws ServletException, IOException {
+	    int id = Integer.parseInt(request.getParameter("id"));
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    String f1 = request.getParameter("fechaSalida");
+	    String f2 = request.getParameter("fechaLlegada");
+	    String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+	    String[] idMedicos = request.getParameterValues("idMedicos[]");
 
-		try {
-			Date fechaSalida = sdf.parse(f1);
-			Date fechaLlegada = sdf.parse(f2);
-			String origen = request.getParameter("origen");
-			String destino = request.getParameter("destino");
+	    try {
+	        Date fechaSalida = sdf.parse(f1);
+	        Date fechaLlegada = sdf.parse(f2);
+	        String origen = request.getParameter("origen");
+	        String destino = request.getParameter("destino");
 
-			Ruta ruta = new Ruta();
-			ruta.setId(id);
-			ruta.setFechaSalida(fechaSalida);
-			ruta.setFechaLlegada(fechaLlegada);
-			ruta.setOrigen(origen);
-			ruta.setDestino(destino);
+	        Ruta ruta = new Ruta();
+	        ruta.setId(id);
+	        ruta.setFechaSalida(fechaSalida);
+	        ruta.setFechaLlegada(fechaLlegada);
+	        ruta.setOrigen(origen);
+	        ruta.setDestino(destino);
 
-			try {
-				try {
-					ModeloRuta.eliminarVoluntario(id);
-					for (String idVoluntario : idVoluntarios) {
+	        try {
+	            // Eliminar voluntarios anteriores y agregar nuevos
+	            ModeloRuta.eliminarVoluntario(id);
+	            if (idVoluntarios != null) {
+	                for (String idVoluntario : idVoluntarios) {
+	                    ModeloRuta.insertarVoluntario(id, Integer.parseInt(idVoluntario));
+	                }
+	            }
+	        } catch (SQLException | ClassNotFoundException e) {
+	            e.printStackTrace();
+	        }
 
-						try {
-							ModeloRuta.insertarVoluntario(id, Integer.parseInt(idVoluntario));
-						} catch (ClassNotFoundException e) {
-							e.printStackTrace();
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
-					ModeloRuta.eliminarMedico(id);
-					for (String idMedico : idMedicos) {
+	        try {
+	            // Eliminar m�dicos anteriores y agregar nuevos
+	            ModeloRuta.eliminarMedico(id);
+	            if (idMedicos != null) {
+	                for (String idMedico : idMedicos) {
+	                    ModeloRuta.insertarMedico(id, Integer.parseInt(idMedico));
+	                }
+	            }
+	        } catch (SQLException | ClassNotFoundException e) {
+	            e.printStackTrace();
+	        }
 
-						try {
-							ModeloRuta.insertarMedico(id, Integer.parseInt(idMedico));
-						} catch (ClassNotFoundException e) {
-							e.printStackTrace();
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
-					
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+	    } catch (ParseException e) {
+	        e.printStackTrace();
+	    }
 
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		response.sendRedirect("IndexRuta");
+	    response.sendRedirect("IndexRuta");
 	}
-
 }

@@ -14,7 +14,6 @@ import modelo.FichaMedica;
 import modelo.ModeloFichaMedica;
 import modelo.ModeloRescatado;
 import modelo.Rescatado;
-import modelo.Rescate;
 
 /**
  * Servlet implementation class InsertarFichaMedica

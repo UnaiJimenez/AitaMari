@@ -73,7 +73,6 @@
 				<input type="submit" value="Insertar" name="Insertar" class="btn"
 					style="background-color: white; margin: 2%;">
 			</div>
-			
 		</form>
 	</div>
 	<script

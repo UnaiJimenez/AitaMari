@@ -1,4 +1,4 @@
- package controladorHistorico;
+package controladorHistorico;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
