@@ -56,16 +56,16 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
+    		String fh = request.getParameter("fechaHora");
+		LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
 
-		String fh = request.getParameter("fechaHora");
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 		
 		try {
 			Ruta ruta = ModeloRescate.getRuta(idRuta);
-			Date fechaHora = sdf.parse(fh);
 
 			Rescate rescate = new Rescate();
 			rescate.setFechaHora(fechaHora);
@@ -83,27 +83,12 @@ public class InsertarRescate extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			e.printStackTrace();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		String confirmacion = request.getParameter("Confirmacion");
-		ModeloRescate mr = new ModeloRescate();
-		if (confirmacion.equalsIgnoreCase("Insertar")) {
-
-			try {
-				mr.insertarRescate(rescate);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			response.sendRedirect("IndexRescate");
+				
+		response.sendRedirect("IndexRescate");		
 		}
 	}
 }
