@@ -37,6 +37,12 @@ public class ModeloRescate {
             rs.close();
             st.close();
             con.close();
+		
+	} catch (ClassNotFoundException | SQLException e) {
+        	e.printStackTrace();
+ 	}
+return rescates;
+}
 
 	public static Ruta getRuta(int id) throws ClassNotFoundException {
 		
@@ -128,7 +134,7 @@ public class ModeloRescate {
 	    Connection con = Conector.getConnection();
 	    PreparedStatement pst = con.prepareStatement(
 					"UPDATE Rescate SET fechaHora = ?, posicion = ?, idRuta = ? WHERE id = ?");
-			pst.setDate(1, new java.sql.Date(rescate.getFechaHora().getTime()));			
+			pst.setTimestamp(1, Timestamp.valueOf(rescate.getFechaHora()));			
 			pst.setString(2, rescate.getPosicion());
 			pst.setInt(3, rescate.getRuta().getId());
 			
@@ -168,7 +174,7 @@ public void insertarRescate(Rescate rescate) throws ClassNotFoundException, SQLE
       Connection con = Conector.getConnection();
 		  PreparedStatement pst = con.prepareStatement("INSERT INTO Rescate (fechaHora,posicion,idRuta) VALUES (?,?,?)");
 		
-		  pst.setDate(1, new java.sql.Date(rescate.getFechaHora().getTime()));
+		  pst.setTimestamp(1, Timestamp.valueOf(rescate.getFechaHora()));
 		  pst.setString(2, rescate.getPosicion());
 		  pst.setInt(3, rescate.getRuta().getId());
 		  pst.execute();
@@ -197,5 +203,6 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	return -1;
 	}
 	}
