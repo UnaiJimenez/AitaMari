@@ -56,30 +56,33 @@
 					type="text" class="form-control" name="destino"
 					placeholder="destino" value="${ruta.destino}">
 			</div>
+			<div style="display: flex">
+			<p>Voluntarios</p>
+			<c:forEach items="${voluntarios}" var="voluntario">
+			 ${voluntario.nombre}
+				<input type="checkbox" name="idVoluntarios[]" value="${voluntario.id}"
+					<c:forEach items="${ruta.voluntarios}" var="voluntarioRuta">
+               <c:if test="${voluntario.id == voluntarioRuta.id}">
+                   checked
+               </c:if>
+           </c:forEach>>
+				<br>
+			</c:forEach>
+			<p>Medicos</p>
+			<c:forEach items="${medicos}" var="medico">
+
+				<input type="checkbox" name="idMedicos[]" value="${medico.id}"
+					<c:forEach items="${ruta.medicos}" var="medicoRuta">
+               <c:if test="${medico.id == medicoRuta.id}">
+                   checked
+               </c:if>
+           </c:forEach> /> ${medico.nombre}<br>
+			</c:forEach>
+			</div>
 			<div class="col-12">
 				<input type="submit" value="Modificar" name="Modificar" class="btn"
 					style="background-color: white; margin: 2%;">
 			</div>
-			<c:forEach items="${voluntarios}" var="voluntario">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox"
-						name="idVoluntarios[]" value="${voluntario.id}"
-						id="flexCheckDefault"> <label class="form-check-label"
-						for="flexCheckDefault"> ${voluntario.nombre}</label>
-				</div>
-			</c:forEach>
-
-			<c:forEach items="${voluntarios}" var="voluntario">
-				<input type="checkbox" name="miCheckbox" value="${voluntario.id}"
-					<c:forEach items="${ruta.voluntario}" var="voluntarioRuta">
-						<c:if test="${voluntario.id == ruta.voluntario.id}">
-   							 <input type="checkbox" name="miCheckbox" value="valor" checked>
-						</c:if>
-						<c:if test="${voluntario.id != ruta.voluntario.id}">
-    						<input type="checkbox" name="miCheckbox" value="valor">
-						</c:if>
-       			 </c:forEach>>
-			</c:forEach>
 		</form>
 	</div>
 	<script

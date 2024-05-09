@@ -56,7 +56,7 @@
 						<li><a href="IndexRescate">Rescate</a></li>
 						<li><a href="IndexRescatado">Rescatado</a></li>
 						<li><a href="IndexFichaMedica">Ficha medica</a></li>
-           				<li><a href="IndexHistorico">Historico</a></li>
+            			<li><a href="IndexHistorico">Historico</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -64,10 +64,19 @@
 				<table class="table table-responsive">
 					<thead>		
 						<tr>
-							<th scope="col">Rescate</th>
-							<th scope="col">Fecha-Hora</th>
-							<th scope="col">Posicion</th>
-							<th scope="col">id Ruta</th>
+							<th scope="col">Enero</th>
+							<th scope="col">Febrero</th>
+							<th scope="col">Marzo</th>
+							<th scope="col">Abril</th>
+							<th scope="col">Mayo</th>
+							<th scope="col">Junio</th>
+							<th scope="col">Julio</th>
+							<th scope="col">Agosto</th>
+							<th scope="col">Septiembre</th>
+							<th scope="col">Octubre</th>
+							<th scope="col">Noviembre</th>
+							<th scope="col">Diciembre</th>
+							<th scope="col">Año</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
