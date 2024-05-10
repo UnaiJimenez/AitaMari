@@ -53,25 +53,30 @@ public class ModificarMedico extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
-		String especialidad = request.getParameter("especialidad");		
+		String especialidad = request.getParameter("especialidad");	
+		
 		Medico medico = new Medico();
 		medico.setId(id);
 		medico.setNombre(nombre);
 		medico.setApellido(apellido);
 		medico.setEspecialidad(especialidad);
-		ModeloMedico mm = new ModeloMedico();
-		try {
-			mm.modificar(medico);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
+		
+		String confirmacion = request.getParameter("Confirmacion");
+		if(confirmacion.equalsIgnoreCase("modificar")) {
+			ModeloMedico mm = new ModeloMedico();
+			try {
+				mm.modificar(medico);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 
 		response.sendRedirect("IndexMedico");
 	}
