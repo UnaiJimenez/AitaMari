@@ -76,6 +76,7 @@ public class ModeloRescatado {
 			if (rs.next()) {
 				Rescatado rescatado = new Rescatado();
 				
+				
 				rescatado.setId(rs.getInt("id"));
 				rescatado.setNacionalidad(rs.getString("nacionalidad"));
 				rescatado.setNombre(rs.getString("nombre"));
@@ -122,10 +123,10 @@ public static int getUltimoRescatado() throws ClassNotFoundException {
 				int id = rs.getInt("id");
 				return id;
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return -1;
 	}
 }

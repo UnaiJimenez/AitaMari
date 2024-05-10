@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
 import modelo.Rescate;
-import modelo.Ruta;
 
 /**
  * Servlet implementation class ModificarVoluntario
@@ -43,7 +42,8 @@ public class ModificarRescate extends HttpServlet {
 			Rescate rescate = ModeloRescate.verRescate(id);
 
 			request.setAttribute("rescate", rescate);
-			request.getRequestDispatcher("ModificarRescates.jsp").forward(request, response);
+			System.out.println(rescate);
+			request.getRequestDispatcher("ModificarRescate.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -56,39 +56,29 @@ public class ModificarRescate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException { // TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
+      int id = Integer.parseInt(request.getParameter("id"));
+	    String fh = request.getParameter("fechaHora");
+	    String posicion = request.getParameter("posicion");
+	    int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String fh = request.getParameter("fechaHora");
-   		LocalDateTime fechaHora = LocalDateTime.parse(fh);
-				
-		int id = Integer.parseInt(request.getParameter("id"));
-		String posicion = request.getParameter("posicion");
-		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
-		
-		try {
+	    LocalDateTime fechaHora = LocalDateTime.parse(fh);
 
-			Ruta ruta = ModeloRescate.getRuta(idRuta);
-			Rescate rescate = new Rescate();
-			rescate.setId(id);
-			rescate.setFechaHora(fechaHora);
-			rescate.setPosicion(posicion);
-			rescate.setRuta(ruta);
+	    Rescate rescate = new Rescate();
+	    rescate.setId(id);
+	    rescate.setFechaHora(fechaHora);
+	    rescate.setPosicion(posicion);
+	    rescate.setIdRuta(idRuta);
 
-			ModeloRescate mr = new ModeloRescate();
-			try {
-				mr.modificar(rescate);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	    ModeloRescate mr = new ModeloRescate();
+	    try {
+	        mr.modificar(rescate);
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    }
 
-		response.sendRedirect("IndexRescate");
+	    response.sendRedirect("IndexRescate");
 	}
 
 }
