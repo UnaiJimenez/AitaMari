@@ -33,7 +33,7 @@
                 <label for="Posicion" class="form-label">Posicion</label>
                 <input type="text" class="form-control" name="posicion" placeholder="Posicion">
             </div>
-            <div class="col-12" style="margin-top: 5%">
+             <div class="col-12" style="margin-top: 5%">
 				<select class="form-select" aria-label="idRuta" name="idRuta">
 					<option selected>Selecciona el trayecto de la ruta</option>
 					<c:forEach items="${rutas}" var="ruta">
@@ -42,7 +42,7 @@
 				</select>
 			</div>
             <div class="col-12">
-				<input type="submit" value="Insertar" name="Insertar" class="btn" style="background-color: white; margin: 2%;">
+				<input type="submit" value="Insertar" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
             </div>
         </form>
     </div> 

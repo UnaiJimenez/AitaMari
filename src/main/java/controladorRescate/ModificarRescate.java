@@ -43,7 +43,8 @@ public class ModificarRescate extends HttpServlet {
 			Rescate rescate = ModeloRescate.verRescate(id);
 
 			request.setAttribute("rescate", rescate);
-			request.getRequestDispatcher("ModificarRescates.jsp").forward(request, response);
+			System.out.println(rescate);
+			request.getRequestDispatcher("ModificarRescate.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -56,8 +57,7 @@ public class ModificarRescate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException { // TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String fh = request.getParameter("fechaHora");
    		LocalDateTime fechaHora = LocalDateTime.parse(fh);
@@ -75,19 +75,18 @@ public class ModificarRescate extends HttpServlet {
 			rescate.setPosicion(posicion);
 			rescate.setRuta(ruta);
 
-			ModeloRescate mr = new ModeloRescate();
-			try {
-				mr.modificar(rescate);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException e1) {
+	    ModeloRescate mr = new ModeloRescate();
+	    try {
+			mr.modificar(rescate);
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
-
+	} catch (ClassNotFoundException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+		
 		response.sendRedirect("IndexRescate");
 	}
-
 }

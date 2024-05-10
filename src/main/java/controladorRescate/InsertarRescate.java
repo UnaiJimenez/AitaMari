@@ -47,7 +47,6 @@ public class InsertarRescate extends HttpServlet {
 		ArrayList<Ruta> rutas = ModeloRuta.getTodos();
 		request.setAttribute("rutas", rutas);
 		request.getRequestDispatcher("InsertarRescate.jsp").forward(request, response);
-		
 	}
 
 	/**
@@ -63,32 +62,32 @@ public class InsertarRescate extends HttpServlet {
 
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
-		
+
 		try {
 			Ruta ruta = ModeloRescate.getRuta(idRuta);
-
+			
 			Rescate rescate = new Rescate();
 			rescate.setFechaHora(fechaHora);
 			rescate.setPosicion(posicion);
 			rescate.setRuta(ruta);
-
-			ModeloRescate mr = new ModeloRescate();
 			
-			try {
-				mr.insertarRescate(rescate);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-				
-		response.sendRedirect("IndexRescate");		
+			ModeloRescate mr = new ModeloRescate();
 		
+		try {
+			mr.insertarRescate(rescate);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	} catch (ClassNotFoundException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
 	}
-}
+
+			response.sendRedirect("IndexRescate");
+		}
+	}
+
