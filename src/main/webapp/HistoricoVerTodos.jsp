@@ -64,32 +64,23 @@
 				<table class="table table-responsive">
 					<thead>		
 						<tr>
-							<th scope="col">Enero</th>
-							<th scope="col">Febrero</th>
-							<th scope="col">Marzo</th>
-							<th scope="col">Abril</th>
-							<th scope="col">Mayo</th>
-							<th scope="col">Junio</th>
-							<th scope="col">Julio</th>
-							<th scope="col">Agosto</th>
-							<th scope="col">Septiembre</th>
-							<th scope="col">Octubre</th>
-							<th scope="col">Noviembre</th>
-							<th scope="col">Diciembre</th>
+							<th scope="col">Historico</th>
 							<th scope="col">Año</th>
+							<th scope="col">Mes</th>
+							<th scope="col">Rescatados</th>
+							<th scope="col">Ruta</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${rescates}" var="rescate">
+						<c:forEach items="${historicos}" var="historico">
 							<tr>
-								<td id="${rescate.id}">${rescate.id}</td>
-								<td>${rescate.fechaHora}</td>
-								<td>${rescate.posicion}</td>
-								<td>${rescate.idRuta}</td>
+								<td></td>
+								<td>${historico.ano}</td>
+								<td>${historico.mes}</td>
+								<td>${historico.totalRescatados}</td>
+								<td>${historico.ruta.id} - ${historico.ruta.origen} - ${historico.ruta.destino}</td>
 								<td style="display: flex;">
-									<a class="nav-link" aria-current="page" href="ModificarRescate?id=${rescate.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-									<a class="nav-link" aria-current="page" href="EliminarRescate?id=${rescate.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 								</td>	
 							</tr>
 						</c:forEach>
