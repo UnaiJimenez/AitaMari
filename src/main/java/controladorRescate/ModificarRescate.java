@@ -59,15 +59,15 @@ public class ModificarRescate extends HttpServlet {
 			throws ServletException, IOException { // TODO Auto-generated method stub
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    LocalDateTime fechaHora = LocalDateTime.parse(fh);
-		int id = Integer.parseInt(request.getParameter("id"));
 		String fh = request.getParameter("fechaHora");
+   		LocalDateTime fechaHora = LocalDateTime.parse(fh);
+				
+		int id = Integer.parseInt(request.getParameter("id"));
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
 		
 		try {
-			Date fechaHora = sdf.parse(fh);
-
+			
 			Ruta ruta = ModeloRescate.getRuta(idRuta);
 			Rescate rescate = new Rescate();
 			rescate.setId(id);
@@ -81,11 +81,7 @@ public class ModificarRescate extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-
 			}
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

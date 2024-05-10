@@ -46,8 +46,6 @@ public class ModificarRuta extends HttpServlet {
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
 		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("voluntarios", voluntarios);
-
-		ArrayList<Medico> medicos = ModeloMedico.getTodos();
 		request.setAttribute("medicos", medicos);
     
 		try {

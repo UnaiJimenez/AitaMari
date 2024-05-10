@@ -156,7 +156,7 @@ return rescates;
 		        if (rs.next()) {
 		            Rescate rescate = new Rescate();
 				        rescate.setId(rs.getInt("id"));
-				        rescate.setFechaHora(rs.getDate("fechaHora"));
+				        rescate.setFechaHora(rs.getTimestamp("fechaHora"));
 				        rescate.setPosicion(rs.getString("posicion"));
 				        Ruta ruta = getRuta(rs.getInt("idRuta"));
 				        rescate.setRuta(ruta);
@@ -203,6 +203,7 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	return -1;
 	}
 	}
