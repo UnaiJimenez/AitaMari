@@ -67,7 +67,7 @@
 							<th scope="col">Rescate</th>
 							<th scope="col">Fecha-Hora</th>
 							<th scope="col">Posicion</th>
-							<th scope="col">id Ruta</th>
+							<th scope="col">Ruta</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -77,7 +77,7 @@
 								<td id="${rescate.id}">${rescate.id}</td>
 								<td>${rescate.fechaHora}</td>
 								<td>${rescate.posicion}</td>
-								<td>${rescate.idRuta}</td>
+								<td>${rescate.ruta.id} - ${rescate.ruta.origen} - ${rescate.ruta.destino}</td>
 								<td style="display: flex;">
 									<a class="nav-link" aria-current="page" href="ModificarRescate?id=${rescate.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 									<a class="nav-link" aria-current="page" href="EliminarRescate?id=${rescate.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>

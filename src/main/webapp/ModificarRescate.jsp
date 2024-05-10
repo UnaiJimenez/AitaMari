@@ -37,10 +37,14 @@
                 <label for="Posicion" class="form-label">Posicion</label>
                 <input type="text" class="form-control" name="posicion" placeholder="Posicion" value="${rescate.posicion}">
             </div>
-            <div class="col-12">
-                <label for="IdRuta" class="form-label">IdRuta</label>
-                <input type="text" class="form-control"  name="idRuta" placeholder="IdRuta" value="${rescate.idRuta}">
-            </div>
+            <div class="col-12" style="margin-top: 5%">
+				<select class="form-select" aria-label="idRuta" name="idRuta">
+					<option selected>Selecciona el trayecto de la ruta</option>
+					<c:forEach items="${rutas}" var="ruta">
+						<option value="${ruta.id}">${ruta.id} - ${ruta.origen} - ${ruta.destino}</option>
+					</c:forEach>
+				</select>
+			</div>
             <div class="col-12">
 					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>

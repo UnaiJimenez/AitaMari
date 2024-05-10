@@ -23,7 +23,6 @@ public class Rescate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
@@ -36,6 +35,13 @@ public class Rescate {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
+	public Ruta getRuta() {
+		return ruta;
+	}
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
+	}
+	
 	@Override
 	public String toString() {
 		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", ruta=" + ruta
