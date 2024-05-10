@@ -27,7 +27,7 @@ public class ModeloRescate {
                 LocalDateTime fechaHora = rs.getTimestamp("fechaHora").toLocalDateTime();
 
 				rescate.setId(rs.getInt("id"));
-				rescate.setFechaHora(rs.getDate("fechaHora"));
+				rescate.setFechaHora(((Timestamp) rs.getTimestamp("fechaHora")).toLocalDateTime());
 				rescate.setPosicion(rs.getString("posicion"));
 				Ruta ruta = getRuta(rs.getInt("idRuta"));
 				rescate.setRuta(ruta);
@@ -157,7 +157,7 @@ public class ModeloRescate {
 		        if (rs.next()) {
 		            Rescate rescate = new Rescate();
 				        rescate.setId(rs.getInt("id"));
-				        rescate.setFechaHora(rs.getDate("fechaHora"));
+				        rescate.setFechaHora(((Timestamp) rs.getTimestamp("fechaHora")).toLocalDateTime());
 				        rescate.setPosicion(rs.getString("posicion"));
 				        Ruta ruta = getRuta(rs.getInt("idRuta"));
 				        rescate.setRuta(ruta);
@@ -174,7 +174,7 @@ public void insertarRescate(Rescate rescate) throws ClassNotFoundException, SQLE
 		
       Connection con = Conector.getConnection();
 		  PreparedStatement pst = con.prepareStatement("INSERT INTO Rescate (fechaHora,posicion,idRuta) VALUES (?,?,?)");
-		
+
 		  pst.setTimestamp(1, Timestamp.valueOf(rescate.getFechaHora()));
 		  pst.setString(2, rescate.getPosicion());
 		  pst.setInt(3, rescate.getRuta().getId());

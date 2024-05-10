@@ -87,8 +87,8 @@ public class InsertarRescate extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		response.sendRedirect("IndexRescate");
+				
+		response.sendRedirect("IndexRescate");		
 		
 	}
 }

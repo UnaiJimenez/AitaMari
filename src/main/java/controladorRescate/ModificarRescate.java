@@ -61,8 +61,8 @@ public class ModificarRescate extends HttpServlet {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String fh = request.getParameter("fechaHora");
-		LocalDateTime fechaHora = LocalDateTime.parse(fh);
-		
+   		LocalDateTime fechaHora = LocalDateTime.parse(fh);
+				
 		int id = Integer.parseInt(request.getParameter("id"));
 		String posicion = request.getParameter("posicion");
 		int idRuta = Integer.parseInt(request.getParameter("idRuta"));

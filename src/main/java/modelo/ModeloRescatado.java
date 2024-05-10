@@ -128,5 +128,4 @@ public static int getUltimoRescatado() throws ClassNotFoundException {
 
 		return -1;
 	}
-  
 }
