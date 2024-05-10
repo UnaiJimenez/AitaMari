@@ -7,7 +7,8 @@ public class Rescatado {
 	private String nombre;
 	private String sexo;
 	private String edad;
-	private int idRescate;
+	private Rescate rescate;
+	
 	public int getId() {
 		return id;
 	}
@@ -38,16 +39,16 @@ public class Rescatado {
 	public void setEdad(String edad) {
 		this.edad = edad;
 	}
-	public int getIdRescate() {
-		return idRescate;
+	public Rescate getRescate() {
+		return rescate;
 	}
-	public void setIdRescate(int idRescate) {
-		this.idRescate = idRescate;
+	public void setRescate(Rescate rescate) {
+		this.rescate = rescate;
 	}
 	@Override
 	public String toString() {
 		return "Rescatado [id=" + id + ", nacionalidad=" + nacionalidad + ", nombre=" + nombre + ", sexo=" + sexo
-				+ ", edad=" + edad + ", idRescate=" + idRescate + "]";
+				+ ", edad=" + edad + ", Rescate=" + rescate + "]";
 	}
 	
 }

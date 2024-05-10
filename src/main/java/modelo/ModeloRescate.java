@@ -30,6 +30,7 @@ public class ModeloRescate {
 				rescate.setId(rs.getInt("id"));
 				rescate.setFechaHora(((Timestamp) rs.getTimestamp("fechaHora")).toLocalDateTime());
 				rescate.setPosicion(rs.getString("posicion"));
+				
 				Ruta ruta = getRuta(rs.getInt("idRuta"));
 				rescate.setRuta(ruta);
 				
@@ -89,31 +90,34 @@ public class ModeloRescate {
     }
 	}
     
-		public static Rescate verRescate(int id) throws ClassNotFoundException, SQLException {
-		    try {
+		public static Rescate verRescate(int idRuta) throws ClassNotFoundException, SQLException {
+		   
+			Rescate rescate = new Rescate();
+			
+			try {
 		        Connection con = Conector.getConnection();
 		        PreparedStatement pst = con.prepareStatement("SELECT * FROM Rescate WHERE id = ?");
-		        pst.setInt(1, id);
+		        pst.setInt(1, idRuta);
 		        ResultSet rs = pst.executeQuery();
 
 		        if (rs.next()) {
-		            Rescate rescate = new Rescate();
+		            
 				        rescate.setId(rs.getInt("id"));
               
 				        rescate.setFechaHora(((Timestamp) rs.getTimestamp("fechaHora")).toLocalDateTime());
 				        rescate.setPosicion(rs.getString("posicion"));
+				        
 				        Ruta ruta = getRuta(rs.getInt("idRuta"));
 				        rescate.setRuta(ruta);
 				        
 				        ArrayList<Rescatado> rescatados = getRescatados(rescate.getId());
 				        rescate.setRescatados(rescatados);
 
-		            return rescate;
 		        }
 		    } catch (SQLException e) {
 		        e.printStackTrace();
 		    }
-		    return null;
+		    return rescate;
 		}
     
 public void insertarRescate(Rescate rescate) throws ClassNotFoundException, SQLException {

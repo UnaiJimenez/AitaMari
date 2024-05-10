@@ -69,7 +69,7 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Sexo</th>
 							<th scope="col">Edad</th>				
-							<th scope="col">Id Rescatado</th>
+							<th scope="col">Rescate</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -81,7 +81,7 @@
 								<td>${rescatado.nombre}</td>
 								<td>${rescatado.sexo}</td>
 								<td>${rescatado.edad}</td>				
-								<td>${rescatado.idRescate}</td>
+								<td>${rescatado.rescate.fechaHora} - ${rescatado.rescate.posicion}</td>
 								<td style="display: flex;">
 									<a class="nav-link" aria-current="page" href="ModificarRescatado?id=${rescatado.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 									<a class="nav-link" aria-current="page" href="EliminarRescatado?id=${rescatado.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
