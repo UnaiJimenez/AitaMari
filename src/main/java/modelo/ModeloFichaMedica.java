@@ -80,7 +80,9 @@ public class ModeloFichaMedica {
 				rescatado.setNombre(rs.getString("nombre"));
 				rescatado.setSexo(rs.getString("sexo"));
 				rescatado.setEdad(rs.getString("edad"));
-				rescatado.setIdRescate(rs.getInt("idRescate"));
+				
+				Rescate rescate = new Rescate();
+				rescatado.setRescate(rescate);
 
 				return rescatado;
 			}

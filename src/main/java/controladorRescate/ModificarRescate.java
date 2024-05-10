@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescate;
+import modelo.ModeloRuta;
 import modelo.Rescate;
 import modelo.Ruta;
 
@@ -41,9 +43,9 @@ public class ModificarRescate extends HttpServlet {
 
 		try {
 			Rescate rescate = ModeloRescate.verRescate(id);
-
+			ArrayList<Ruta> rutas = ModeloRuta.getTodos();
+			request.setAttribute("rutas", rutas);
 			request.setAttribute("rescate", rescate);
-			System.out.println(rescate);
 			request.getRequestDispatcher("ModificarRescate.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

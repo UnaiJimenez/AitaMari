@@ -43,10 +43,14 @@
                 <label for="Edad" class="form-label">Edad</label>
                 <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="${rescatado.edad}">
             </div>
-            <div class="col-6">
-                <label for="IdRescate" class="form-label">idRescate</label>
-                <input type="text" class="form-control" id="telefono" name="idRescate" placeholder="IdRescate" value="${rescatado.idRescate}">
-            </div>
+            <div class="col-12" style="margin-top: 5%">
+				<select class="form-select" aria-label="idRescate" name="idRescate">
+					<option selected>${rescatado.rescate.fechaHora} - ${rescatado.rescate.posicion}</option>
+					<c:forEach items="${rescates}" var="rescate">
+						<option value="${rescate.id}">${rescate.fechaHora} - ${rescate.posicion}</option>
+					</c:forEach>
+				</select>
+			</div>
             <div class="col-12">
 					<input type="submit" value="Modificar" name="Modificar" class="btn" style="background-color: white; margin: 2%;">
             </div>

@@ -39,7 +39,7 @@
             </div>
             <div class="col-12" style="margin-top: 5%">
 				<select class="form-select" aria-label="idRuta" name="idRuta">
-					<option selected>Selecciona el trayecto de la ruta</option>
+					<option selected>${rescate.ruta.id} - ${rescate.ruta.origen} - ${rescate.ruta.destino}</option>
 					<c:forEach items="${rutas}" var="ruta">
 						<option value="${ruta.id}">${ruta.id} - ${ruta.origen} - ${ruta.destino}</option>
 					</c:forEach>

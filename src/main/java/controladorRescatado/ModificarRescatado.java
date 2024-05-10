@@ -2,6 +2,7 @@ package controladorRescatado;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloRescatado;
+import modelo.ModeloRescate;
 import modelo.Rescatado;
+import modelo.Rescate;
 
 /**
  * Servlet implementation class ModificarRescatado
@@ -39,8 +42,10 @@ public class ModificarRescatado extends HttpServlet {
 		try {
 			
 			Rescatado rescatado = ModeloRescatado.verRescatado(id);
-
+			ArrayList<Rescate> rescates = ModeloRescate.getTodos();
+			request.setAttribute("rescates", rescates);
 			request.setAttribute("rescatado", rescatado);
+			System.out.println(rescatado);
 			request.getRequestDispatcher("ModificarRescatado.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -56,30 +61,34 @@ public class ModificarRescatado extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-	int id = Integer.parseInt(request.getParameter("id"));
-    String nacionalidad = request.getParameter("nacionalidad");
-	String nombre = request.getParameter("nombre");
-    String sexo = request.getParameter("sexo");
-    String edad = request.getParameter("edad");   
-    int idRescate = Integer.parseInt(request.getParameter("idRescate"));
-    
-    Rescatado rescatado = new Rescatado();
-    rescatado.setId(id);
-    rescatado.setNacionalidad(nacionalidad);
-    rescatado.setNombre(nombre);
-    rescatado.setSexo(sexo);
-    rescatado.setEdad(edad);
-    rescatado.setIdRescate(idRescate);
-    ModeloRescatado mr = new ModeloRescatado();
-    try {
-        mr.modificar(rescatado);
-    } catch (ClassNotFoundException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();    
-        
-    }
-    
-    response.sendRedirect("IndexRescatado");
-}
-
+	    int id = Integer.parseInt(request.getParameter("id"));
+	    String nacionalidad = request.getParameter("nacionalidad");
+	    String nombre = request.getParameter("nombre");
+	    String sexo = request.getParameter("sexo");
+	    String edad = request.getParameter("edad");
+	    int idRescate = Integer.parseInt(request.getParameter("idRescate"));
+	    
+	    try {
+	        Rescate rescate = ModeloRescatado.getRescate(idRescate);
+	        Rescatado rescatado = new Rescatado();
+	        rescatado.setId(id);
+	        rescatado.setNacionalidad(nacionalidad);
+	        rescatado.setNombre(nombre);
+	        rescatado.setSexo(sexo);
+	        rescatado.setEdad(edad);
+	        rescatado.setRescate(rescate);
+	        
+	        ModeloRescatado mr = new ModeloRescatado();
+	        
+	        try {
+	            mr.modificar(rescatado);
+	        } catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	        }
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    response.sendRedirect("IndexRescatado");
+	}
 }

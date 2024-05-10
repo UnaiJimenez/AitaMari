@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class ModeloRescatado {
@@ -28,7 +29,9 @@ public class ModeloRescatado {
 				rescatado.setNombre(rs.getString("nombre"));
 				rescatado.setSexo(rs.getString("sexo"));
 				rescatado.setEdad(rs.getString("edad"));
-				rescatado.setIdRescate(rs.getInt("idRescate"));
+				
+				Rescate rescate = getRescate(rs.getInt("idRescate"));
+				rescatado.setRescate(rescate);
 
 				rescatados.add(rescatado);
 			}
@@ -44,6 +47,32 @@ public class ModeloRescatado {
 
 	}
 
+	public static Rescate getRescate(int id) throws ClassNotFoundException {
+		
+		try {
+			Connection con = Conector.getConnection();
+			PreparedStatement pst = con.prepareStatement("SELECT * FROM Rescate WHERE id = ?");
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				Rescate rescate = new Rescate();
+				
+				rescate.setId(rs.getInt("id"));
+				rescate.setFechaHora(((Timestamp) rs.getTimestamp("fechaHora")).toLocalDateTime());
+				rescate.setPosicion(rs.getString("posicion"));
+				
+				Ruta ruta = new Ruta();
+				rescate.setRuta(ruta);
+				
+				return rescate;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public void modificar(Rescatado rescatado) throws ClassNotFoundException {
 
 		try {
@@ -55,7 +84,7 @@ public class ModeloRescatado {
 			pst.setString(2, rescatado.getNombre());
 			pst.setString(3, rescatado.getSexo());
 			pst.setString(4, rescatado.getEdad());
-			pst.setInt(5, rescatado.getIdRescate());
+			pst.setInt(5, rescatado.getRescate().getId());
 			pst.setInt(6, rescatado.getId());
 
 			pst.executeUpdate();
@@ -65,31 +94,32 @@ public class ModeloRescatado {
 		}
 	}
 
-	public static Rescatado verRescatado(int id) throws ClassNotFoundException, SQLException {
+	public static Rescatado verRescatado(int idRescate) throws ClassNotFoundException, SQLException {
 
+		Rescatado rescatado = new Rescatado();
+		
 		try {
 			Connection con = Conector.getConnection();
 			PreparedStatement pst = con.prepareStatement("SELECT * FROM Rescatado WHERE id = ?");
-			pst.setInt(1, id);
+			pst.setInt(1, idRescate);
 			ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
-				Rescatado rescatado = new Rescatado();
-				
 				
 				rescatado.setId(rs.getInt("id"));
 				rescatado.setNacionalidad(rs.getString("nacionalidad"));
 				rescatado.setNombre(rs.getString("nombre"));
 				rescatado.setSexo(rs.getString("sexo"));
 				rescatado.setEdad(rs.getString("edad"));
-				rescatado.setIdRescate(rs.getInt("idRescate"));
+					
+				Rescate rescate = getRescate(rs.getInt("idRescate"));
+				rescatado.setRescate(rescate);
 
-				return rescatado;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return rescatado;
 	}
 
 	public void insertarRescatado(Rescatado rescatado) throws ClassNotFoundException, SQLException {
@@ -100,7 +130,7 @@ public class ModeloRescatado {
 		pst.setString(2, rescatado.getNombre());
 		pst.setString(3, rescatado.getSexo());
 		pst.setString(4, rescatado.getEdad());
-		pst.setInt(5, rescatado.getIdRescate());
+		pst.setInt(5, rescatado.getRescate().getId());
 		pst.execute();
 	}
 
