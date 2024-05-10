@@ -99,7 +99,7 @@ public class ModificarRuta extends HttpServlet {
 	        }
 
 	        try {
-	            // Eliminar médicos anteriores y agregar nuevos
+	            // Eliminar mï¿½dicos anteriores y agregar nuevos
 	            ModeloRuta.eliminarMedico(id);
 	            if (idMedicos != null) {
 	                for (String idMedico : idMedicos) {

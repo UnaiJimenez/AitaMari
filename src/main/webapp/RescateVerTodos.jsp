@@ -61,7 +61,7 @@
 				</nav>
 			</div>
 			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
-				<table class="table table-responsive">
+				<table class="table table-responsive table-striped">
 					<thead>		
 						<tr>
 							<th scope="col">Rescate</th>
@@ -81,6 +81,7 @@
 								<td style="display: flex;">
 									<a class="nav-link" aria-current="page" href="ModificarRescate?id=${rescate.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 									<a class="nav-link" aria-current="page" href="EliminarRescate?id=${rescate.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+									<a class="nav-link" aria-current="page" href="RescateVerDetalles?id=${rescate.id}"><img src="Ojo.png" alt="verDetalles" height="30px" width="40px"></a>
 								</td>	
 							</tr>
 						</c:forEach>

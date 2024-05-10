@@ -55,9 +55,9 @@ public class ModificarRescate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-	    int id = Integer.parseInt(request.getParameter("id"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
+      int id = Integer.parseInt(request.getParameter("id"));
 	    String fh = request.getParameter("fechaHora");
 	    String posicion = request.getParameter("posicion");
 	    int idRuta = Integer.parseInt(request.getParameter("idRuta"));

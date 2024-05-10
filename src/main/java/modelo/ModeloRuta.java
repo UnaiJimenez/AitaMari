@@ -197,16 +197,13 @@ public class ModeloRuta {
 			PreparedStatement pst = con.prepareStatement("SELECT id FROM Ruta ORDER BY id DESC LIMIT 1");
 		
 			ResultSet rs = pst.executeQuery();
-		
+	
 			if (rs.next()) {
 			
 				int id = rs.getInt("id");
 				return id;
 			}
-			
-		} catch (SQLException e)
-
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
@@ -250,9 +247,9 @@ public class ModeloRuta {
 			pst.setInt(1, idVoluntario);
 			pst.setInt(2, idRuta);
 			pst.executeUpdate();
+      
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		}
 	}
 	
@@ -279,6 +276,4 @@ public class ModeloRuta {
 
 		}
 	}
-	
-
 }

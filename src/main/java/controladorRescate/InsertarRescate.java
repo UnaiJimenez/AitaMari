@@ -51,10 +51,9 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
 		String fh = request.getParameter("fechaHora");
-
 		LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
 
 		String posicion = request.getParameter("posicion");
