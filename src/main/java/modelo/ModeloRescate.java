@@ -31,6 +31,9 @@ public class ModeloRescate {
 				rescate.setPosicion(rs.getString("posicion"));
 				Ruta ruta = getRuta(rs.getInt("idRuta"));
 				rescate.setRuta(ruta);
+				
+				ArrayList<Rescatado> rescatados = getRescatados(rescate.getId());
+				rescate.setRescatados(rescatados);
 
                 rescates.add(rescate);
             }
@@ -44,6 +47,29 @@ public class ModeloRescate {
         return rescates;
 	}
 
+
+	private static ArrayList<Rescatado> getRescatados(int id) throws ClassNotFoundException, SQLException {
+		Connection con = Conector.getConnection();
+		PreparedStatement pst = con.prepareStatement("SELECT * FROM Rescatado WHERE idRescate = ?");
+		ArrayList<Rescatado> rescatados = new ArrayList<Rescatado>();
+		pst.setInt(1, id);
+		ResultSet rs = pst.executeQuery();
+		while (rs.next()) {
+
+			Rescatado rescatado = new Rescatado();
+			rescatado.setId(rs.getInt("id"));
+			rescatado.setNacionalidad(rs.getString("nacionalidad"));
+			rescatado.setNombre(rs.getString("nombre"));
+			rescatado.setSexo(rs.getString("sexo"));
+			rescatado.setEdad(rs.getString("edad"));
+
+			rescatados.add(rescatado);
+		}
+		rs.close();
+		con.close();
+
+		return rescatados;
+	}
 
 	public static Ruta getRuta(int id) throws ClassNotFoundException {
 		
@@ -161,6 +187,9 @@ public class ModeloRescate {
 				        rescate.setPosicion(rs.getString("posicion"));
 				        Ruta ruta = getRuta(rs.getInt("idRuta"));
 				        rescate.setRuta(ruta);
+				        
+				        ArrayList<Rescatado> rescatados = getRescatados(rescate.getId());
+				        rescate.setRescatados(rescatados);
 
 		            return rescate;
 		        }
@@ -206,4 +235,4 @@ public static int getUltimoRescate() throws ClassNotFoundException {
 		}
 		return -1;
 	}
-	}
+}

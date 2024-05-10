@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Rescate {
   
@@ -8,7 +9,14 @@ public class Rescate {
 	private LocalDateTime fechaHora;
 	private String posicion;
 	private Ruta ruta;
+	private ArrayList<Rescatado> rescatados;
 	
+	public ArrayList<Rescatado> getRescatados() {
+		return rescatados;
+	}
+	public void setRescatados(ArrayList<Rescatado> rescatados) {
+		this.rescatados = rescatados;
+	}
 	public int getId() {
 		return id;
 	}
@@ -35,7 +43,7 @@ public class Rescate {
 	}
 	@Override
 	public String toString() {
-		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", Ruta=" + ruta + "]";
+		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", ruta=" + ruta
+				+ ", rescatados=" + rescatados + "]";
 	}
-	
 }

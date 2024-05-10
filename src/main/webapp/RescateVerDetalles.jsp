@@ -35,9 +35,9 @@
 			<thead>
 				<tr>
 					<th scope="col">Rescate</th>
-					<th scope="col">fechaHora</th>
-					<th scope="col">posicion</th>
-					<th scope="col">ruta</th>
+					<th scope="col">Fecha-Hora</th>
+					<th scope="col">Posicion</th>
+					<th scope="col">Ruta</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,7 +46,7 @@
 						<td id="${rescate.id}">${rescate.id}</td>
 						<td>${rescate.fechaHora}</td>
 						<td>${rescate.posicion}</td>
-						<td>${rescate.ruta}</td>
+						<td>${rescate.ruta.id}-${rescate.ruta.origen}-${rescate.ruta.destino}</td>
 					</tr>			
 			</tbody>
 		</table>
@@ -62,17 +62,15 @@
 					<th scope="col">Nacionalidad</th>
 					<th scope="col">Sexo</th>
 					<th scope="col">Edad</th>
-					<th scope="col">Id Rescate</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ruta.voluntarios}" var="voluntario">
+				<c:forEach items="${rescate.rescatados}" var="rescatado">
 					<tr>
 						<td>${rescatado.id}</td>
 						<td>${rescatado.nacionalidad}</td>
 						<td>${rescatado.sexo}</td>
 						<td>${rescatado.edad}</td>
-						<td>${rescatado.idRescate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
