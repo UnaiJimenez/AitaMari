@@ -70,13 +70,14 @@
 			</c:forEach>
 			<p>Medicos</p>
 			<c:forEach items="${medicos}" var="medico">
-
+			 ${medico.nombre}
 				<input type="checkbox" name="idMedicos[]" value="${medico.id}"
 					<c:forEach items="${ruta.medicos}" var="medicoRuta">
                <c:if test="${medico.id == medicoRuta.id}">
                    checked
                </c:if>
-           </c:forEach> /> ${medico.nombre}<br>
+           </c:forEach>>
+				<br>
 			</c:forEach>
 			</div>
 			<div class="col-12">

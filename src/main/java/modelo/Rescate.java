@@ -1,14 +1,22 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Rescate {
 
 	private int id;
 	private LocalDateTime fechaHora;
 	private String posicion;
-	private int idRuta;
+	private Ruta ruta;
+	private ArrayList<Rescatado> rescatados;
 	
+	public ArrayList<Rescatado> getRescatados() {
+		return rescatados;
+	}
+	public void setRescatados(ArrayList<Rescatado> rescatados) {
+		this.rescatados = rescatados;
+	}
 	public int getId() {
 		return id;
 	}
@@ -28,15 +36,9 @@ public class Rescate {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
-	public int getIdRuta() {
-		return idRuta;
-	}
-	public void setIdRuta(int idRuta) {
-		this.idRuta = idRuta;
-	}
 	@Override
 	public String toString() {
-		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", idRuta=" + idRuta + "]";
+		return "Rescate [id=" + id + ", fechaHora=" + fechaHora + ", posicion=" + posicion + ", ruta=" + ruta
+				+ ", rescatados=" + rescatados + "]";
 	}
-	
 }

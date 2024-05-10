@@ -61,7 +61,7 @@
 				</nav>
 			</div>
 			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
-				<table class="table table-responsive table-striped">
+				<table class="table table-responsive">
 					<thead>
 						<tr>
 							<th scope="col">Rescatado</th>

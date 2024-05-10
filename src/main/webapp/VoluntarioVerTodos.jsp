@@ -60,7 +60,7 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
+			<div class="col-md-9 col-sm-6" style="margin-top: 100px; margin-left: 30px">
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>
