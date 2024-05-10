@@ -8,29 +8,59 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModeloHistorico {
+	
+	public static ArrayList<Historico> getTodos() {
+        Connection con;
+        ArrayList<Historico> historicos = new ArrayList<>();
+
+        try {
+            con = Conector.getConnection();
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Historico");
+
+            while (rs.next()) {
+                Historico historico = new Historico();
+
+                historico.setAno(rs.getString("ano"));
+                historico.setMes(rs.getString("mes"));
+                Ruta ruta = getRuta(rs.getInt("idRuta"));
+                historico.setRuta(ruta);
+                historico.setTotalRescatados(rs.getInt("totalRescatados"));
+
+
+                historicos.add(historico);
+            }
+            rs.close();
+            st.close();
+            con.close();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+        return historicos;
+    }
 
 	public static Historico VerHistorico() throws SQLException, ClassNotFoundException {
-		Historico historico = new Historico();
-		Connection con = Conector.getConnection();
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("CALL ObtenerRutaConMasRescatados");
+	    Historico historico = new Historico();
+	    Connection con = Conector.getConnection();
+	    Statement st = con.createStatement();
+	    ResultSet rs = st.executeQuery("CALL ObtenerHistorico");
 
-		historico.setId(rs.getInt("id"));
-		historico.setAno(rs.getDate("ano"));
-		historico.setMes(rs.getDate("mes"));
-		historico.setTotalRescatados(rs.getInt("totalRescatados"));
+	    if (rs.next()) { 
+	        historico.setAno(rs.getString("ano"));
+	        historico.setMes(rs.getString("mes"));
+	        historico.setTotalRescatados(rs.getInt("totalRescatados"));
+	        Ruta ruta = getRuta(rs.getInt("idRuta"));
+	        historico.setRuta(ruta);
+	    }
 
-		Ruta ruta = getRuta(historico.getId());
-		historico.setRuta(ruta);
-		return historico;
-	}
+	    rs.close();
+	    st.close();
+	    con.close();
 
-	public static void insertarVoluntario(int idRuta, int idVoluntario) throws ClassNotFoundException, SQLException {
-		Connection con = Conector.getConnection();
-		PreparedStatement pst = con.prepareStatement("SELECT(idRuta,idVoluntario) VALUES (?,?)");
-		pst.setInt(1, idRuta);
-		pst.setInt(2, idVoluntario);
-		pst.execute();
+	    return historico;
 	}
 
 	public static Ruta getRuta(int id) throws ClassNotFoundException {

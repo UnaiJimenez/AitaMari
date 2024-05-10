@@ -1,31 +1,23 @@
 package modelo;
 
-import java.util.Date;
-
 public class Historico {
 
-	private int id;
-	private Date ano;
-	private Date mes;
+
+	private String ano;
+	private String mes;
 	private Ruta ruta;
 	private int totalRescatados;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public Date getAno() {
+	public String getAno() {
 		return ano;
 	}
-	public void setAno(Date ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
-	public Date getMes() {
+	public String getMes() {
 		return mes;
 	}
-	public void setMes(Date mes) {
+	public void setMes(String mes) {
 		this.mes = mes;
 	}
 	public Ruta getRuta() {
@@ -42,7 +34,7 @@ public class Historico {
 	}
 	@Override
 	public String toString() {
-		return "Historico [id=" + id + ", ano=" + ano + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados="
+		return "Historico [año=" + ano + ", mes=" + mes + ", ruta=" + ruta + ", totalRescatados="
 				+ totalRescatados + "]";
 	}
 	
