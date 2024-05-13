@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Medico;
+import modelo.ModeloMedico;
 import modelo.ModeloRuta;
 import modelo.ModeloVoluntario;
 import modelo.Ruta;
@@ -42,6 +44,8 @@ public class InsertarRuta extends HttpServlet {
 		// TODO Auto-generated method stub
 		ArrayList<Voluntario> voluntarios = ModeloVoluntario.getTodos();
 		request.setAttribute("voluntarios", voluntarios);
+		ArrayList<Medico> medicos = ModeloMedico.getTodos();
+		request.setAttribute("medicos", medicos);
 
 		request.getRequestDispatcher("InsertarRuta.jsp").forward(request, response);
 
@@ -58,6 +62,7 @@ public class InsertarRuta extends HttpServlet {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String f1 = request.getParameter("fechaSalida");
 		String f2 = request.getParameter("fechaLlegada");
+		
 		try {
 
 			Date fechaSalida = sdf.parse(f1);
@@ -65,41 +70,54 @@ public class InsertarRuta extends HttpServlet {
 			String origen = request.getParameter("origen");
 			String destino = request.getParameter("destino");
 			
-
 			Ruta ruta = new Ruta();
 			ruta.setFechaSalida(fechaSalida);
 			ruta.setFechaLlegada(fechaLlegada);
 			ruta.setOrigen(origen);
 			ruta.setDestino(destino);
 
-			try {
+			String confirmacion = request.getParameter("Confirmacion");
+			if(confirmacion.equalsIgnoreCase("insertar")) {
 				ModeloRuta mr = new ModeloRuta();
-				mr.insertarRuta(ruta);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
+				try {
+					mr.insertarRuta(ruta);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+			String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+			for (String idVoluntario : idVoluntarios) {
+				ModeloRuta mr = new ModeloRuta();
 
-		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
-		for (String idVoluntario : idVoluntarios) {
-			ModeloRuta mr = new ModeloRuta();
-
-			try {
-				mr.insertarVoluntario(mr.getUltimaRuta(), Integer.parseInt(idVoluntario));
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				try {
+					mr.insertarVoluntario(mr.getUltimaRuta(), Integer.parseInt(idVoluntario));
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
-		}
+			
+			String[] idMedicos = request.getParameterValues("idMedicos[]");
+			for (String idMedico : idMedicos) {
+				ModeloRuta mr = new ModeloRuta();
+
+				try {
+					mr.insertarMedico(mr.getUltimaRuta(), Integer.parseInt(idMedico));
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 
 		response.sendRedirect("IndexRuta");
-
 	}
-
 }

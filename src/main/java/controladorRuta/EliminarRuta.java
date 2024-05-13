@@ -39,7 +39,6 @@ public class EliminarRuta extends HttpServlet {
 			
 			Ruta ruta = ModeloRuta.verRuta(id);
 
-			
 			request.setAttribute("ruta", ruta);
 			request.getRequestDispatcher("EliminarRuta.jsp").forward(request, response);
 			
@@ -64,6 +63,7 @@ public class EliminarRuta extends HttpServlet {
 		if(confirmacion == 1) {
 			
 			try {
+				ModeloRuta.eliminarMedico(id);
 				ModeloRuta.eliminarVoluntario(id);
 				ModeloRuta.eliminarRuta(id);
 			} catch (ClassNotFoundException e) {

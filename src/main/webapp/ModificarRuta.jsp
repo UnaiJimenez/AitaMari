@@ -23,7 +23,7 @@
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="Index" style="margin-right: 20px;"><img
+							href="IndexRuta" style="margin-right: 20px;"><img
 								src="IconoInicio.png" alt="icono de inicio" width="30px"
 								height="25px"></a></li>
 					</ul>
@@ -56,29 +56,34 @@
 					type="text" class="form-control" name="destino"
 					placeholder="destino" value="${ruta.destino}">
 			</div>
-			<div style="display: flex">
-			<p>Voluntarios</p>
-			<c:forEach items="${voluntarios}" var="voluntario">
-			 ${voluntario.nombre}
-				<input type="checkbox" name="idVoluntarios[]" value="${voluntario.id}"
-					<c:forEach items="${ruta.voluntarios}" var="voluntarioRuta">
-               <c:if test="${voluntario.id == voluntarioRuta.id}">
+			<div style="display: flex; justify-content: space-around;">
+				<div>
+				<p><b>Voluntarios</b></p>
+				<c:forEach items="${voluntarios}" var="voluntario">
+			 	${voluntario.nombre}
+				<input type="checkbox" name="idVoluntarios[]"
+						value="${voluntario.id}"
+						<c:forEach items="${ruta.voluntarios}" var="voluntarioRuta">
+                <c:if test="${voluntario.id == voluntarioRuta.id}">
                    checked
-               </c:if>
-           </c:forEach>>
-				<br>
-			</c:forEach>
-			<p>Medicos</p>
-			<c:forEach items="${medicos}" var="medico">
+                </c:if>
+           		</c:forEach>>
+					<br>
+				</c:forEach>
+				</div>
+				<div>
+				<p><b>Medicos</b></p>
+				<c:forEach items="${medicos}" var="medico">
 			 ${medico.nombre}
 				<input type="checkbox" name="idMedicos[]" value="${medico.id}"
-					<c:forEach items="${ruta.medicos}" var="medicoRuta">
+						<c:forEach items="${ruta.medicos}" var="medicoRuta">
                <c:if test="${medico.id == medicoRuta.id}">
                    checked
                </c:if>
            </c:forEach>>
-				<br>
-			</c:forEach>
+					<br>
+				</c:forEach>
+				</div>
 			</div>
 			<div class="col-12">
 				<input type="submit" value="Modificar" name="Modificar" class="btn"

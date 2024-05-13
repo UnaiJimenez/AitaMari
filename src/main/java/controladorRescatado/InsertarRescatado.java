@@ -47,45 +47,51 @@ public class InsertarRescatado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String nacionalidad = request.getParameter("nacionalidad");
-	    String nombre = request.getParameter("nombre");
-	    String sexo = request.getParameter("sexo");
-	    String edad = request.getParameter("edad");
-	    int idRescate = Integer.parseInt(request.getParameter("idRescate"));
-
 	    try {
-	        Rescate rescate = ModeloRescatado.getRescate(idRescate);
-
-	        Rescatado rescatado = new Rescatado();
-	        rescatado.setNacionalidad(nacionalidad);
-	        rescatado.setNombre(nombre);
-	        rescatado.setSexo(sexo);
-	        rescatado.setEdad(edad);
-	        rescatado.setRescate(rescate);
-
 	        String confirmacion = request.getParameter("Confirmacion");
-	        ModeloRescatado mr = new ModeloRescatado();	
 
-	        if (confirmacion.equalsIgnoreCase("Insertar")) {
-	            try {
-	                mr.insertarRescatado(rescatado);
-	            } catch (ClassNotFoundException e) {
-	                e.printStackTrace();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
+	        if (confirmacion.equalsIgnoreCase("insertar")) {
+	            String nacionalidad = request.getParameter("nacionalidad");
+	            String nombre = request.getParameter("nombre");
+	            String sexo = request.getParameter("sexo");
+	            String edad = request.getParameter("edad");
+	            int idRescate = Integer.parseInt(request.getParameter("idRescate"));
+
+	            Rescate rescate = ModeloRescatado.getRescate(idRescate);
+
+	            Rescatado rescatado = new Rescatado();
+	            rescatado.setNacionalidad(nacionalidad);
+	            rescatado.setNombre(nombre);
+	            rescatado.setSexo(sexo);
+	            rescatado.setEdad(edad);
+	            rescatado.setRescate(rescate);
+
+	            ModeloRescatado mr = new ModeloRescatado();
+	            mr.insertarRescatado(rescatado);
 	        } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
-	            try {
-	                mr.insertarRescatado(rescatado);
-	                int idRescatado = ModeloRescatado.getUltimoRescatado();
-	                request.setAttribute("idRescatado", idRescatado);
-	                request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
-	            } catch (ClassNotFoundException e) {
-	                e.printStackTrace();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        } 
+	            String nacionalidad = request.getParameter("nacionalidad");
+	            String nombre = request.getParameter("nombre");
+	            String sexo = request.getParameter("sexo");
+	            String edad = request.getParameter("edad");
+	            int idRescate = Integer.parseInt(request.getParameter("idRescate"));
+
+	            Rescate rescate = ModeloRescatado.getRescate(idRescate);
+
+	            Rescatado rescatado = new Rescatado();
+	            rescatado.setNacionalidad(nacionalidad);
+	            rescatado.setNombre(nombre);
+	            rescatado.setSexo(sexo);
+	            rescatado.setEdad(edad);
+	            rescatado.setRescate(rescate);
+
+	            ModeloRescatado mr = new ModeloRescatado();
+	            mr.insertarRescatado(rescatado);
+
+	            int idRescatado = ModeloRescatado.getUltimoRescatado();
+	            request.setAttribute("idRescatado", idRescatado);
+	            request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
+	        }
+
 	        response.sendRedirect("IndexRescatado");
 	    } catch (Exception e) {
 	        e.printStackTrace();

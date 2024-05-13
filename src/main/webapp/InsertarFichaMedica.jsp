@@ -22,7 +22,7 @@
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="PanelDeControl.jsp" style="margin-right: 20px;"><img
+							href="IndexFichaMedica" style="margin-right: 20px;"><img
 								src="IconoInicio.png" alt="icono de inicio" width="30px"
 								height="25px"></a></li>
 					</ul>
@@ -49,8 +49,9 @@
 					placeholder="Tipo de Sangre">
 			</div>
 			<div class="col-12" style="margin-top: 5%">
+				<p style="margin-bottom: 0.5rem">Selecciona el nombre del rescatado</p>
 				<select class="form-select" aria-label="idRescatado" name="idRescatado">
-					<option selected>Selecciona el nombre del rescatado</option>
+					<option selected></option>
 					<c:forEach items="${rescatados}" var="rescatado">
 						<option value="${rescatado.id}">${rescatado.nombre}</option>
 					</c:forEach>

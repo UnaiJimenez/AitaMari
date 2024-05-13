@@ -58,36 +58,38 @@ public class InsertarRescate extends HttpServlet {
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String fh = request.getParameter("fechaHora");
-		LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
-
-		String posicion = request.getParameter("posicion");
-		int idRuta = Integer.parseInt(request.getParameter("idRuta"));
-
-		try {
-			Ruta ruta = ModeloRescate.getRuta(idRuta);
-			
-			Rescate rescate = new Rescate();
-			rescate.setFechaHora(fechaHora);
-			rescate.setPosicion(posicion);
-			rescate.setRuta(ruta);
-			
-			ModeloRescate mr = new ModeloRescate();
 		
-		try {
-			mr.insertarRescate(rescate);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	} catch (ClassNotFoundException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
+		// Verificar si la fecha y hora no son nulas ni vacías antes de analizarlas
+		if (fh != null && !fh.isEmpty()) {
+			LocalDateTime fechaHora = LocalDateTime.parse(fh, formato);
+	
+			String posicion = request.getParameter("posicion");
+			int idRuta = Integer.parseInt(request.getParameter("idRuta"));
+	
+			try {
+				Ruta ruta = ModeloRescate.getRuta(idRuta);
+				
+				Rescate rescate = new Rescate();
+				rescate.setFechaHora(fechaHora);
+				rescate.setPosicion(posicion);
+				rescate.setRuta(ruta);
+				
+				String confirmacion = request.getParameter("Confirmacion");
+				if(confirmacion.equalsIgnoreCase("insertar")) {
+					ModeloRescate mr = new ModeloRescate();
+					try {
+						mr.insertarRescate(rescate);
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				response.sendRedirect("IndexRescate");	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 	}
-
-			response.sendRedirect("IndexRescate");
-		}
-	}
-
+}

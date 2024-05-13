@@ -16,7 +16,7 @@
                     <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
+                        <a class="nav-link" aria-current="page" href="IndexRescatado" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
                       </li>
                     </ul>
                 </div>
@@ -44,6 +44,7 @@
                 <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="${rescatado.edad}">
             </div>
             <div class="col-12" style="margin-top: 5%">
+            	<p style="margin-bottom: 0.5rem">Selecciona donde y cuando has sido rescatado</p>
 				<select class="form-select" aria-label="idRescate" name="idRescate">
 					<option selected>${rescatado.rescate.fechaHora} - ${rescatado.rescate.posicion}</option>
 					<c:forEach items="${rescates}" var="rescate">
