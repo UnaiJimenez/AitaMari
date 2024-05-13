@@ -39,7 +39,7 @@ public class EliminarMedico extends HttpServlet {
 			Medico medico = ModeloMedico.verMedico(id);
 			
 			request.setAttribute("medico", medico);
-			request.getRequestDispatcher("EliminarMedico.jsp").forward(request, response);
+			request.getRequestDispatcher("Medico/EliminarMedico.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

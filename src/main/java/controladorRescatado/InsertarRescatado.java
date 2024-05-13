@@ -39,7 +39,7 @@ public class InsertarRescatado extends HttpServlet {
 	
 		ArrayList<Rescate> rescates = ModeloRescate.getTodos();
 		request.setAttribute("rescates", rescates);
-		request.getRequestDispatcher("InsertarRescatado.jsp").forward(request, response);
+		request.getRequestDispatcher("Rescatado/InsertarRescatado.jsp").forward(request, response);
 		
 	}
 

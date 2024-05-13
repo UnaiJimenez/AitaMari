@@ -41,7 +41,7 @@ public class EliminarFichaMedica extends HttpServlet {
 			FichaMedica fichaMedica = ModeloFichaMedica.verFichaMedica(id);
 			
 			request.setAttribute("fichaMedica", fichaMedica);
-			request.getRequestDispatcher("EliminarFichaMedica.jsp").forward(request, response);
+			request.getRequestDispatcher("FichaMedica/EliminarFichaMedica.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -42,7 +42,7 @@ public class EliminarRescatado extends HttpServlet {
 			Rescatado rescatado = ModeloRescatado.verRescatado(id);
 
 			request.setAttribute("rescatado", rescatado);
-			request.getRequestDispatcher("EliminarRescatado.jsp").forward(request, response);
+			request.getRequestDispatcher("Rescatado/EliminarRescatado.jsp").forward(request, response);
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

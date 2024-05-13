@@ -35,7 +35,7 @@ public class IndexRuta extends HttpServlet {
 		ModeloRuta mr = new ModeloRuta();
 		ArrayList<Ruta> rutas = ModeloRuta.getTodos();
 		request.setAttribute("rutas",rutas );
-		request.getRequestDispatcher("RutasVerTodos.jsp").forward(request, response);
+		request.getRequestDispatcher("Ruta/RutasVerTodos.jsp").forward(request, response);
 	}
 
 	/**

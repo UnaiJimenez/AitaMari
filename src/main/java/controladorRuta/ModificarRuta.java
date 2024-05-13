@@ -51,7 +51,7 @@ public class ModificarRuta extends HttpServlet {
 			Ruta ruta = ModeloRuta.verRuta(id);
 
 			request.setAttribute("ruta", ruta);
-			request.getRequestDispatcher("ModificarRuta.jsp").forward(request, response);
+			request.getRequestDispatcher("Ruta/ModificarRuta.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -65,55 +65,58 @@ public class ModificarRuta extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-	    int id = Integer.parseInt(request.getParameter("id"));
-	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	    String f1 = request.getParameter("fechaSalida");
-	    String f2 = request.getParameter("fechaLlegada");
-	    String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
-	    String[] idMedicos = request.getParameterValues("idMedicos[]");
+			throws ServletException, IOException {
+		String confirmacion = request.getParameter("Confirmacion");
+		if (confirmacion.equalsIgnoreCase("insertar")) {
+			try {
 
-	    try {
-	        Date fechaSalida = sdf.parse(f1);
-	        Date fechaLlegada = sdf.parse(f2);
-	        String origen = request.getParameter("origen");
-	        String destino = request.getParameter("destino");
+				int id = Integer.parseInt(request.getParameter("id"));
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				String f1 = request.getParameter("fechaSalida");
+				String f2 = request.getParameter("fechaLlegada");
+				String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+				String[] idMedicos = request.getParameterValues("idMedicos[]");
 
-	        Ruta ruta = new Ruta();
-	        ruta.setId(id);
-	        ruta.setFechaSalida(fechaSalida);
-	        ruta.setFechaLlegada(fechaLlegada);
-	        ruta.setOrigen(origen);
-	        ruta.setDestino(destino);
+				Date fechaSalida = sdf.parse(f1);
+				Date fechaLlegada = sdf.parse(f2);
+				String origen = request.getParameter("origen");
+				String destino = request.getParameter("destino");
 
-	        try {
-	            // Eliminar voluntarios anteriores y agregar nuevos
-	            ModeloRuta.eliminarVoluntario(id);
-	            if (idVoluntarios != null) {
-	                for (String idVoluntario : idVoluntarios) {
-	                    ModeloRuta.insertarVoluntario(id, Integer.parseInt(idVoluntario));
-	                }
-	            }
-	        } catch (SQLException | ClassNotFoundException e) {
-	            e.printStackTrace();
-	        }
+				Ruta ruta = new Ruta();
+				ruta.setId(id);
+				ruta.setFechaSalida(fechaSalida);
+				ruta.setFechaLlegada(fechaLlegada);
+				ruta.setOrigen(origen);
+				ruta.setDestino(destino);
 
-	        try {
-	            // Eliminar m�dicos anteriores y agregar nuevos
-	            ModeloRuta.eliminarMedico(id);
-	            if (idMedicos != null) {
-	                for (String idMedico : idMedicos) {
-	                    ModeloRuta.insertarMedico(id, Integer.parseInt(idMedico));
-	                }
-	            }
-	        } catch (SQLException | ClassNotFoundException e) {
-	            e.printStackTrace();
-	        }
+				try {
 
-	    } catch (ParseException e) {
-	        e.printStackTrace();
-	    }
+					ModeloRuta.eliminarVoluntario(id);
+					if (idVoluntarios != null) {
+						for (String idVoluntario : idVoluntarios) {
+							ModeloRuta.insertarVoluntario(id, Integer.parseInt(idVoluntario));
+						}
+					}
+				} catch (SQLException | ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 
-	    response.sendRedirect("IndexRuta");
+				try {
+					ModeloRuta.eliminarMedico(id);
+					if (idMedicos != null) {
+						for (String idMedico : idMedicos) {
+							ModeloRuta.insertarMedico(id, Integer.parseInt(idMedico));
+						}
+					}
+				} catch (SQLException | ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+
+		response.sendRedirect("IndexRuta");
 	}
 }
