@@ -56,8 +56,6 @@ public class InsertarVoluntarioLandingPage extends HttpServlet {
 
 		ModeloVoluntario mv = new ModeloVoluntario();
 		
-		
-		
 		try {
 			mv.insertarVoluntarios(voluntario);
 			

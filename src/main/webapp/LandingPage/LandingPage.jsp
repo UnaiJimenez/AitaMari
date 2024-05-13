@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AitaMari</title>
-    <link rel="stylesheet" href="LandingPage.css">
+    <link rel="stylesheet" href="LandingPage/LandingPage.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -12,12 +12,12 @@
         <nav class="navbar bg-body-tertiary p-0">
             <div class="container-fluid" style="background-color: #d5e1ff;">
               <a class="navbar-brand" href="#">
-                <img src="LogoAitaMari-azul.png" alt="logo aitamari" height="100px" width="80px" class="logo">
+                <img src="Fotos/LogoAitaMari-azul.png" alt="logo aitamari" height="100px" width="100px" class="logo">
               </a>
             </div>
           </nav>
     </header>
-    <div class="cuerpo">
+    <div class="cuerpo" style="background-image: url(Fotos/Fondo.jpg)">
         <div class="informacion">
             <div class="slogan">
                 <p>Tu voluntad 
@@ -55,9 +55,9 @@
     <footer>
         <h2>Contactanos</h2>
         <div class="imgContactos1">
-            <img src="telefono.png" alt="telefono" class="telefono">
-            <img src="direccion.png" alt="direccion" class="direccion">
-            <img src="correo.png" alt="correo electronico" class="correo">
+            <img src="Fotos/telefono.png" alt="telefono" class="telefono">
+            <img src="Fotos/direccion.png" alt="direccion" class="direccion">
+            <img src="Fotos/correo.png" alt="correo electronico" class="correo">
         </div>
         <div class="contactos1">
             <p>Telefono: +34 678 628 921</p>
@@ -65,9 +65,9 @@
             <p>Correo electrónico: AitaMari@gmail.com</p>
         </div>
         <div class="imgContactos2">
-            <img src="instagram.jpg" alt="instagram" class="instagram">
-            <img src="twitter.png" alt="twitter" class="twitter">
-            <img src="facebook.png" alt="facebook" class="facebook">
+            <img src="Fotos/instagram.jpg" alt="instagram" class="instagram">
+            <img src="Fotos/twitter.png" alt="twitter" class="twitter">
+            <img src="Fotos/facebook.png" alt="facebook" class="facebook">
         </div>
         <div class="contactos2">
             <p>Instagram: AitaMari.oficial</p>

@@ -13,18 +13,18 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="PanelDeControl.css">
-<title>Panel de Control Fichas Medicas</title>
+<title>Panel de Control Medicos</title>
 </head>
 <body>
 	<header>
 		<div class="container-xlg barraHorizontal">
 			<div class="row">
 				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top contenidoBarraHorizontal">
-				<div class="container-fluid" style="background-color: lightgray">
+				<div class="container-fluid" style="background-color: lightgray;">
 					<a class="nav-link" aria-current="page" href="Index"> <img src="Fotos/LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top logoAitaMari"></a>
 					<div>
 						<ul class="navbar-nav contenidoBarraHorizontalDerecha">
-							<li class="nav-item insertar"><a class="nav-link" aria-current="page" href="InsertarFichaMedica">Insertar Fichas Medicas - <img class="fotoInsertar" src="Fotos/Insertar.png" alt="insertar"></a></li>
+							<li class="nav-item insertar"><a class="nav-link" aria-current="page" href="InsertarMedico">Insertar Medicos - <img class="fotoInsertar" src="Fotos/Insertar.png" alt="insertar"></a></li>
 							<div class="collapse" id="navbarToggleExternalContent">
 								<div class="bg p-4">
 									<h5 class="text-body-emphasis h4">Collapsed content</h5>
@@ -64,25 +64,23 @@
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>
-							<th scope="col">Ficha Medica</th>
-							<th scope="col">Constantes Vitales</th>
-							<th scope="col">Alergias</th>
-							<th scope="col">Tipo de Sangre</th>
-							<th scope="col">Rescatado</th>
+							<th scope="col">Medico</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Especialidad</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${fichasMedicas}" var="fichaMedica">
+						<c:forEach items="${medicos}" var="medico">
 							<tr>
-								<td id="${fichaMedica.id}">${fichaMedica.id}</td>
-								<td>${fichaMedica.constantesVitales}</td>
-								<td>${fichaMedica.alergias}</td>
-								<td>${fichaMedica.tipoSangre}</td>
-								<td>${fichaMedica.rescatado.id} - ${fichaMedica.rescatado.nombre}</td>
+								<td id="${medico.id}">${medico.id}</td>
+								<td>${medico.nombre}</td>
+								<td>${medico.apellido}</td>
+								<td>${medico.especialidad}</td>
 								<td class="botones">
-									<a class="nav-link" aria-current="page" href="ModificarFichaMedica?id=${fichaMedica.id}"><img src="Fotos/modificar.png" alt="modificar" height="30px"width="30px"></a>
-									<a class="nav-link" aria-current="page" href="EliminarFichaMedica?id=${fichaMedica.id}"><img src="Fotos/eliminar.png" alt="eliminar" height="30px" width="30px"></a>
+									<a class="nav-link" aria-current="page" href="ModificarMedico?id=${medico.id}"><img src="Fotos/modificar.png" alt="modificar" height="30px"width="30px"></a>
+									<a class="nav-link" aria-current="page" href="EliminarMedico?id=${medico.id}"><img src="Fotos/eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 								</td>	
 							</tr>
 						</c:forEach>

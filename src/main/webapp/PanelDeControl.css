@@ -18,14 +18,62 @@ body {
     height: 100%
 }
 
+.barraHorizontal{
+	width: -webkit-fill-available; 
+	position: fixed
+}
+
+.contenidoBarraHorizontal{
+	--bs-navbar-padding-y: 0%; 
+	padding: 0%; 
+	z-index: 1000
+}
+
+.contenidoBarraHorizontalDerecha{
+	display: flex; 
+	flex-direction: row
+}
+
+.insertar{
+	padding-top: 5px;
+}
+
 .logoAitaMari{
 	width: 100px; 
-	height: 80px
+	height: 80px;
+	margin-left: 1%
 }
 
 .fotoInsertar{
 	width: 30px; 
 	height: 30px
+}
+
+.contenidoPrincipal{
+	padding-left: 0%; 
+	padding-right: 0%
+}
+
+.barraLateral{
+	-bs-navbar-padding-x: 0%; 
+	padding-left: 0%
+}
+
+.logoGrande{
+	height: 300px;
+	width: 250px;
+	margin: 25px; 
+	margin-left: 30%; 
+	padding-top: 2%
+}
+
+.tabla{
+	margin-top: 100px; 
+	margin-left: 30px
+}
+
+.botones{
+	display: flex
 }
 
 a {
@@ -51,7 +99,7 @@ a:hover {
 
 #sidebar ul {
     padding: 0;
-    margin: 0;
+    margin: 0
 }
 
 #sidebar ul li a {
@@ -59,7 +107,7 @@ a:hover {
     display: flex;
     color: rgba(255,255,255,.6);
     border-bottom: 1px solid rgba(255,255,255,.05);
-    justify-content: center;
+    justify-content: center
 }
 
 #sidebar ul li a:hover {
@@ -70,6 +118,6 @@ a:hover {
 
 #main-content {
 	margin-top: 60px;
-    margin-left: 120px; /* Ajusta el margen izquierdo del contenido principal para dejar espacio para la barra lateral */
-    padding: 20px; /* Ajusta el relleno del contenido principal */
+    margin-left: 120px; 
+    padding: 20px
 }
