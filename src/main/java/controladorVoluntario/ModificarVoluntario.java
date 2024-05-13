@@ -38,7 +38,7 @@ public class ModificarVoluntario extends HttpServlet {
 			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
 			
 			request.setAttribute("voluntario", voluntario);
-			request.getRequestDispatcher("ModificarVoluntarios.jsp").forward(request, response);
+			request.getRequestDispatcher("Voluntario/ModificarVoluntarios.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -40,7 +40,7 @@ public class EliminarRuta extends HttpServlet {
 			Ruta ruta = ModeloRuta.verRuta(id);
 
 			request.setAttribute("ruta", ruta);
-			request.getRequestDispatcher("EliminarRuta.jsp").forward(request, response);
+			request.getRequestDispatcher("Ruta/EliminarRuta.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

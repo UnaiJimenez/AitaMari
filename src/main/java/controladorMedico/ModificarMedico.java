@@ -40,7 +40,7 @@ public class ModificarMedico extends HttpServlet {
 			Medico medico = ModeloMedico.verMedico(id);
 
 			request.setAttribute("medico", medico);
-			request.getRequestDispatcher("ModificarMedicos.jsp").forward(request, response);
+			request.getRequestDispatcher("Medico/ModificarMedicos.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

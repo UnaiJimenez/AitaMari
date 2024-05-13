@@ -35,7 +35,7 @@ public class IndexVoluntario extends HttpServlet {
 	request.setAttribute("voluntarios", voluntarios);
 	
 	//abir la vista principal
-	request.getRequestDispatcher("VoluntarioVerTodos.jsp").forward(request, response);
+	request.getRequestDispatcher("Voluntario/VoluntarioVerTodos.jsp").forward(request, response);
 	
 	}
 	/**

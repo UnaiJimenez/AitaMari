@@ -39,7 +39,7 @@ public class RutaVerDetalles extends HttpServlet {
 		try {
 			Ruta ruta = ModeloRuta.verRuta(id);
 			request.setAttribute("ruta",ruta);
-			request.getRequestDispatcher("RutaVerDetalles.jsp").forward(request, response);
+			request.getRequestDispatcher("Ruta/RutaVerDetalles.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

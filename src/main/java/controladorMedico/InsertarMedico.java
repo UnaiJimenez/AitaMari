@@ -32,7 +32,7 @@ public class InsertarMedico extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-        request.getRequestDispatcher("InsertarMedico.jsp").forward(request, response);
+        request.getRequestDispatcher("Medico/InsertarMedico.jsp").forward(request, response);
     
     }
     /**

@@ -19,11 +19,11 @@
 					class="navbar navbar-expand-lg bg-body-tertiary col fixed-top contenidoBarraHorizontal">
 					<div class="container-fluid" style="background-color: lightgray;">
 						<a class="nav-link" aria-current="page" href="Index"><img
-							src="LogoAitaMari-gris.png" alt="Logo"
+							src="Fotos/LogoAitaMari-gris.png" alt="Logo"
 							class="d-inline-block align-text-top logoAitaMari"></a>
 						<ul class="navbar-nav contenidoBarraHorizontalDerecha">
 							<li><a class="nav-link" aria-current="page"
-								href="InsertarVoluntarioLandingPage" style="margin-right: 10px;">Landing
+								href="InsertarVoluntarioLandingPage">Landing
 									Page</a></li>
 						</ul>
 					</div>
@@ -48,7 +48,7 @@
 			</div>
 			<div class="col-md-9 tabla">
 				<h1>Bienvenido al panel de control de AitaMari</h1>
-				<img src="LogoAitaMari-blanco.png" alt="logo aitamari"
+				<img src="Fotos/LogoAitaMari-blanco.png" alt="logo aitamari"
 					class="logoGrande">
 			</div>
 		</div>
