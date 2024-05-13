@@ -17,14 +17,14 @@
 </head>
 <body>
 	<header>
-		<div class="container-xlg" style="width: -webkit-fill-available; position: fixed;">
+		<div class="container-xlg barraHorizontal">
 			<div class="row">
-				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top" style="padding: 0%; z-index: 1000;">
+				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top contenidoBarraHorizontal">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<a class="nav-link" aria-current="page" href="Index" style="margin-left: 1%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
+					<a class="nav-link" aria-current="page" href="Index"> <img src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top logoAitaMari"></a>
 					<div>
-						<ul class="navbar-nav" style="display: flex; flex-direction: row;">
-							<li class="nav-item" style="padding-top: 5px;"><a class="nav-link" aria-current="page" href="InsertarRuta">Insertar Rutas - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
+						<ul class="navbar-nav contenidoBarraHorizontalDerecha">
+							<li class="nav-item insertar"><a class="nav-link" aria-current="page" href="InsertarRuta">Insertar Rutas - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
 							<div class="collapse" id="navbarToggleExternalContent">
 								<div class="bg p-4">
 									<h5 class="text-body-emphasis h4">Collapsed content</h5>
@@ -47,8 +47,8 @@
 	</header>                                                                                            
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block" style="padding-left: 0%; padding-right: 0%">
-				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
+			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block contenidoPrincipal">
+				<nav id="sidebar" class="barraLateral">
 					<ul class="list-unstyled components mb-3">
 						<li><a href="IndexVoluntario">Voluntario</a></li>
 						<li><a href="IndexMedico">Medico</a></li>
@@ -56,11 +56,11 @@
 						<li><a href="IndexRescate">Rescate</a></li>
 						<li><a href="IndexRescatado">Rescatado</a></li>
 						<li><a href="IndexFichaMedica">Ficha medica</a></li>
-            <li><a href="IndexHistorico">Historico</a></li>
+            			<li><a href="IndexHistorico">Historico</a></li>
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
+			<div class="col-md-9 tabla">
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>
@@ -80,7 +80,7 @@
 								<td>${ruta.fechaLlegada}</td>
 								<td>${ruta.origen}</td>
 								<td>${ruta.destino}</td>
-								<td style="display: flex;">
+								<td class="botones">
 									<a class="nav-link" aria-current="page" href="ModificarRuta?id=${ruta.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
 									<a class="nav-link" aria-current="page" href="EliminarRuta?id=${ruta.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
 									<a class="nav-link" aria-current="page" href="RutaVerDetalles?id=${ruta.id}"><img src="Ojo.png" alt="verDetalles" height="30px" width="40px"></a>

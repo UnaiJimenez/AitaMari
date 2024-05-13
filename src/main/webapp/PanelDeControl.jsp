@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="PanelDeControl.css">
-    <title>Panel de Control</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="PanelDeControl.css">
+<title>Panel de Control</title>
 </head>
 <body>
-    <header>
-        <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
-                <div class="container-fluid" style="background-color: lightgray;">
-                    <a class="nav-link" aria-current="page" href="PanelDeControl.html" style="margin-right: 20px;"><img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top"></a>
-                    <ul class="navbar-nav">
-                    	<li>
-                      		<a class="nav-link" aria-current="page" href="InsertarVoluntarioLandingPage" style="margin-right: 10px;">Landing Page</a>
-                      	</li>
-                    </ul>
-                </div>
-              </nav>
-        </div>
-    </header>
-    <div style="display: flex">
-			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block sticky-left" style="padding-left: 0%; padding-right: 0%">
-				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
+	<header>
+		<div class="container-xlg barraHorizontal">
+			<div class="row">
+				<nav
+					class="navbar navbar-expand-lg bg-body-tertiary col fixed-top contenidoBarraHorizontal">
+					<div class="container-fluid" style="background-color: lightgray;">
+						<a class="nav-link" aria-current="page" href="Index"><img
+							src="LogoAitaMari-gris.png" alt="Logo"
+							class="d-inline-block align-text-top logoAitaMari"></a>
+						<ul class="navbar-nav contenidoBarraHorizontalDerecha">
+							<li><a class="nav-link" aria-current="page"
+								href="InsertarVoluntarioLandingPage" style="margin-right: 10px;">Landing
+									Page</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+			<div
+				class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block sticky-left contenidoPrincipal">
+				<nav id="sidebar" class="barraLateral">
 					<ul class="list-unstyled components mb-3">
 						<li><a href="IndexVoluntario">Voluntario</a></li>
 						<li><a href="IndexMedico">Medico</a></li>
@@ -35,10 +46,12 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-9" style="margin-left: 30px; padding-top: 4%">
+			<div class="col-md-9 tabla">
 				<h1>Bienvenido al panel de control de AitaMari</h1>
-        		<img src="LogoAitaMari-blanco.png" alt="logo aitamari" height="300px" width="250px" style="margin: 25px; margin-left: 30%; padding-top: 2%">
-    		</div>	
-    	</div>
+				<img src="LogoAitaMari-blanco.png" alt="logo aitamari"
+					class="logoGrande">
+			</div>
+		</div>
+	</div>
 </body>
 </html>
