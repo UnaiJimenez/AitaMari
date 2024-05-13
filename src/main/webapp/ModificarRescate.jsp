@@ -17,7 +17,7 @@
                     <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
+                        <a class="nav-link" aria-current="page" href="IndexRescate" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
                       </li>
                     </ul>
                 </div>
@@ -38,6 +38,7 @@
                 <input type="text" class="form-control" name="posicion" placeholder="Posicion" value="${rescate.posicion}">
             </div>
             <div class="col-12" style="margin-top: 5%">
+            	<p style="margin-bottom: 0.5rem">Selecciona el trayecto de la ruta</p>
 				<select class="form-select" aria-label="idRuta" name="idRuta">
 					<option selected>${rescate.ruta.id} - ${rescate.ruta.origen} - ${rescate.ruta.destino}</option>
 					<c:forEach items="${rutas}" var="ruta">

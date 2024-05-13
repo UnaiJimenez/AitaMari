@@ -16,7 +16,7 @@
                     <img src="LogoAitaMari-gris.png" alt="Logo" width="100px" height="80px" class="d-inline-block align-text-top" style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="PanelDeControl.jsp" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
+                        <a class="nav-link" aria-current="page" href="IndexRescatado" style="margin-right: 20px;"><img src="IconoInicio.png" alt="icono de inicio" width="30px" height="25px"></a>
                       </li>
                     </ul> 
                 </div>
@@ -42,19 +42,33 @@
                 <input type="text" class="form-control"  name="edad" placeholder="Edad">
             </div>
             <div class="col-12" style="margin-top: 5%">
+            	<p style="margin-bottom: 0.5rem">Selecciona donde y cuando has sido rescatado</p>
 				<select class="form-select" aria-label="idRescate" name="idRescate">
-					<option selected>Selecciona donde y cuando has sido rescatado</option>
+					<option selected></option>
 					<c:forEach items="${rescates}" var="rescate">
 						<option value="${rescate.id}">${rescate.fechaHora} - ${rescate.posicion}</option>
 					</c:forEach>
 				</select>
 			</div>
-            <div class="col-12">
-				<input type="submit" value="Insertar" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
+            <div style="display: flex; justify-content: flex-end;">
+            <div style="margin-top: 2.5%; margin-right: 2%">
+				<input type="submit" value="AnadirFichaMedica" name="Confirmacion" class="btn" style="background-color: white;">
             </div>
-             <div class="col-12">
-				<input type="submit" value="AnadirFichaMedica" name="Confirmacion" class="btn" style="background-color: white; margin: 2%;">
-            </div>
+			<div style="margin: 2%">
+   				<form action="InsertarRescatado" method="post" style="margin: 2%">
+    				<input type="hidden" name="id" value="${rescatado.id}"/>
+    				<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    				<input type="hidden" name="Confirmacion" value="insertar">
+				</form>
+			</div>
+			<div style="margin: 2%">
+				<form action="InsertarRescatado" method="post">
+    				<input type="hidden" name="id" value="${rescatado.id}"/>
+    				<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   					<input type="hidden" name="Confirmacion" value="cancelar">
+				</form>
+			</div>
+		</div>
         </form>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

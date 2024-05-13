@@ -22,7 +22,7 @@
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="PanelDeControl.jsp" style="margin-right: 20px;"><img
+							href="IndexRuta" style="margin-right: 20px;"><img
 								src="IconoInicio.png" alt="icono de inicio" width="30px"
 								height="25px"></a></li>
 					</ul>
@@ -53,42 +53,44 @@
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
-			<div style="display: flex; justify-content: flex-end;">
-				<div style="margin: 2%">
-   					<form action="InsertarRuta" method="post" style="margin: 2%">
-    					<input type="hidden" name="id" value="${ruta.id}"/>
-    					<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
-    					<input type="hidden" name="Confirmacion" value="insertar">
-					</form>
-				</div>
-				<div style="margin: 2%">
-					<form action="InsertarRuta" method="post">
-    					<input type="hidden" name="id" value="${ruta.id}"/>
-    					<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
-   						<input type="hidden" name="Confirmacion" value="cancelar">
-					</form>
-				</div>
-			</div>
-      <p>Voluntarios</p>
-			<c:forEach items="${voluntarios}" var="voluntario">
+			<div style="display: flex; justify-content: space-around;">
+			<div>	
+      			<p><b>Voluntarios</b></p>
+				<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
 						value="${voluntario.id}" id="flexCheckDefault"> <label class="form-check-label"
 						for="flexCheckDefault"> ${voluntario.nombre}</label>
 				</div>
-			</c:forEach>
-			<p>Medicos</p>
-			<c:forEach items="${medicos}" var="medico">
+				</c:forEach>
+			</div>
+			<div>
+				<p><b>Medicos</b></p>
+				<c:forEach items="${medicos}" var="medico">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idMedicos[]"
 						value="${medico.id}" id="flexCheckDefault"> <label class="form-check-label"
 						for="flexCheckDefault"> ${medico.nombre}</label>
 				</div>
-			</c:forEach>			
-			<div class="col-12">
-				<input type="submit" value="Insertar" name="Insertar" class="btn"
-					style="background-color: white; margin: 2%;">
-			</div>
+				</c:forEach>
+			</div>	
+			</div>		
+				<div style="display: flex; justify-content: flex-end;">
+					<div style="margin: 2%">
+   						<form action="InsertarRuta" method="post" style="margin: 2%">
+    						<input type="hidden" name="id" value="${ruta.id}"/>
+    						<button type="submit" class="btn" style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+    						<input type="hidden" name="Confirmacion" value="insertar">
+						</form>
+					</div>
+					<div style="margin: 2%">
+						<form action="InsertarRuta" method="post">
+    						<input type="hidden" name="id" value="${ruta.id}"/>
+    						<button type="submit" class="btn" style="background-color: grey; color: white; margin: 2%;">Cancelar </button>
+   							<input type="hidden" name="Confirmacion" value="cancelar">
+						</form>
+					</div>
+				</div>
 		</form>
 	</div>
 	<script
