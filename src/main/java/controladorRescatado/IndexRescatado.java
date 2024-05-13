@@ -36,7 +36,7 @@ public class IndexRescatado extends HttpServlet {
     	request.setAttribute("rescatados", rescatados);
     	
     	//abir la vista principal
-    	request.getRequestDispatcher("RescatadoVerTodos.jsp").forward(request, response);
+    	request.getRequestDispatcher("Rescatado/RescatadoVerTodos.jsp").forward(request, response);
 	}
 
 	/**

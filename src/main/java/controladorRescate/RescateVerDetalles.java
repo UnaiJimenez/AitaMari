@@ -38,7 +38,7 @@ public class RescateVerDetalles extends HttpServlet {
 			Rescate rescate = ModeloRescate.verRescate(id);
 			request.setAttribute("rescate",rescate);
 			System.out.println(rescate);
-			request.getRequestDispatcher("RescateVerDetalles.jsp").forward(request, response);
+			request.getRequestDispatcher("Rescate/RescateVerDetalles.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -37,7 +37,7 @@ public class IndexHistorico extends HttpServlet {
         historicos = ModeloHistorico.getTodos();
         System.out.println(historicos);
         request.setAttribute("historicos", historicos);
-        request.getRequestDispatcher("HistoricoVerTodos.jsp").forward(request, response);
+        request.getRequestDispatcher("Historico/HistoricoVerTodos.jsp").forward(request, response);
     }
 
 

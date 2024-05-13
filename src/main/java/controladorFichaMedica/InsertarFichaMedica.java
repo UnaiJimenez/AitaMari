@@ -40,7 +40,7 @@ public class InsertarFichaMedica extends HttpServlet {
 
 		ArrayList<Rescatado> rescatados = ModeloRescatado.getTodos();
 		request.setAttribute("rescatados", rescatados);
-		request.getRequestDispatcher("InsertarFichaMedica.jsp").forward(request, response);
+		request.getRequestDispatcher("FichaMedica/InsertarFichaMedica.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,30 +49,35 @@ public class InsertarFichaMedica extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String constantesVitales = request.getParameter("constantesVitales");
-		String alergias = request.getParameter("alergias");
-		String tipoSangre = request.getParameter("tipoSangre");
-		int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
-		try {
-			Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
-			FichaMedica fichaMedica = new FichaMedica();
-			fichaMedica.setConstantesVitales(constantesVitales);
-			fichaMedica.setAlergias(alergias);
-			fichaMedica.setTipoSangre(tipoSangre);
-			fichaMedica.setRescatado(rescatado);
 
-			ModeloFichaMedica mfm = new ModeloFichaMedica();
+		String confirmacion = request.getParameter("Confirmacion");
+		
+		if (confirmacion.equalsIgnoreCase("modificar")) {
 
+			String constantesVitales = request.getParameter("constantesVitales");
+			String alergias = request.getParameter("alergias");
+			String tipoSangre = request.getParameter("tipoSangre");
+			int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
 			try {
-				mfm.insertarFichasMedicas(fichaMedica);
-			} catch (SQLException e) {
+				Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
+				FichaMedica fichaMedica = new FichaMedica();
+				fichaMedica.setConstantesVitales(constantesVitales);
+				fichaMedica.setAlergias(alergias);
+				fichaMedica.setTipoSangre(tipoSangre);
+				fichaMedica.setRescatado(rescatado);
+
+				ModeloFichaMedica mfm = new ModeloFichaMedica();
+
+				try {
+					mfm.insertarFichasMedicas(fichaMedica);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e1.printStackTrace();
 			}
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		}
 
 		response.sendRedirect("IndexFichaMedica");

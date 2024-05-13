@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<title>Modificar</title>
+<title>Insertar FichaMedica</title>
 <body style="background-color: #ececec;">
 	<header>
 		<div>
@@ -49,17 +49,34 @@
 					placeholder="Tipo de Sangre">
 			</div>
 			<div class="col-12" style="margin-top: 5%">
-				<p style="margin-bottom: 0.5rem">Selecciona el nombre del rescatado</p>
-				<select class="form-select" aria-label="idRescatado" name="idRescatado">
+				<p style="margin-bottom: 0.5rem">Selecciona el nombre del
+					rescatado</p>
+				<select class="form-select" aria-label="idRescatado"
+					name="idRescatado">
 					<option selected></option>
 					<c:forEach items="${rescatados}" var="rescatado">
 						<option value="${rescatado.id}">${rescatado.nombre}</option>
 					</c:forEach>
 				</select>
 			</div>
-			<div class="col-12">
-				<input type="submit" value="Insertar" name="Insertar" class="btn"
-					style="background-color: white; margin: 2%;">
+			<div style="display: flex; justify-content: flex-end;">
+				<div style="margin: 2%">
+					<form action="InsertarFichaMedica" method="post" style="margin: 2%">
+						<input type="hidden" name="id" value="${fichaMedica.id}" />
+						<button type="submit" class="btn"
+							style="background-color: blue; color: white; margin: 2%;">Confirmar</button>
+						<input type="hidden" name="Confirmacion" value="insertar">
+					</form>
+				</div>
+				<div style="margin: 2%">
+					<form action="InsertarFichaMedica" method="post">
+						<input type="hidden" name="id" value="${fichaMedica.id}" />
+						<button type="submit" class="btn"
+							style="background-color: grey; color: white; margin: 2%;">Cancelar
+						</button>
+						<input type="hidden" name="Confirmacion" value="cancelar">
+					</form>
+				</div>
 			</div>
 		</form>
 	</div>

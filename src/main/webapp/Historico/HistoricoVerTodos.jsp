@@ -17,23 +17,33 @@
 </head>
 <body>
 	<header>
-		<div class="container-xlg" style="width: -webkit-fill-available; position: fixed;">
+		<div class="container-xlg"
+			style="width: -webkit-fill-available; position: fixed;">
 			<div class="row">
-				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top" style="padding: 0%; z-index: 1000;">
-				<div class="container-fluid" style="background-color: lightgray;">
-					<a class="nav-link" aria-current="page" href="Index" style="margin-left: 1%;"> <img class="logoAitaMari" src="LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
-					<div>
-						<ul class="navbar-nav" style="display: flex; flex-direction: row;">
-							<li class="nav-item" style="padding-top: 5px;"><a class="nav-link" aria-current="page" href="InsertarRescate">Insertar Rescates - <img class="fotoInsertar" src="Insertar.png" alt="insertar"></a></li>
-							<div class="collapse" id="navbarToggleExternalContent">
-								<div class="bg p-4">
-									<h5 class="text-body-emphasis h4">Collapsed content</h5>
-									<span class="text-body-secondary">Toggleable via the navbar brand.</span>
+				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top"
+					style="padding: 0%; z-index: 1000;">
+					<div class="container-fluid" style="background-color: lightgray;">
+						<a class="nav-link" aria-current="page" href="Index"
+							style="margin-left: 1%;"> <img class="logoAitaMari"
+							src="LogoAitaMari-gris.png" alt="Logo"
+							class="d-inline-block align-text-top"></a>
+						<div>
+							<ul class="navbar-nav"
+								style="display: flex; flex-direction: row;">
+								<div class="collapse" id="navbarToggleExternalContent">
+									<div class="bg p-4">
+										<h5 class="text-body-emphasis h4">Collapsed content</h5>
+										<span class="text-body-secondary">Toggleable via the
+											navbar brand.</span>
+									</div>
 								</div>
-							</div>
 								<nav class="navbar navbar bg">
 									<div class="container-fluid">
-										<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse"
+											data-bs-target="#navbarToggleExternalContent aria-controls="
+											navbarToggleExternalContent" aria-expanded="false"
+											aria-label="Toggle navigation">
 											<span class="navbar-toggler-icon"></span>
 										</button>
 									</div>
@@ -47,8 +57,11 @@
 	</header>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block" style="padding-left: 0%; padding-right: 0%">
-				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
+			<div
+				class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block"
+				style="padding-left: 0%; padding-right: 0%">
+				<nav id="sidebar"
+					style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
 					<ul class="list-unstyled components mb-3">
 						<li><a href="IndexVoluntario">Voluntario</a></li>
 						<li><a href="IndexMedico">Medico</a></li>
@@ -56,13 +69,13 @@
 						<li><a href="IndexRescate">Rescate</a></li>
 						<li><a href="IndexRescatado">Rescatado</a></li>
 						<li><a href="IndexFichaMedica">Ficha medica</a></li>
-            			<li><a href="IndexHistorico">Historico</a></li>
+						<li><a href="IndexHistorico">Historico</a></li>
 					</ul>
 				</nav>
 			</div>
 			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
 				<table class="table table-responsive">
-					<thead>		
+					<thead>
 						<tr>
 							<th scope="col">Historico</th>
 							<th scope="col">Año</th>
@@ -79,9 +92,9 @@
 								<td>${historico.ano}</td>
 								<td>${historico.mes}</td>
 								<td>${historico.totalRescatados}</td>
-								<td>${historico.ruta.id} - ${historico.ruta.origen} - ${historico.ruta.destino}</td>
-								<td style="display: flex;">
-								</td>	
+								<td>${historico.ruta.id}- ${historico.ruta.origen} -
+									${historico.ruta.destino}</td>
+								<td style="display: flex;"></td>
 							</tr>
 						</c:forEach>
 					</tbody>

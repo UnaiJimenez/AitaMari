@@ -68,7 +68,7 @@
 							<th scope="col">Constantes Vitales</th>
 							<th scope="col">Alergias</th>
 							<th scope="col">Tipo de Sangre</th>
-							<th scope="col">Id Rescatado</th>
+							<th scope="col">Rescatado</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>

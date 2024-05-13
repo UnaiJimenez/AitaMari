@@ -39,7 +39,7 @@ public class IndexRescate extends HttpServlet {
 	
 	
 	//abir la vista principal
-	request.getRequestDispatcher("RescateVerTodos.jsp").forward(request, response);
+	request.getRequestDispatcher("Rescate/RescateVerTodos.jsp").forward(request, response);
 	
 	}
 	/**

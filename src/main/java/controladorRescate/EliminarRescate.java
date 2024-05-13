@@ -44,7 +44,7 @@ public class EliminarRescate extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher("EliminarRescate.jsp").forward(request, response);
+		request.getRequestDispatcher("Rescate/EliminarRescate.jsp").forward(request, response);
 		
 	}
 

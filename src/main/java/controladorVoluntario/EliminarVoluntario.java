@@ -39,7 +39,7 @@ public class EliminarVoluntario extends HttpServlet {
 			Voluntario voluntario = ModeloVoluntario.verVoluntario(id);
 			
 			request.setAttribute("voluntario", voluntario);
-			request.getRequestDispatcher("EliminarVoluntario.jsp").forward(request, response);
+			request.getRequestDispatcher("Voluntario/EliminarVoluntario.jsp").forward(request, response);
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -43,10 +43,10 @@ public class ModificarFichaMedica extends HttpServlet {
 			FichaMedica fichaMedica = ModeloFichaMedica.verFichaMedica(id);
 
 			ArrayList<Rescatado> rescatados = ModeloRescatado.getTodos();
-			
+
 			request.setAttribute("fichaMedica", fichaMedica);
 			request.setAttribute("rescatados", rescatados);
-			request.getRequestDispatcher("ModificarFichaMedica.jsp").forward(request, response);
+			request.getRequestDispatcher("FichaMedica/ModificarFichaMedica.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -60,28 +60,32 @@ public class ModificarFichaMedica extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
-		String constantesVitales = request.getParameter("constantesVitales");
-		String alergias = request.getParameter("alergias");
-		String tipoSangre = request.getParameter("tipoSangre");
-		int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
+		
+		String confirmacion = request.getParameter("Confirmacion");
+		
+		if (confirmacion.equalsIgnoreCase("modificar")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			String constantesVitales = request.getParameter("constantesVitales");
+			String alergias = request.getParameter("alergias");
+			String tipoSangre = request.getParameter("tipoSangre");
+			int idRescatado = Integer.parseInt(request.getParameter("idRescatado"));
 
-		try {
-			Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
-			FichaMedica fichaMedica = new FichaMedica();
-			fichaMedica.setId(id);
-			fichaMedica.setConstantesVitales(constantesVitales);
-			fichaMedica.setAlergias(alergias);
-			fichaMedica.setTipoSangre(tipoSangre);
-			fichaMedica.setRescatado(rescatado);
+			try {
+				Rescatado rescatado = ModeloFichaMedica.getRescatado(idRescatado);
+				FichaMedica fichaMedica = new FichaMedica();
+				fichaMedica.setId(id);
+				fichaMedica.setConstantesVitales(constantesVitales);
+				fichaMedica.setAlergias(alergias);
+				fichaMedica.setTipoSangre(tipoSangre);
+				fichaMedica.setRescatado(rescatado);
 
-			ModeloFichaMedica mfm = new ModeloFichaMedica();
+				ModeloFichaMedica mfm = new ModeloFichaMedica();
 
-			mfm.modificar(fichaMedica);
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+				mfm.modificar(fichaMedica);
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 		response.sendRedirect("IndexFichaMedica");

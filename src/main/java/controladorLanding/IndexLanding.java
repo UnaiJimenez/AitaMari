@@ -29,7 +29,7 @@ public class IndexLanding extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
+		request.getRequestDispatcher("LandingPage/LandingPage.jsp").forward(request, response);
 	}
 
 	/**

@@ -37,7 +37,7 @@ public class IndexMedico extends HttpServlet {
     	request.setAttribute("medicos", medicos);
     	
     	//abir la vista principal
-    	request.getRequestDispatcher("MedicoVerTodos.jsp").forward(request, response);
+    	request.getRequestDispatcher("Medico/MedicoVerTodos.jsp").forward(request, response);
 	}
 
 	/**

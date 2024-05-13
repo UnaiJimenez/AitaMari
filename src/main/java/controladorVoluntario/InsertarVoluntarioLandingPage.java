@@ -32,7 +32,7 @@ public class InsertarVoluntarioLandingPage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
+		request.getRequestDispatcher("LandingPage/LandingPage.jsp").forward(request, response);
 	
 	}
 	/**
