@@ -17,14 +17,13 @@
 </head>
 <body>
 	<header>
-		<div class="container-xlg barraHorizontal">
+		<div class="container-xlg" style="width: -webkit-fill-available; position: fixed;">
 			<div class="row">
-				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top contenidoBarraHorizontal">
+				<nav class="navbar navbar-expand-lg bg-body-tertiary col fixed-top" style="padding: 0%; z-index: 1000;">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<a class="nav-link" aria-current="page" href="Index"> <img src="Fotos/LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top logoAitaMari"></a>
+					<a class="nav-link" aria-current="page" href="Index" style="margin-left: 1%;"> <img class="logoAitaMari" src="Fotos/LogoAitaMari-gris.png" alt="Logo" class="d-inline-block align-text-top"></a>
 					<div>
-						<ul class="navbar-nav contenidoBarraHorizontalDerecha">
-							<li class="nav-item insertar"><a class="nav-link" aria-current="page" href="InsertarRescate">Insertar Rescates - <img class="fotoInsertar" src="Fotos/Insertar.png" alt="insertar"></a></li>
+						<ul class="navbar-nav" style="display: flex; flex-direction: row;">
 							<div class="collapse" id="navbarToggleExternalContent">
 								<div class="bg p-4">
 									<h5 class="text-body-emphasis h4">Collapsed content</h5>
@@ -47,8 +46,8 @@
 	</header>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block contenidoPrincipal">
-				<nav id="sidebar" class="barraLateral">
+			<div class="col-md-2 wrapper d-flex align-items-stretch d-none d-md-block" style="padding-left: 0%; padding-right: 0%">
+				<nav id="sidebar" style="-bs-navbar-padding-x: 0%; padding-left: 0%;">
 					<ul class="list-unstyled components mb-3">
 						<li><a href="IndexVoluntario">Voluntario</a></li>
 						<li><a href="IndexMedico">Medico</a></li>
@@ -60,37 +59,25 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-md-9 tabla">
+			<div class="col-md-9" style="margin-top: 100px; margin-left: 30px">
 				<table class="table table-responsive">
 					<thead>		
 						<tr>
-							<th scope="col">Enero</th>
-							<th scope="col">Febrero</th>
-							<th scope="col">Marzo</th>
-							<th scope="col">Abril</th>
-							<th scope="col">Mayo</th>
-							<th scope="col">Junio</th>
-							<th scope="col">Julio</th>
-							<th scope="col">Agosto</th>
-							<th scope="col">Septiembre</th>
-							<th scope="col">Octubre</th>
-							<th scope="col">Noviembre</th>
-							<th scope="col">Diciembre</th>
+							<th scope="col">Historico</th>
 							<th scope="col">Año</th>
-							<th scope="col"></th>
+							<th scope="col">Mes</th>
+							<th scope="col">Rescatados</th>
+							<th scope="col">Ruta</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${rescates}" var="rescate">
+						<c:forEach items="${historicos}" var="historico">
 							<tr>
-								<td id="${rescate.id}">${rescate.id}</td>
-								<td>${rescate.fechaHora}</td>
-								<td>${rescate.posicion}</td>
-								<td>${rescate.idRuta}</td>
-								<td class="botones">
-									<a class="nav-link" aria-current="page" href="ModificarRescate?id=${rescate.id}"><img src="modificar.png" alt="modificar" height="30px"width="30px"></a>
-									<a class="nav-link" aria-current="page" href="EliminarRescate?id=${rescate.id}"><img src="eliminar.png" alt="eliminar" height="30px" width="30px"></a>
-								</td>	
+								<td></td>
+								<td>${historico.ano}</td>
+								<td>${historico.mes}</td>
+								<td>${historico.totalRescatados}</td>
+								<td>${historico.ruta.id} - ${historico.ruta.origen} - ${historico.ruta.destino}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
