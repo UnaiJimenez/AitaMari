@@ -19,4 +19,13 @@ public class MetodosValidacion {
 			boolean esFechaAnterior = fechaSalida.before(fechaLlegada);
 	        return esFechaAnterior; // Si date1 es anterior a date2
 	    }
+		
+		public static boolean esTipoSangre(String tipoSangre) {
+			
+			if(tipoSangre.equalsIgnoreCase("A+") | tipoSangre.equalsIgnoreCase("A-") | tipoSangre.equalsIgnoreCase("B+") | tipoSangre.equalsIgnoreCase("B-") | tipoSangre.equalsIgnoreCase("AB+") | tipoSangre.equalsIgnoreCase("AB-") | tipoSangre.equalsIgnoreCase("0+") | tipoSangre.equalsIgnoreCase("0-") | tipoSangre.equalsIgnoreCase("O+") | tipoSangre.equalsIgnoreCase("O-")) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 }

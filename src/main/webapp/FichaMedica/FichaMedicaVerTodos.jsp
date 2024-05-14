@@ -61,6 +61,20 @@
 				</nav>
 			</div>
 			<div class="col-md-9 tabla">
+			<c:if test="${esTipoSangre == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/okei.jpg" alt="insertar">
+					<div>Ficha Medica insertada correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${noEsTipoSangre == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
+					<div>Error al insertar la ficha medica! (Tipo de sangre incorrecto)</div>
+				</div>
+			</c:if>
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>
