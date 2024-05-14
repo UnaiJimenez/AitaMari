@@ -35,7 +35,7 @@
                 <label for="Nacionalidad" class="form-label">Nacionalidad</label>
                 <input type="text" class="form-control" name="nacionalidad" placeholder="Nacionalidad" value="${rescatado.nacionalidad}">
             </div>
-            <div class="col-12">
+            <div class="col-6">
                 <label for="Sexo" class="form-label">Sexo</label>
                 <input type="text" class="form-control"  name="sexo" placeholder="Sexo" value="${rescatado.sexo}">
             </div>
@@ -46,7 +46,7 @@
             <div class="col-12" style="margin-top: 5%">
             	<p style="margin-bottom: 0.5rem">Selecciona donde y cuando has sido rescatado</p>
 				<select class="form-select" aria-label="idRescate" name="idRescate">
-					<option selected>${rescatado.rescate.fechaHora} - ${rescatado.rescate.posicion}</option>
+					<option selected>${rescate.id}</option>
 					<c:forEach items="${rescates}" var="rescate">
 						<option value="${rescate.id}">${rescate.fechaHora} - ${rescate.posicion}</option>
 					</c:forEach>

@@ -61,6 +61,13 @@
 				</nav>
 			</div>
 			<div class="col-md-9 tabla">
+			<c:if test="${modificarOk == true}">
+				<div class="alert alert-warning d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
+					<div>Medico modificado correctamente!</div>
+				</div>
+			</c:if>
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>

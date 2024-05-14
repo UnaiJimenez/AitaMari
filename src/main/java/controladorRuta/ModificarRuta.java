@@ -66,8 +66,10 @@ public class ModificarRuta extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		boolean modificarOk = false;
 		String confirmacion = request.getParameter("Confirmacion");
-		if (confirmacion.equalsIgnoreCase("insertar")) {
+		if (confirmacion.equalsIgnoreCase("modificar")) {
 			try {
 
 				int id = Integer.parseInt(request.getParameter("id"));
@@ -88,9 +90,17 @@ public class ModificarRuta extends HttpServlet {
 				ruta.setFechaLlegada(fechaLlegada);
 				ruta.setOrigen(origen);
 				ruta.setDestino(destino);
-
+				
+				ModeloRuta modeloRuta = new ModeloRuta();
 				try {
-
+					modeloRuta.modificar(ruta);
+					modificarOk = true;
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				try {
 					ModeloRuta.eliminarVoluntario(id);
 					if (idVoluntarios != null) {
 						for (String idVoluntario : idVoluntarios) {
@@ -117,6 +127,7 @@ public class ModificarRuta extends HttpServlet {
 			}
 		}
 
-		response.sendRedirect("IndexRuta");
+		request.setAttribute("modificarOk", modificarOk);
+		request.getRequestDispatcher("IndexRuta").forward(request, response);
 	}
 }

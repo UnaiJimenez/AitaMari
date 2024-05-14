@@ -51,6 +51,8 @@ public class ModificarVoluntario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
 	
+		boolean modificarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
@@ -71,13 +73,15 @@ public class ModificarVoluntario extends HttpServlet {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {
 				mv.modificar(voluntario);
+				modificarOk = true;
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();		
 			}
 		}
 		
-		response.sendRedirect("IndexVoluntario");
+		request.setAttribute("modificarOk", modificarOk);
+		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 		}
 
 }

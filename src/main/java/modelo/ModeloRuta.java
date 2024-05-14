@@ -113,11 +113,11 @@ public class ModeloRuta {
 			pst.setDate(2, new java.sql.Date(ruta.getFechaLlegada().getTime()));
 			pst.setString(3, ruta.getOrigen());
 			pst.setString(4, ruta.getDestino());
+			pst.setInt(5, ruta.getId());
 
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		}
 	}
 
