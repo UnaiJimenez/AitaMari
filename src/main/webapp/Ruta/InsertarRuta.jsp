@@ -55,7 +55,7 @@
 			</div>
 			<div style="display: flex; justify-content: space-around;">
 			<div>	
-      			<p><b>Voluntarios</b>(campo obligatorio)</p>
+      			<p><b>Voluntarios</b> (campo obligatorio)</p>
 				<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
@@ -65,7 +65,7 @@
 				</c:forEach>
 			</div>
 			<div>
-				<p><b>Medicos</b>(campo obligatorio)</p>
+				<p><b>Medicos</b> (campo obligatorio)</p>
 				<c:forEach items="${medicos}" var="medico">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idMedicos[]"

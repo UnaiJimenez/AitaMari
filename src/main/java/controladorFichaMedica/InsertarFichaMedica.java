@@ -14,6 +14,7 @@ import modelo.FichaMedica;
 import modelo.ModeloFichaMedica;
 import modelo.ModeloRescatado;
 import modelo.Rescatado;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class InsertarFichaMedica
@@ -51,8 +52,10 @@ public class InsertarFichaMedica extends HttpServlet {
 			throws ServletException, IOException {
 
 		String confirmacion = request.getParameter("Confirmacion");
+		boolean esTipoSangre = false;
+		boolean noEsTipoSangre = false;
 		
-		if (confirmacion.equalsIgnoreCase("modificar")) {
+		if (confirmacion.equalsIgnoreCase("Insertar")) {
 
 			String constantesVitales = request.getParameter("constantesVitales");
 			String alergias = request.getParameter("alergias");
@@ -69,7 +72,13 @@ public class InsertarFichaMedica extends HttpServlet {
 				ModeloFichaMedica mfm = new ModeloFichaMedica();
 
 				try {
+					if(MetodosValidacion.esTipoSangre(fichaMedica.getTipoSangre()) == true) {
 					mfm.insertarFichasMedicas(fichaMedica);
+					esTipoSangre = true;
+				}else {
+					noEsTipoSangre = true;
+				}
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -79,7 +88,8 @@ public class InsertarFichaMedica extends HttpServlet {
 				e1.printStackTrace();
 			}
 		}
-
-		response.sendRedirect("IndexFichaMedica");
+		request.setAttribute("esTipoSangre", esTipoSangre);
+		request.setAttribute("noEsTipoSangre", noEsTipoSangre);
+		request.getRequestDispatcher("IndexFichaMedica").forward(request, response);
 	}
 }
