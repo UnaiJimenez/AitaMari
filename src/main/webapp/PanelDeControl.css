@@ -41,12 +41,13 @@ body {
 .logoAitaMari{
 	width: 100px; 
 	height: 80px;
-	margin-left: 1%
+	margin-left: 1%;
 }
 
 .fotoInsertar{
 	width: 30px; 
-	height: 30px
+	height: 30px;
+	margin-right: 1%;
 }
 
 .contenidoPrincipal{
