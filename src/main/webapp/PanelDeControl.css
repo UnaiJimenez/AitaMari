@@ -49,6 +49,12 @@ body {
 	height: 30px
 }
 
+.imgAlerta{
+	width: 30px; 
+	height: 30px;
+	margin-right: 2%
+}
+
 .contenidoPrincipal{
 	padding-left: 0%; 
 	padding-right: 0%

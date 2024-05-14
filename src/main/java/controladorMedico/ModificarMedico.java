@@ -55,6 +55,7 @@ public class ModificarMedico extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		boolean modificarOk = false;
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
@@ -71,14 +72,15 @@ public class ModificarMedico extends HttpServlet {
 			ModeloMedico mm = new ModeloMedico();
 			try {
 				mm.modificar(medico);
+				modificarOk = true;
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-
-		response.sendRedirect("IndexMedico");
+		request.setAttribute("modificarOk", modificarOk);
+		request.getRequestDispatcher("IndexMedico").forward(request, response);
 	}
 
 }

@@ -64,22 +64,22 @@
 			<c:if test="${esTipoSangre == true}">
 				<div class="alert alert-success d-flex align-items-center"
 					role="alert">
-					<img class="fotoInsertar" src="Fotos/okei.jpg" alt="insertar">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
 					<div>Ficha Medica insertada correctamente!</div>
 				</div>
 			</c:if>
 			<c:if test="${noEsTipoSangre == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
-					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
+					<img class="imgAlerta" src="Fotos/error.png" alt="error">
 					<div>Error al insertar la ficha medica! (Tipo de sangre incorrecto)</div>
 				</div>
 			</c:if>
-			<c:if test="${noEsGenero == true}">
-				<div class="alert alert-danger d-flex align-items-center"
+			<c:if test="${modificarOk == true}">
+				<div class="alert alert-warning d-flex align-items-center"
 					role="alert">
-					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
-					<div>Error al insertar la ficha medica! (Genero del rescatado incorrecto)</div>
+					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
+					<div>Ficha Medica modificada correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">

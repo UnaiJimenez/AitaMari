@@ -62,6 +62,7 @@ public class ModificarRescate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		boolean modificarOk = false;
 		String confirmacion = request.getParameter("Confirmacion");
 		if (confirmacion.equalsIgnoreCase("modificar")) {
 
@@ -84,6 +85,7 @@ public class ModificarRescate extends HttpServlet {
 				ModeloRescate mr = new ModeloRescate();
 				try {
 					mr.modificar(rescate);
+					modificarOk = true;
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -94,6 +96,7 @@ public class ModificarRescate extends HttpServlet {
 			}
 		}
 
-		response.sendRedirect("IndexRescate");
+		request.setAttribute("modificarOk", modificarOk);
+		request.getRequestDispatcher("IndexRescate").forward(request, response);
 	}
 }
