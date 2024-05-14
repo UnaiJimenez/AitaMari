@@ -35,27 +35,27 @@
 			style="background-color: #bebebe; border-radius: 2%;">
 			<div class="col-12">
 
-				<label for="fechaSalida" class="form-label">fechaSalida</label> <input
+				<label for="fechaSalida" class="form-label">Fecha-Salida</label> <input
 					type="text" class="form-control" name="fechaSalida"
 					placeholder="yyyy-MM-dd">
 			</div>
 			<div class="col-12">
-				<label for="fechaLlegada" class="form-label">fechaLlegada</label> <input
+				<label for="fechaLlegada" class="form-label">Fecha-Llegada</label> <input
 					type="text" class="form-control" name="fechaLlegada"
 					placeholder="yyyy-MM-dd">
 			</div>
 			<div class="col-12">
-				<label for="origen" class="form-label">origen</label> <input
+				<label for="origen" class="form-label">Origen</label> <input
 					type="text" class="form-control" name="origen" placeholder="Origen">
 			</div>
 			<div class="col-12">
-				<label for="destino" class="form-label">destino</label> <input
+				<label for="destino" class="form-label">Destino</label> <input
 					type="text" class="form-control" name="destino"
 					placeholder="Destino">
 			</div>
 			<div style="display: flex; justify-content: space-around;">
 			<div>	
-      			<p><b>Voluntarios</b></p>
+      			<p><b>Voluntarios</b>(campo obligatorio)</p>
 				<c:forEach items="${voluntarios}" var="voluntario">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idVoluntarios[]"
@@ -65,7 +65,7 @@
 				</c:forEach>
 			</div>
 			<div>
-				<p><b>Medicos</b></p>
+				<p><b>Medicos</b>(campo obligatorio)</p>
 				<c:forEach items="${medicos}" var="medico">
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" name="idMedicos[]"

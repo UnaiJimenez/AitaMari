@@ -59,6 +59,7 @@ public class InsertarRuta extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         boolean insertOk = false;
+        boolean insertNoOk = false;
 
         try {
             String confirmacion = request.getParameter("Confirmacion");
@@ -85,9 +86,8 @@ public class InsertarRuta extends HttpServlet {
                         extracted(request, ruta, mr);
                         insertOk = true;
                     } else {
-                        insertOk = false;
+                        insertNoOk = true;
                     }
-
                 
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
@@ -95,7 +95,8 @@ public class InsertarRuta extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            request.setAttribute("insert_ok", insertOk);
+            request.setAttribute("insertOk", insertOk);
+            request.setAttribute("insertNoOk", insertNoOk);
             request.getRequestDispatcher("IndexRuta").forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -130,4 +131,3 @@ public class InsertarRuta extends HttpServlet {
 		}
 	}
 }
-

@@ -81,7 +81,7 @@
 					<div>Voluntario insertado correctamente!</div>
 				</div>
 			</c:if>
-			<c:if test="${esEntero == false}">
+			<c:if test="${noesEntero == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
