@@ -1,5 +1,7 @@
 package validacion;
 
+import java.util.Date;
+
 public class MetodosValidacion {
 		
 		public static boolean esEntero(String edad) {
@@ -10,5 +12,11 @@ public class MetodosValidacion {
 			    } catch (NumberFormatException e) {
 			        return false; 
 			    }
-			}		    
+			}		
+		
+		public static boolean esFechaAnterior(Date fechaSalida, Date fechaLlegada) {
+
+			boolean esFechaAnterior = fechaSalida.before(fechaLlegada);
+	        return esFechaAnterior; // Si date1 es anterior a date2
+	    }
 }
