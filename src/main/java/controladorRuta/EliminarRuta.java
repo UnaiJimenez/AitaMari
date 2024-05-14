@@ -32,16 +32,13 @@ public class EliminarRuta extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
- 
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
-			
 			Ruta ruta = ModeloRuta.verRuta(id);
 
 			request.setAttribute("ruta", ruta);
-			request.getRequestDispatcher("Ruta/EliminarRuta.jsp").forward(request, response);
-			
+			request.getRequestDispatcher("Ruta/EliminarRuta.jsp").forward(request, response);	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,7 +46,6 @@ public class EliminarRuta extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**
@@ -73,11 +69,9 @@ public class EliminarRuta extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		}
 		
-		response.sendRedirect("IndexRuta");
-		
+		response.sendRedirect("IndexRuta");		
 	}
 
 }

@@ -34,8 +34,7 @@ public class IndexHistorico extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Historico> historicos = null;
 
-        historicos = ModeloHistorico.getTodos();
-        System.out.println(historicos);
+        historicos = ModeloHistorico.getTodos(); 
         request.setAttribute("historicos", historicos);
         request.getRequestDispatcher("Historico/HistoricoVerTodos.jsp").forward(request, response);
     }
