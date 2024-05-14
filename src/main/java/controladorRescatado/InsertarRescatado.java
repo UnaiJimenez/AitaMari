@@ -16,6 +16,7 @@ import modelo.ModeloRuta;
 import modelo.Rescatado;
 import modelo.Rescate;
 import modelo.Ruta;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class InsertarRescatado
@@ -47,7 +48,11 @@ public class InsertarRescatado extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    try {
+		
+		boolean esGenero = false;
+		boolean noEsGenero = false;
+		
+		try {
 	        String confirmacion = request.getParameter("Confirmacion");
 
 	        if (confirmacion.equalsIgnoreCase("insertar")) {
@@ -67,8 +72,16 @@ public class InsertarRescatado extends HttpServlet {
 	            rescatado.setRescate(rescate);
 
 	            ModeloRescatado mr = new ModeloRescatado();
-	            mr.insertarRescatado(rescatado);
-	        } else if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
+	            
+	            if(MetodosValidacion.esGenero(rescatado.getSexo()) == true) {
+	            	 mr.insertarRescatado(rescatado);
+					 esGenero = true;
+				}else {
+					noEsGenero = true;
+				}
+	        } 
+	        	
+	        if (confirmacion.equalsIgnoreCase("AnadirFichaMedica")) {
 	            String nacionalidad = request.getParameter("nacionalidad");
 	            String nombre = request.getParameter("nombre");
 	            String sexo = request.getParameter("sexo");
@@ -85,14 +98,23 @@ public class InsertarRescatado extends HttpServlet {
 	            rescatado.setRescate(rescate);
 
 	            ModeloRescatado mr = new ModeloRescatado();
-	            mr.insertarRescatado(rescatado);
+	            
+	            if(MetodosValidacion.esGenero(rescatado.getSexo()) == true) {
+	            	 mr.insertarRescatado(rescatado);
+					esGenero = true;
+				}else {
+					noEsGenero = true;
+				}
 
 	            int idRescatado = ModeloRescatado.getUltimoRescatado();
+	            
+	            request.setAttribute("noEsGenero", noEsGenero);
 	            request.setAttribute("idRescatado", idRescatado);
 	            request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
 	        }
-
-	        response.sendRedirect("IndexRescatado");
+	        request.setAttribute("esGenero", esGenero);
+    		request.setAttribute("noEsGenero", noEsGenero);
+    		request.getRequestDispatcher("IndexRescatado").forward(request, response);
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }

@@ -28,4 +28,13 @@ public class MetodosValidacion {
 				return false;
 			}
 		}
+		
+		public static boolean esGenero(String sexo) {
+			
+			if(sexo.equalsIgnoreCase("Masculino") | sexo.equalsIgnoreCase("Femenino") | sexo.equalsIgnoreCase("M") | sexo.equalsIgnoreCase("F") | sexo.equalsIgnoreCase("Hombre") | sexo.equalsIgnoreCase("Mujer")) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 }

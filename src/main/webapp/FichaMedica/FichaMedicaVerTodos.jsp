@@ -75,6 +75,13 @@
 					<div>Error al insertar la ficha medica! (Tipo de sangre incorrecto)</div>
 				</div>
 			</c:if>
+			<c:if test="${noEsGenero == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
+					<div>Error al insertar la ficha medica! (Genero del rescatado incorrecto)</div>
+				</div>
+			</c:if>
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>

@@ -34,6 +34,13 @@
 		<form class="row g-3 col-6" action="InsertarFichaMedica" method="post"
 			style="background-color: #bebebe; border-radius: 2%;">
 			<input type="hidden" name="idRescatado" value="${idRescatado}"/>
+			<c:if test="${noEsGenero == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
+					<div>Error al insertar el rescatado! (Genero incorrecto) <b>Vuelve atras.</b></div>
+				</div>
+			</c:if>
 			<div class="col-12">
 				<label for="ConstantesVitales" class="form-label">Constantes
 					Vitales</label> <input type="text" class="form-control"
