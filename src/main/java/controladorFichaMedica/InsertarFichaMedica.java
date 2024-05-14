@@ -54,6 +54,7 @@ public class InsertarFichaMedica extends HttpServlet {
 		String confirmacion = request.getParameter("Confirmacion");
 		boolean esTipoSangre = false;
 		boolean noEsTipoSangre = false;
+		boolean noEsGenero = false;
 		
 		if (confirmacion.equalsIgnoreCase("Insertar")) {
 
@@ -78,7 +79,6 @@ public class InsertarFichaMedica extends HttpServlet {
 				}else {
 					noEsTipoSangre = true;
 				}
-					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
