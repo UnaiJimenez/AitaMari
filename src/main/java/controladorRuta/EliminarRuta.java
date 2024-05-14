@@ -53,6 +53,7 @@ public class EliminarRuta extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		boolean eliminarNoOk = false;
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		int confirmacion = Integer.parseInt(request.getParameter("Confirmacion"));
@@ -66,12 +67,13 @@ public class EliminarRuta extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				eliminarNoOk = true;
 				e.printStackTrace();
 			}
 		}
 		
-		response.sendRedirect("IndexRuta");		
+		request.setAttribute("eliminarNoOk", eliminarNoOk);
+		request.getRequestDispatcher("IndexRuta").forward(request, response);	
 	}
 
 }

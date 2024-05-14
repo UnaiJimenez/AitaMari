@@ -82,6 +82,13 @@
 					<div>Ruta modificada correctamente!</div>
 				</div>
 			</c:if>
+			<c:if test="${eliminarNoOk == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="insertar">
+					<div>La <b>ruta</b> no se pudo eliminar porque esta vinculada a un <b>rescate</b></div>
+				</div>
+			</c:if>
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>
