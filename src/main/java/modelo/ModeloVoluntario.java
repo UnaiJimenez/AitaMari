@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import validacion.MetodosValidacion;
+
 public class ModeloVoluntario {
 
 	public static ArrayList<Voluntario> getTodos() {
@@ -104,7 +106,9 @@ public class ModeloVoluntario {
 		pst.setString(3, voluntario.getEdad());
 		pst.setString(4, voluntario.getEmail());
 		pst.setString(5, voluntario.getTelefono());
+		
 		pst.execute();
+				
 	}
 	
 	public void eliminarVoluntario(int id) throws ClassNotFoundException, SQLException {

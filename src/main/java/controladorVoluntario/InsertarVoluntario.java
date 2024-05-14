@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloVoluntario;
 import modelo.Voluntario;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class InsertarVoluntario
@@ -53,11 +54,17 @@ public class InsertarVoluntario extends HttpServlet {
 		voluntario.setEmail(email);
 		voluntario.setTelefono(telefono);
 		
+		boolean esEntero = false;
 		String confirmacion = request.getParameter("Confirmacion");
 		if(confirmacion.equalsIgnoreCase("insertar")) {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {
-			mv.insertarVoluntarios(voluntario);
+				if(MetodosValidacion.esEntero(voluntario.getEdad()) == true) {
+					mv.insertarVoluntarios(voluntario);
+					esEntero = true;
+				}else{
+					esEntero = false;
+				}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,7 +73,9 @@ public class InsertarVoluntario extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+		request.setAttribute("esEntero", esEntero);
 		
-		response.sendRedirect("IndexVoluntario");
+		//abir la vista principal
+		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 	}
 }
