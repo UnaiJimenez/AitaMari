@@ -49,7 +49,5 @@ public class Voluntario {
 		return "Voluntario [id=" + id + ", edad=" + edad + ", nombre=" + nombre + ", apellido=" + apellido + ", email="
 				+ email + ", telefono=" + telefono + "]";
 	}
-	
-	
 }
 
