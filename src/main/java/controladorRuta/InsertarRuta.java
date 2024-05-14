@@ -19,6 +19,7 @@ import modelo.ModeloRuta;
 import modelo.ModeloVoluntario;
 import modelo.Ruta;
 import modelo.Voluntario;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class InsertarRuta
@@ -56,63 +57,77 @@ public class InsertarRuta extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
+            throws ServletException, IOException {
+        boolean insertOk = false;
 
-			String confirmacion = request.getParameter("Confirmacion");
+        try {
+            String confirmacion = request.getParameter("Confirmacion");
 
-			if (confirmacion.equalsIgnoreCase("insertar")) {
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				String f1 = request.getParameter("fechaSalida");
-				String f2 = request.getParameter("fechaLlegada");
+            if (confirmacion.equalsIgnoreCase("insertar")) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String f1 = request.getParameter("fechaSalida");
+                String f2 = request.getParameter("fechaLlegada");
 
-				Date fechaSalida = sdf.parse(f1);
-				Date fechaLlegada = sdf.parse(f2);
-				String origen = request.getParameter("origen");
-				String destino = request.getParameter("destino");
+                Date fechaSalida = sdf.parse(f1);
+                Date fechaLlegada = sdf.parse(f2);
+                String origen = request.getParameter("origen");
+                String destino = request.getParameter("destino");
 
-				Ruta ruta = new Ruta();
-				ruta.setFechaSalida(fechaSalida);
-				ruta.setFechaLlegada(fechaLlegada);
-				ruta.setOrigen(origen);
-				ruta.setDestino(destino);
-				ModeloRuta mr = new ModeloRuta();
-				try {
-					mr.insertarRuta(ruta);
-					String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
-					for (String idVoluntario : idVoluntarios) {
+                Ruta ruta = new Ruta();
+                ruta.setFechaSalida(fechaSalida);
+                ruta.setFechaLlegada(fechaLlegada);
+                ruta.setOrigen(origen);
+                ruta.setDestino(destino);
 
-						try {
-							ModeloRuta.insertarVoluntario(mr.getUltimaRuta(), Integer.parseInt(idVoluntario));
-						} catch (ClassNotFoundException e) {
-							e.printStackTrace();
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
+                ModeloRuta mr = new ModeloRuta();
+                try {
+                    if (MetodosValidacion.esFechaAnterior(ruta.getFechaSalida(), ruta.getFechaLlegada())) {
+                        extracted(request, ruta, mr);
+                        insertOk = true;
+                    } else {
+                        insertOk = false;
+                    }
 
-					String[] idMedicos = request.getParameterValues("idMedicos[]");
-					for (String idMedico : idMedicos) {
+                
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            request.setAttribute("insert_ok", insertOk);
+            request.getRequestDispatcher("IndexRuta").forward(request, response);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
-						try {
-							ModeloRuta.insertarMedico(mr.getUltimaRuta(), Integer.parseInt(idMedico));
-						} catch (ClassNotFoundException e) {
-							e.printStackTrace();
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-		} catch (ParseException e) {
-			e.printStackTrace();
+	private void extracted(HttpServletRequest request, Ruta ruta, ModeloRuta mr)
+			throws ClassNotFoundException, SQLException {
+		mr.insertarRuta(ruta);
+		int idUltimaRuta = mr.getUltimaRuta();
+		
+		String[] idVoluntarios = request.getParameterValues("idVoluntarios[]");
+		for (String idVoluntario : idVoluntarios) {
+		    try {
+		        mr.insertarVoluntario(idUltimaRuta, Integer.parseInt(idVoluntario));
+		    } catch (ClassNotFoundException e) {
+		        e.printStackTrace();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 		}
 
-		response.sendRedirect("IndexRuta");
+		String[] idMedicos = request.getParameterValues("idMedicos[]");
+		for (String idMedico : idMedicos) {
+		    try {
+		        mr.insertarMedico(idUltimaRuta, Integer.parseInt(idMedico));
+		    } catch (ClassNotFoundException e) {
+		        e.printStackTrace();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
 	}
 }
+

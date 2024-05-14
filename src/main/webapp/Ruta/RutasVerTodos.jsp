@@ -61,6 +61,20 @@
 				</nav>
 			</div>
 			<div class="col-md-9 tabla">
+			<c:if test="${insert_ok == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/okei.jpg" alt="insertar">
+					<div>Ruta insertada correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${insert_ok == false}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="fotoInsertar" src="Fotos/error.png" alt="error">
+					<div>Error al insertar la ruta! (La fecha de salida debe ser anterior a la fecha de salida))</div>
+				</div>
+			</c:if>
 				<table class="table table-responsive table-striped">
 					<thead>
 						<tr>

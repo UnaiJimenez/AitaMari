@@ -74,8 +74,6 @@ public class InsertarVoluntario extends HttpServlet {
 		}
 	}
 		request.setAttribute("esEntero", esEntero);
-		
-		//abir la vista principal
 		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 	}
 }
