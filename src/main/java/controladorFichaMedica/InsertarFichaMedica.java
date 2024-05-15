@@ -51,10 +51,10 @@ public class InsertarFichaMedica extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String confirmacion = request.getParameter("Confirmacion");
 		boolean esTipoSangre = false;
-		boolean noEsTipoSangre = false;
-		boolean noEsGenero = false;
+		boolean noEsTipoSangreIns = false;
+		
+		String confirmacion = request.getParameter("Confirmacion");
 		
 		if (confirmacion.equalsIgnoreCase("Insertar")) {
 
@@ -77,7 +77,7 @@ public class InsertarFichaMedica extends HttpServlet {
 					mfm.insertarFichasMedicas(fichaMedica);
 					esTipoSangre = true;
 				}else {
-					noEsTipoSangre = true;
+					noEsTipoSangreIns = true;
 				}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -89,7 +89,7 @@ public class InsertarFichaMedica extends HttpServlet {
 			}
 		}
 		request.setAttribute("esTipoSangre", esTipoSangre);
-		request.setAttribute("noEsTipoSangre", noEsTipoSangre);
+		request.setAttribute("noEsTipoSangreIns", noEsTipoSangreIns);
 		request.getRequestDispatcher("IndexFichaMedica").forward(request, response);
 	}
 }

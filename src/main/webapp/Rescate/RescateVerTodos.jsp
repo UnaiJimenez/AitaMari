@@ -61,11 +61,32 @@
 				</nav>
 			</div>
 			<div class="col-md-9 tabla">
+			<c:if test="${insertarOk == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
+					<div>Rescate insertado correctamente!</div>
+				</div>
+			</c:if>
 			<c:if test="${modificarOk == true}">
 				<div class="alert alert-warning d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
 					<div>Rescate modificado correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarNoOk == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="insertar">
+					<div>El <b>rescate</b> no se pudo eliminar porque esta vinculado a un <b>rescatado</b></div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarOk == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
+					<div>Rescate eliminado correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">

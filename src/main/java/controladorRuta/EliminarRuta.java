@@ -52,8 +52,10 @@ public class EliminarRuta extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		boolean eliminarNoOk = false;
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		int confirmacion = Integer.parseInt(request.getParameter("Confirmacion"));
@@ -63,8 +65,8 @@ public class EliminarRuta extends HttpServlet {
 				ModeloRuta.eliminarMedico(id);
 				ModeloRuta.eliminarVoluntario(id);
 				ModeloRuta.eliminarRuta(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
 				eliminarNoOk = true;
@@ -72,6 +74,7 @@ public class EliminarRuta extends HttpServlet {
 			}
 		}
 		
+		request.setAttribute("eliminarOk", eliminarOk);
 		request.setAttribute("eliminarNoOk", eliminarNoOk);
 		request.getRequestDispatcher("IndexRuta").forward(request, response);	
 	}

@@ -14,6 +14,7 @@ import modelo.FichaMedica;
 import modelo.ModeloFichaMedica;
 import modelo.ModeloRescatado;
 import modelo.Rescatado;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class ModificarFichaMedica
@@ -62,6 +63,8 @@ public class ModificarFichaMedica extends HttpServlet {
 			throws ServletException, IOException {
 		
 		boolean modificarOk = false;
+		boolean noEsTipoSangreMod = false;
+		
 		String confirmacion = request.getParameter("Confirmacion");
 		
 		if (confirmacion.equalsIgnoreCase("modificar")) {
@@ -82,8 +85,12 @@ public class ModificarFichaMedica extends HttpServlet {
 
 				ModeloFichaMedica mfm = new ModeloFichaMedica();
 
-				mfm.modificar(fichaMedica);
-				modificarOk = true;
+				if(MetodosValidacion.esTipoSangre(fichaMedica.getTipoSangre()) == true) {
+					mfm.modificar(fichaMedica);
+					modificarOk = true;
+				}else {
+					noEsTipoSangreMod = true;
+				}
 				
 			} catch (ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
@@ -91,6 +98,7 @@ public class ModificarFichaMedica extends HttpServlet {
 			}
 		}
 
+		request.setAttribute("noEsTipoSangreMod", noEsTipoSangreMod);
 		request.setAttribute("modificarOk", modificarOk);
 		request.getRequestDispatcher("IndexFichaMedica").forward(request, response);
 	}

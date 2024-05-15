@@ -68,7 +68,7 @@
 					<div>Ficha Medica insertada correctamente!</div>
 				</div>
 			</c:if>
-			<c:if test="${noEsTipoSangre == true}">
+			<c:if test="${noEsTipoSangreIns == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/error.png" alt="error">
@@ -80,6 +80,20 @@
 					role="alert">
 					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
 					<div>Ficha Medica modificada correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${noEsTipoSangreMod == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="error">
+					<div>Error al modificar la ficha medica! (Tipo de sangre incorrecto)</div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarOk == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="error">
+					<div>Ficha Medica eliminada correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">

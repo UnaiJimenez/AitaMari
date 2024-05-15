@@ -56,7 +56,9 @@ public class EliminarFichaMedica extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		String confirmacion = (request.getParameter("Confirmacion"));
@@ -65,15 +67,16 @@ public class EliminarFichaMedica extends HttpServlet {
 			ModeloFichaMedica mfm = new ModeloFichaMedica();
 			try {
 				mfm.eliminarFichaMedica(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}		
-		response.sendRedirect("IndexFichaMedica");
+		
+		request.setAttribute("eliminarOk", eliminarOk);
+		request.getRequestDispatcher("IndexFichaMedica").forward(request, response);
 	}
 
 }

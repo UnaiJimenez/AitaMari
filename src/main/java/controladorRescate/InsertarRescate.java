@@ -55,6 +55,9 @@ public class InsertarRescate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
+		
+		boolean insertarOk = false;
+		
 	    String confirmacion = request.getParameter("Confirmacion");
 
 	    // Verificar si la fecha y hora no son nulas ni vacías antes de analizarlas
@@ -78,6 +81,7 @@ public class InsertarRescate extends HttpServlet {
 	                ModeloRescate mr = new ModeloRescate();
 	                try {
 	                    mr.insertarRescate(rescate);
+	                    insertarOk = true;
 	                } catch (ClassNotFoundException e) {
 	                    e.printStackTrace();
 	                } catch (SQLException e) {
@@ -88,8 +92,8 @@ public class InsertarRescate extends HttpServlet {
 	            }
 	        }
 	    }
-	    // Redireccionar independientemente de la confirmación
-	    response.sendRedirect("IndexRescate");
+	    
+	    request.setAttribute("insertarOk", insertarOk);
+	    request.getRequestDispatcher("IndexRescate").forward(request, response);
 	}
-
 }

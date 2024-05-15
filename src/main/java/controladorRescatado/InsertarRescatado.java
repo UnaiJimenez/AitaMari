@@ -50,7 +50,7 @@ public class InsertarRescatado extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		boolean esGenero = false;
-		boolean noEsGenero = false;
+		boolean noEsGeneroIns = false;
 		
 		try {
 	        String confirmacion = request.getParameter("Confirmacion");
@@ -77,7 +77,7 @@ public class InsertarRescatado extends HttpServlet {
 	            	 mr.insertarRescatado(rescatado);
 					 esGenero = true;
 				}else {
-					noEsGenero = true;
+					noEsGeneroIns = true;
 				}
 	        } 
 	        	
@@ -103,17 +103,17 @@ public class InsertarRescatado extends HttpServlet {
 	            	 mr.insertarRescatado(rescatado);
 					esGenero = true;
 				}else {
-					noEsGenero = true;
+					noEsGeneroIns = true;
 				}
 
 	            int idRescatado = ModeloRescatado.getUltimoRescatado();
 	            
-	            request.setAttribute("noEsGenero", noEsGenero);
+	            request.setAttribute("noEsGenero", noEsGeneroIns);
 	            request.setAttribute("idRescatado", idRescatado);
 	            request.getRequestDispatcher("RescatadoFichaMedica.jsp").forward(request, response);
 	        }
 	        request.setAttribute("esGenero", esGenero);
-    		request.setAttribute("noEsGenero", noEsGenero);
+    		request.setAttribute("noEsGenero", noEsGeneroIns);
     		request.getRequestDispatcher("IndexRescatado").forward(request, response);
 	    } catch (Exception e) {
 	        e.printStackTrace();

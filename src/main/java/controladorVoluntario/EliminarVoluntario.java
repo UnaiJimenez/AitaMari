@@ -55,7 +55,9 @@ public class EliminarVoluntario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		String confirmacion = (request.getParameter("Confirmacion"));
@@ -63,14 +65,15 @@ public class EliminarVoluntario extends HttpServlet {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {
 				mv.eliminarVoluntario(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}		
-		response.sendRedirect("IndexVoluntario");
+		}	
+		
+		request.setAttribute("eliminarOk", eliminarOk);
+		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 	}
 }

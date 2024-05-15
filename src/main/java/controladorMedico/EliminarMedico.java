@@ -55,7 +55,9 @@ public class EliminarMedico extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		int confirmacion = Integer.parseInt(request.getParameter("Confirmacion"));
@@ -63,18 +65,15 @@ public class EliminarMedico extends HttpServlet {
 			ModeloMedico mm = new ModeloMedico();
 			try {
 				mm.eliminarMedico(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		}
 		
-		response.sendRedirect("IndexMedico");
-		
+		request.setAttribute("eliminarOk", eliminarOk);
+		request.getRequestDispatcher("IndexMedico").forward(request, response);
 	}
-
 }
