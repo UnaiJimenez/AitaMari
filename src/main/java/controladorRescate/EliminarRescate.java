@@ -52,7 +52,10 @@ public class EliminarRescate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		boolean eliminarNoOk = false;
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		String confirmacion = (request.getParameter("Confirmacion"));
@@ -60,14 +63,17 @@ public class EliminarRescate extends HttpServlet {
 			ModeloRescate mr = new ModeloRescate();
 			try {
 				mr.eliminarRescate(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				eliminarNoOk = true;
 				e.printStackTrace();
 			}
 		}
-		response.sendRedirect("IndexRescate");	
+		
+		request.setAttribute("eliminarOk", eliminarOk);
+		request.setAttribute("eliminarNoOk", eliminarNoOk);
+		request.getRequestDispatcher("IndexRescate").forward(request, response);	
 	}
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloVoluntario;
 import modelo.Voluntario;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class ModificarVoluntario
@@ -52,6 +53,7 @@ public class ModificarVoluntario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
 	
 		boolean modificarOk = false;
+		boolean noEsEnteroMod = false;
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
@@ -72,14 +74,21 @@ public class ModificarVoluntario extends HttpServlet {
 		if(confirmacion.equalsIgnoreCase("modificar")) {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {
-				mv.modificar(voluntario);
-				modificarOk = true;
+				if(MetodosValidacion.esEntero(voluntario.getEdad()) == true) {
+					mv.insertarVoluntarios(voluntario);
+					modificarOk = true;
+				}else{
+					noEsEnteroMod = true;
+				}
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
+		request.setAttribute("noEsEnteroMod", noEsEnteroMod);
 		request.setAttribute("modificarOk", modificarOk);
 		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 		}

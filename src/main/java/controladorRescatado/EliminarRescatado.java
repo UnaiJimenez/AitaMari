@@ -60,24 +60,25 @@ public class EliminarRescatado extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		boolean eliminarOk = false;
+		
 		int id = Integer.parseInt(request.getParameter("id"));
+		
 		String confirmacion = (request.getParameter("Confirmacion"));
 		if (confirmacion.equalsIgnoreCase("eliminar")) {
 			ModeloRescatado mr = new ModeloRescatado();
 			try {
 				mr.eliminarRescatado(id);
+				eliminarOk = true;
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
 
-		response.sendRedirect("IndexRescatado");
-
+		request.setAttribute("eliminarOk", eliminarOk);
+		request.getRequestDispatcher("IndexRescatado").forward(request, response);
 	}
 }

@@ -68,7 +68,7 @@
 					<div>Rescatado insertado correctamente!</div>
 				</div>
 			</c:if>
-			<c:if test="${noEsGenero == true}">
+			<c:if test="${noEsGeneroIns == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/error.png" alt="error">
@@ -80,6 +80,20 @@
 					role="alert">
 					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
 					<div>Rescatado modificado correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${noEsGeneroMod == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="error">
+					<div>Error al modificar el rescatado! (Genero incorrecto)</div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarOk  == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
+					<div>Rescatado eliminado correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">

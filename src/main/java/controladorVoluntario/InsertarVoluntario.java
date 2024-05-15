@@ -55,7 +55,7 @@ public class InsertarVoluntario extends HttpServlet {
 		voluntario.setTelefono(telefono);
 		
 		boolean esEntero = false;
-		boolean noesEntero = false;
+		boolean noEsEnteroIns = false;
 		String confirmacion = request.getParameter("Confirmacion");
 		if(confirmacion.equalsIgnoreCase("insertar")) {
 			ModeloVoluntario mv = new ModeloVoluntario();
@@ -64,7 +64,7 @@ public class InsertarVoluntario extends HttpServlet {
 					mv.insertarVoluntarios(voluntario);
 					esEntero = true;
 				}else{
-					noesEntero = true;
+					noEsEnteroIns = true;
 				}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -74,7 +74,7 @@ public class InsertarVoluntario extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-		request.setAttribute("noesEntero", noesEntero);
+		request.setAttribute("noEsEnteroIns", noEsEnteroIns);
 		request.setAttribute("esEntero", esEntero);
 		request.getRequestDispatcher("IndexVoluntario").forward(request, response);
 	}

@@ -14,6 +14,7 @@ import modelo.ModeloRescatado;
 import modelo.ModeloRescate;
 import modelo.Rescatado;
 import modelo.Rescate;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class ModificarRescatado
@@ -64,6 +65,8 @@ public class ModificarRescatado extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		boolean modificarOk = false;
+		boolean noEsGeneroMod = false;
+		
 		String confirmacion = request.getParameter("Confirmacion");
 		
 		if (confirmacion.equalsIgnoreCase("modificar")) {
@@ -87,8 +90,12 @@ public class ModificarRescatado extends HttpServlet {
 				ModeloRescatado mr = new ModeloRescatado();
 
 				try {
-					mr.modificar(rescatado);
-					modificarOk = true;
+					if(MetodosValidacion.esGenero(rescatado.getSexo()) == true) {
+						mr.modificar(rescatado);
+						modificarOk = true;
+					}else {
+						noEsGeneroMod = true;
+					}
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
@@ -97,6 +104,7 @@ public class ModificarRescatado extends HttpServlet {
 			}
 		}
 
+		request.setAttribute("noEsGeneroMod", noEsGeneroMod);
 		request.setAttribute("modificarOk", modificarOk);
 		request.getRequestDispatcher("IndexRescatado").forward(request, response);
 	}

@@ -39,7 +39,9 @@ public class InsertarMedico extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        
+    	boolean insertarOk = false;
+    	
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String especialidad = request.getParameter("especialidad");
@@ -54,6 +56,7 @@ public class InsertarMedico extends HttpServlet {
         	ModeloMedico mm = new ModeloMedico();
             try {
                 mm.insertarMedico(medico);
+                insertarOk = true;
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
@@ -61,6 +64,7 @@ public class InsertarMedico extends HttpServlet {
             }
         }
          
-        response.sendRedirect("IndexMedico");
+        request.setAttribute("insertarOk", insertarOk);
+        request.getRequestDispatcher("IndexMedico").forward(request, response);
     }
 }

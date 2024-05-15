@@ -43,12 +43,12 @@
                 <label for="Edad" class="form-label">Edad</label>
                 <input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="${rescatado.edad}">
             </div>
-            <div class="col-12" style="margin-top: 5%">
-            	<p style="margin-bottom: 0.5rem">Selecciona donde y cuando has sido rescatado</p>
+			<div class="col-12" style="margin-top: 5%">
+				<p style="margin-bottom: 0.5rem">Selecciona donde y cuando has sido rescatado (campo obligatorio)</p>
 				<select class="form-select" aria-label="idRescate" name="idRescate">
-					<option selected>${rescate.id}</option>
+					<option selected>${rescatado.rescate.id}</option>
 					<c:forEach items="${rescates}" var="rescate">
-						<option value="${rescate.id}">${rescate.fechaHora} - ${rescate.posicion}</option>
+						<option value="${rescate.id}">${rescate.id}- ${rescate.fechaHora} - ${rescate.posicion}</option>
 					</c:forEach>
 				</select>
 			</div>

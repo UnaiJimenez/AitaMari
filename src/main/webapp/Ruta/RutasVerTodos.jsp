@@ -72,7 +72,7 @@
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/error.png" alt="error">
-					<div>Error al insertar la ruta! (La fecha de salida debe ser anterior a la fecha de salida))</div>
+					<div>Error al insertar la ruta! (La fecha de salida debe ser anterior a la fecha de salida)</div>
 				</div>
 			</c:if>
 			<c:if test="${modificarOk == true}">
@@ -82,11 +82,25 @@
 					<div>Ruta modificada correctamente!</div>
 				</div>
 			</c:if>
+			<c:if test="${modificarNoOk == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="error">
+					<div>Error al modificar la ruta! (La fecha de salida debe ser anterior a la fecha de salida)</div>
+				</div>
+			</c:if>
 			<c:if test="${eliminarNoOk == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/error.png" alt="insertar">
 					<div>La <b>ruta</b> no se pudo eliminar porque esta vinculada a un <b>rescate</b></div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarOk == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
+					<div>Ruta eliminada correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">

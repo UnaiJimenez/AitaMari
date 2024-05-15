@@ -19,6 +19,7 @@ import modelo.ModeloRuta;
 import modelo.ModeloVoluntario;
 import modelo.Ruta;
 import modelo.Voluntario;
+import validacion.MetodosValidacion;
 
 /**
  * Servlet implementation class ModificarRuta
@@ -68,7 +69,10 @@ public class ModificarRuta extends HttpServlet {
 			throws ServletException, IOException {
 		
 		boolean modificarOk = false;
+		boolean modificarNoOk = false;
+		
 		String confirmacion = request.getParameter("Confirmacion");
+		
 		if (confirmacion.equalsIgnoreCase("modificar")) {
 			try {
 
@@ -93,8 +97,13 @@ public class ModificarRuta extends HttpServlet {
 				
 				ModeloRuta modeloRuta = new ModeloRuta();
 				try {
-					modeloRuta.modificar(ruta);
-					modificarOk = true;
+					if (MetodosValidacion.esFechaAnterior(ruta.getFechaSalida(), ruta.getFechaLlegada())) {
+						modeloRuta.modificar(ruta);
+						modificarOk = true;
+                    } else {
+                    	modificarNoOk = true;
+                    }
+					
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -127,6 +136,7 @@ public class ModificarRuta extends HttpServlet {
 			}
 		}
 
+		request.setAttribute("modificarNoOk", modificarNoOk);
 		request.setAttribute("modificarOk", modificarOk);
 		request.getRequestDispatcher("IndexRuta").forward(request, response);
 	}

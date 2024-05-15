@@ -81,11 +81,18 @@
 					<div>Voluntario insertado correctamente!</div>
 				</div>
 			</c:if>
-			<c:if test="${noesEntero == true}">
+			<c:if test="${noEsEnteroIns == true}">
 				<div class="alert alert-danger d-flex align-items-center"
 					role="alert">
 					<img class="imgAlerta" src="Fotos/error.png" alt="error">
 					<div>Error al insertar el voluntario! (La edad debe contener numeros)</div>
+				</div>
+			</c:if>
+			<c:if test="${noEsEnteroMod == true}">
+				<div class="alert alert-danger d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/error.png" alt="error">
+					<div>Error al modificar el voluntario! (La edad debe contener numeros)</div>
 				</div>
 			</c:if>
 			<c:if test="${modificarOk == true}">
@@ -93,6 +100,13 @@
 					role="alert">
 					<img class="imgAlerta" src="Fotos/okeiMod.jpg" alt="error">
 					<div>Voluntario modificado correctamente!</div>
+				</div>
+			</c:if>
+			<c:if test="${eliminarOk == true}">
+				<div class="alert alert-success d-flex align-items-center"
+					role="alert">
+					<img class="imgAlerta" src="Fotos/okei.jpg" alt="insertar">
+					<div>Voluntario eliminado correctamente!</div>
 				</div>
 			</c:if>
 				<table class="table table-responsive table-striped">
