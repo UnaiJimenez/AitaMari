@@ -47,7 +47,7 @@
 				</nav>
 			</div>
 			<div class="col-md-9 tabla">
-				<h1>Bienvenido al panel de control de AitaMari</h1>
+				<h1 style="margin-left: 5%">Bienvenido al panel de control de AitaMari</h1>
 				<img src="Fotos/LogoAitaMari-blanco.png" alt="logo aitamari"
 					class="logoGrande">
 			</div>
