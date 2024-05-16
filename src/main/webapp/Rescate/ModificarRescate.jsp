@@ -18,13 +18,13 @@
 		<div>
 			<nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
 				<div class="container-fluid" style="background-color: lightgray;">
-					<img src="LogoAitaMari-gris.png" alt="Logo" width="100px"
+					<img src="Fotos/LogoAitaMari-gris.png" alt="Logo" width="100px"
 						height="80px" class="d-inline-block align-text-top"
 						style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="IndexRescate" style="margin-right: 20px;"><img
-								src="IconoInicio.png" alt="icono de inicio" width="30px"
+								src="Fotos/IconoInicio.png" alt="icono de inicio" width="30px"
 								height="25px"></a></li>
 					</ul>
 				</div>
@@ -57,7 +57,6 @@
 					</c:forEach>
 				</select>
 			</div>
-
 			<div style="display: flex; justify-content: flex-end;">
 				<div style="margin: 2%">
 					<form action="ModificarRescate" method="post" style="margin: 2%">

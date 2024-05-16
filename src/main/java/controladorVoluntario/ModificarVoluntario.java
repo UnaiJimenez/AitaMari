@@ -75,16 +75,13 @@ public class ModificarVoluntario extends HttpServlet {
 			ModeloVoluntario mv = new ModeloVoluntario();
 			try {
 				if(MetodosValidacion.esEntero(voluntario.getEdad()) == true) {
-					mv.insertarVoluntarios(voluntario);
+					mv.modificar(voluntario);
 					modificarOk = true;
 				}else{
 					noEsEnteroMod = true;
 				}
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();		
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 		}
 		
