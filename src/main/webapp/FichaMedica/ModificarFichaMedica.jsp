@@ -42,9 +42,10 @@
             </div>
             <div class="col-12" style="margin-top: 5%">
             	<p style="margin-bottom: 0.5rem">Selecciona el nombre del rescatado</p>
-				<select class="form-select" aria-label="idRescatado" name="idRescatado" value="${fichaMedica.rescatado.nombre}">
+				<select class="form-select" aria-label="idRescatado" name="idRescatado">
+				<option selected>${fichaMedica.rescatado.id}</option>
 					<c:forEach items="${rescatados}" var="rescatado">
-						<option value="${rescatado.id}">${rescatado.nombre}</option>
+						<option value="${rescatado.id}">${rescatado.id} - ${rescatado.nombre}</option>
 					</c:forEach>
 				</select>
 			</div>
