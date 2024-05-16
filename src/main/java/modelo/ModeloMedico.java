@@ -45,7 +45,7 @@ public class ModeloMedico {
 
     }
 
-    public void modificar(Medico medico) throws ClassNotFoundException {
+    public static void modificar(Medico medico) throws ClassNotFoundException {
 
         try {
 
@@ -87,7 +87,7 @@ public class ModeloMedico {
         return null;
     }
 
-    public void insertarMedico(Medico medico) throws ClassNotFoundException, SQLException {
+    public static void insertarMedico(Medico medico) throws ClassNotFoundException, SQLException {
         Connection con = Conector.getConnection();
         PreparedStatement pst = con.prepareStatement("INSERT INTO Medico (nombre,apellido,especialidad) VALUES (?,?,?)");
         pst.setString(1, medico.getNombre());
@@ -96,7 +96,7 @@ public class ModeloMedico {
         pst.execute();
     }
 
-    public void eliminarMedico(int id) throws ClassNotFoundException, SQLException {
+    public static void eliminarMedico(int id) throws ClassNotFoundException, SQLException {
         Connection con = Conector.getConnection();
         PreparedStatement pst = con.prepareStatement("DELETE FROM Medico WHERE id=?");
         pst.setInt(1, id);
